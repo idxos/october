@@ -1,0 +1,24 @@
+description = "Default website layout"
+==
+<!DOCTYPE html>
+<html class="no-js csstransforms csstransforms3d csstransitions">
+    <div id="gibbon-chrome-installed"></div><!--<![endif]-->
+ <head>
+  {% partial 'head' %}
+ </head>
+<body>
+  <div id="wrapper">
+
+    <div class="top_wrapper">
+        {% partial 'header' %}  
+    </div><!--.top wrapper end -->
+
+
+    {% page %}
+
+
+    {% partial 'footer' %}
+   
+  </div><!-- #wrapper -->    
+ </body>
+</html>

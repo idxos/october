@@ -1,0 +1,41 @@
+.feature {
+  border: 1px solid #eee !important;
+}
+
+.last-child-nav {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+.price-table {
+  border: 1px solid #eee !important;
+}
+
+.loading-fallback {
+  display: block;
+}
+
+.team-member .team-member-image:hover {
+  background-color: #000;
+  filter: alpha(opacity=50);
+}
+
+.section-content.section-color-bg {
+  filter: alpha(opacity=80);
+}
+
+.section-twitter:before {
+  background: none !important;
+}
+
+.section-content-video {
+  background-image: url(../images/blurred1.jpg);
+}
+
+.process-details, .single-process {
+  height: auto !important;
+}
+
+.navigation ul {
+  top: 80px !important;
+}

@@ -1,0 +1,214 @@
+
+
+
+/* Loading */
+.loading i:first-child:before {
+    background:#26ae91;
+}
+
+.loading i:first-child:after {
+    background:#26ae91;
+}
+.loading i:last-child:before {
+    background:#26ae91;
+}
+
+.loading i:last-child:after {
+    background:#26ae91;
+}
+
+/* Navigation */
+.navigation > li:hover > a,.navigation > li > a:hover,
+.navigation > li > .activelink,.navigation > li:hover > a > i, .navigation > li > a:hover > span.label-nav-sub::before, .navigation > li > a:focus > span.label-nav-sub::before{
+    color: #26ae91;
+}
+.mobile-menu-button, .mobile-nav, .slider-fixed-container{   
+    background-color: #26ae91;    
+}
+.navigation>li:hover > a > span.label-nav-sub::before,.navigation>li:hover> a > span.label-nav-sub::before{
+    color: #26ae91;
+}
+
+.navigation>li>a.activelink:before{
+    border-color: transparent transparent #26ae91 transparent;
+}
+
+.navigation>li:hover >a:after{
+    background-color: #26ae91;
+    bottom: 0;
+}
+.top-title-wrapper, #header{
+    border-color: #26ae91;
+}
+.sticky-header .navigation > li:hover > a span {
+    color: #26ae91;
+}
+
+#header:after{
+   border-bottom: #26ae91;
+}
+
+/* Page Content Colors */
+.body-wrapper a:hover,
+.top-body a:hover,
+.bottom-body a:hover,
+.content-box.content-style2 h4 i,
+.side-navigation .menu-item.current-menu-item a,
+.side-navigation .menu-item:hover a:after,
+.side-navigation .menu-item:hover a,
+a.tool-tip,
+.team-member .team-member-position,
+.team-member-progress .team-member-position,
+.item-img-overlay i,
+ul.icon-content-list-container li.icon-content-single .icon-box i,
+.item-img-overlay .portfolio-zoom:hover,
+.navigation ul li:hover>a,
+.blog-post-quote:after,
+.item-img-overlay .portfolio-zoom,
+body .tabs-vertical  .tab a,
+.section-tabs .tab a.active,
+.blog-post-icon i,
+.blog-post .blog-post-details-item i,
+.blog-post h2 a,
+.blog-post .blog-read-more a,
+.body-wrapper .tags a,
+.feature-arrows .feature-arrow,
+body .tab a,
+.section-etabs a:hover,
+.accordion .title h4,
+body .white-text .feature-details a:hover,
+.blog-post .blog-span h2,
+a.list-group-item.active,
+.content-box h4 i{
+  color: #26ae91;
+}
+
+::selection
+{
+    background-color:#26ae91;
+}
+::-moz-selection
+{
+    background-color:#26ae91;
+}
+
+.callout-box{
+    border-left-color: #26ae91}
+.feature .feature-content,.team-member .team-member-content{
+    border-top-color: #26ae91;
+}
+ 
+.team-member-progress-bar,.section-parallax{
+    background-color: #26ae91;
+}
+.blog-masonry .blog-post-quote {
+    border-top: 2px solid #26ae91;
+}
+
+.item-img-overlay{
+    background-color: rgba(38,174,145,0.8);
+}
+.item-img-overlay i:hover{
+    background-color: rgba(38,174,145,0.8);
+}
+body .section-content.section-image{
+    background-color: #26ae91;
+    background-color: rgba(38,174,145,0.8);
+}
+.team-member .team-member-image{
+        box-shadow: inset 0 0 0 0 rgba(38,174,145,0.8),
+                    inset 0 0 0 0px rgba(255,255,255,0.6),
+                    0 1px 2px rgba(0,0,0,0.1);
+}
+.team-member-image:hover{
+    box-shadow: inset 0 0 0 110px rgba(38,174,145,0.8),
+                inset 0 0 0 5px rgba(255,255,255,0.8),
+                0 1px 2px rgba(0,0,0,0.1);     
+}
+.section-parallax.secion-color-bg:before{
+    background-color: #26ae91;
+    background-color: rgba(38,174,145,0.8);
+}
+body a.button, input[type="submit"],
+input[type="button"],
+body button.button,
+body .button,
+.btn.btn-primary,
+.section-content.section-color-bg,
+.section-content.section-services,
+.content-box.content-style4 h4 i
+,button.button-main,
+.body-wrapper .tags a:hover,
+.callout-box.callout-box2,
+.blog-search .blog-search-button,
+.top-title-wrapper, .testimonial-big,
+.process-step,
+.content-style3:hover .content-style3-icon,
+.content-box.style5 h4 i,
+table.table thead tr,
+.price-table .price-label-badge,
+.price-table .price-table-header,
+.section-subscribe
+.subscribe-button.icon-envelope-alt,
+.single-process:after,
+.tab.active,
+.accordion .active,
+.blog-post-quote,
+.feature-arrows .feature-arrow:hover,
+.dark-accordion.accordion .title.active,
+.progress .progress-bar,
+.content-box.content-style4 h4 i{
+    background-color: #26ae91;
+}
+
+.comments-list .children .comment:before,.portfolio-filter li a.portfolio-selected,
+.portfolio-filter li a:hover, .dropcaps.dropcaps-color-style, .carousel-container .carousel-icon:hover
+,.button.alter:hover, .button.alter:active, button.button.alter:hover, button.button.alter:active{
+    background-color: #26ae91;
+}
+.comments-list .children .comment:after{
+    border-color: transparent transparent transparent #26ae91;;
+}
+
+.highlighted-text{
+    background-color: #26ae91;
+    color: #ffffff;
+}
+.icons-list.colored-list li:before, .blog-post-date .day, 
+.blog-post-date .month, strong.colored, span.colored 
+,.content-style3 .content-style3-icon, .process-details h4,
+.feature .feature-content a, .feature .feature-details i, 
+body .tp-caption.main_color_text, .accordion .title,
+.button.alter, button.button.alter{
+    color: #26ae91;
+}
+.button.alter, button.button.alter, body a.button, input[type="submit"], input[type="button"], body button.button,body .button{
+    border-color: #26ae91;
+}
+
+.button.button-white{
+    color: #26ae91 !important;
+}
+.pagination .prev, .pagination .next, .pagination a:hover, .pagination a.current, .price-table .price-label{
+    color: #26ae91;
+}
+
+
+/* Footer Area Colors */
+
+.footer .copyright,
+.body-wrapper .tags a{
+    border-color: #26ae91;
+}
+
+.footer .footer-col .footer-title, .footer .copyright a:hover{
+    color: #26ae91;
+}
+
+.flickr_badge_wrapper .flickr_badge_image img:hover,
+.feature-arrows .feature-arrow:hover{
+    border-color: #26ae91;
+}
+
+
+

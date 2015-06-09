@@ -1,0 +1,133 @@
+title = "Contact Us V2"
+url = "/contact2"
+layout = "default"
+description = "Contact Us page 2"
+hidden = "0"
+==
+
+
+
+<div class="top-title-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 page-info">
+                <h1 class="h1-page-title">Contact Us</h1>
+
+                                <h2 class="h2-page-desc">
+                    Get In Touch With Us
+                </h2>
+                
+                                <!-- BreadCrumb -->
+                <div class="breadcrumb-container">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <a href="">
+                                        <i class="icon-home"></i>
+                                        Home
+                                    </a>
+                                </li>
+                                <li>Contact Us</li>
+                            </ol>
+                </div>
+                <!-- BreadCrumb -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div><!--.top wrapper end -->
+
+<div class="loading-container">
+    <div class="loading">
+        <i></i><i></i>
+    </div>
+    <div class="loading-fallback">
+         <img src="images/loading.gif" alt="Loading"/>
+    </div>
+    <div class="loading-text">
+        loading..
+    </div>
+</div>
+
+
+<div class="content-wrapper hide-until-loading">
+<div class="body-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <h3 class="h3-body-title">
+                    Leave A Message
+                </h3>
+
+                <p class="body_paragraph">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                </p>
+
+                <form class="form-wrapper" id="contact-form" method="post" role="form" novalidate>
+
+                    <div class="form-group clearfix">
+                        <label class="control-label" for="name">Name *</label>
+                        <div class="col-xs-6">
+                            <input type="text" id="name" name="name" class="form-control" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <label class="control-label" for="user-email"> E-mail *</label>
+                        <div class="col-xs-6">
+                            <!-- type email used by jquery validate -->
+                            <input type="text" name="email" id="user-email" class="form-control" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <label class="control-label" for="message">  Message *</label>
+                        <div class="col-xs-6">
+                            <!-- type email used by jquery validate -->
+                            <textarea name="message" id="message" class="form-control" required></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group clearfix">
+                        <label class="control-label"></label>
+                        <div class="col-xs-6">
+                            <input type="submit" value="Send" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 col-sm-3">
+
+                <!-- Contact Info -->
+                <div class="sidebar-block">
+                    <h3 class="h3-sidebar-title">
+                        Contact Us
+                    </h3>
+                    <div class="sidebar-icon-item">
+                        <i class="icon-phone"></i> (+1) 777-444-333
+                    </div>
+                    <div class="sidebar-icon-item">
+                        <i class="icon-envelope-alt"></i> email@company.com
+                    </div>
+                    <div class="sidebar-icon-item">
+                        <i class="icon-home"></i> Address in City, P.O BOX 1111, Country
+                    </div>
+                </div>
+                <!-- //Contact Info// -->
+
+
+                <!-- //Contact Map// -->
+                <h3 class="h3-sidebar-title">
+                    OUR Map
+                </h3>
+                <div class="contact-map2" id="contact_map">
+
+                </div>
+                <!-- //Contact Map// -->
+
+            </div>
+        </div>
+    </div>
+</div>
+</div><!--.content-wrapper end -->

@@ -1,0 +1,181 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700|Fira+Mono|Rokkitt|Roboto:400,100,700,900,500,300|Basic|Rock+Salt|Open+Sans:400,300,800,600,700);
+@import 'modules';
+@import 'animate/animate';
+@import 'bootstrap';
+@import 'ratchet/ratchet';
+@import 'ionicons/ionicons';
+@import 'partials';
+
+
+
+footer {
+
+  text-align: center;
+}
+
+
+.container { width: 100%; }
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complimentary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+
+
+.shadowline-nav {
+
+  ul {
+    list-style-type: none;
+      margin: 0;
+  }
+
+  li {
+    line-height: 50px;
+    width: 100%;
+    background: #333;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+  }
+
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  li + li {
+    border-top: 1px solid rgba(255, 255, 255, 0.33);
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+}
+
+
+.my-overflow-y {
+  white-space: nowrap;
+  overflow-y: hidden; 
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  min-height: 100px;
+  margin: 0 auto; 
+  padding: 10px 0 10px 0;
+  border-bottom: 1 solid #666;
+  background: #fff;
+
+  img {
+    margin: 0 10px 0 0;
+  }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.spinner svg {
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: #444;
+}
+
+#toTop {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+  padding: 7px 0 0 0;
+}
+
+
+
+
+
+
+// ionicon sizes
+.size-96 {
+  font-size: 96px;
+}
+
+.size-20 {
+  font-size: 20px;
+}
+
+.size-40 {
+  font-size: 40px;
+}
+
+
+
+
+
+// Animation Classes
+.shake {
+  @include shake();
+}
+
+.fadeIn {
+  @include fadeIn();
+}
+
+.bounceIn {
+  @include bounceIn();
+}
+
+.rotateIn {
+  @include rotateIn();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

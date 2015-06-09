@@ -1,0 +1,193 @@
+description = "Top page header section."
+
+[viewBag]
+==
+<!-- Header -->
+    <header id="header">
+        <div class="container">
+
+            <div class="row header">
+
+                <!-- Logo -->
+                <div class="col-md-2 col-sm-4 col-xs-4 logo">
+                    <a href="{{ 'home'|page }}">
+                        <img src="{{ 'assets/images/krisp-agency-logo-white-121x50.png'|theme }}" alt="Krispy Theme">
+                    </a>
+                </div>
+                <!-- //Logo// -->
+
+
+                <!-- Navigation File -->
+                <div class="col-md-10">
+
+                    <!-- Mobile Button Menu -->
+                    <div class="mobile-menu-button">
+                        <i class="icon-reorder"></i>
+                    </div>
+                    <!-- //Mobile Button Menu// -->
+
+
+
+
+                    <nav>
+                        <ul class="navigation">
+                            <li>
+                                <a href="index.html">
+                                    <span class="label-nav">
+                                        Home
+                                    </span>
+                                </a>
+                                <ul>{{ 'blog'|page }}
+                                    <li>
+                                        <a href="{{ 'home-version2'|page }}">Home version 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'home-version3'|page }}">Home version 3</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'home-version4'|page }}">Home version 4</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ 'about-us'|page }}">
+                                    <span class="label-nav">
+                                        Pages
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ 'about-us'|page }}"> About </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'services'|page }}"> Services</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'team'|page }}"> Our Team </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'sidebar-navigation'|page }}"> Sidebar Navigation </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'faq'|page }}"> FAQ </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ '404'|page }}"> 404 </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ 'blog'|page }}">
+                                    <span class="label-nav">
+                                        Blog
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ 'blog'|page }}">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'blog-masonry'|page }}">Blog Masonry</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'blog-single'|page }}">Blog Single</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ 'portfolio'|page }}">
+                                    <span class="label-nav">
+                                        Portfolio
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ 'portfolio-two-col'|page }}">2 Column</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'portfolio-three-col'|page }}">3 Column</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'portfolio-four-col'|page }}">4 Column</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'portfolio-single'|page }}">Single</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ 'elements'|page }}">
+                                    <span class="label-nav">
+                                        UI Elements
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ 'ui/accordians'|page }}">Accordions & Toggles</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'ui/columns'|page }}">Columns</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ 'ui/elements'|page }}">Elements</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ 'ui/icon-boxes'|page }}">Icon Boxes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'ui/flat-icons'|page }}">Flat Icons</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ 'ui/icons'|page }}">Icons</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ 'ui/price-table'|page }}">Pricing Tables</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="{{ 'ui/tabs'|page }}">Tabs</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ 'ui/testimonials'|page }}">Testimonials</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ 'ui/typography'|page }}">Typography</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ 'contact-us'|page }}">
+                                    <span class="label-nav">
+                                        Contact Us
+                                    </span>
+                                </a>
+                                
+                            </li>
+                        </ul>
+
+                    </nav>
+
+                    <!-- Mobile Nav. Container -->
+                    <ul class="mobile-nav">
+                        <li class="responsive-searchbox">
+                            <!-- Responsive Nave -->
+                            <form action="#" method="get">
+                                <input type="text" class="searchbox-inputtext" id="searchbox-inputtext-mobile" name="s" />
+                                <button class="icon-search"></button>
+                            </form>
+                            <!-- //Responsive Nave// -->
+                        </li>
+                    </ul>
+                    <!-- //Mobile Nav. Container// -->
+                </div>
+                <!-- Nav -->
+
+            </div>
+
+
+
+        </div>
+    </header>
+    <!-- //Header// -->

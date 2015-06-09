@@ -1,0 +1,783 @@
+title = "Blog"
+url = "/blog"
+layout = "default"
+description = "Welcome to the Blog Index page."
+hidden = "0"
+meta_title = "Blog Page"
+meta_description = "Blog posts about shoes and stuff."
+
+[blogPosts]
+pageNumber = "{{ :slug }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = "0"
+categoryPage = "blog/category"
+==
+<div class="row">
+    <section class="col-xs-8">
+        {% component 'blogPosts' %}
+    </section>
+    <section class="col-xs-4">
+        {% component 'blogCategories' %}
+    </section>
+</div>
+
+
+
+<div class="top-title-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 page-info">
+                <h1 class="h1-page-title">Business Blog</h1>
+
+                                <h2 class="h2-page-desc">
+                    What We have Done Lately
+                </h2>
+                
+                                <!-- BreadCrumb -->
+                <div class="breadcrumb-container">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <a href="">
+                                        <i class="icon-home"></i>
+                                        Home
+                                    </a>
+                                </li>
+                                <li>Blog</li>
+                            </ol>
+                </div>
+                <!-- BreadCrumb -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div><!--.top wrapper end -->
+
+<div class="loading-container">
+    <div class="loading">
+        <i></i><i></i>
+    </div>
+    <div class="loading-fallback">
+         <img src="{{ 'assets/images/loaging.gif'|theme }}" alt="Loading"/>
+    </div>
+    <div class="loading-text">
+        loading..
+    </div>
+</div>
+
+
+<div class="content-wrapper hide-until-loading"><div class="body-wrapper">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-9 col-sm-9">
+
+    <!-- Blog Post -->
+    <div class="blog-post">
+
+        <div class="blog-post-date">
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-pencil"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+
+        <div class="blog-span">
+            <div class="blog-post-featured-img img-overlay">
+                <img src="{{ 'assets/images/media/blog1.jpg'|theme }}" alt=""/>
+
+                <div class="item-img-overlay">
+                    <div class="item_img_overlay_content">
+                        <a href="{{ 'assets/images/media/blog1.jpg'|theme }}" data-rel="prettyPhoto[portfolio]"
+                           title="Title goes here">
+                            <i class="icon-search"></i>
+                        </a>
+                        <a href="">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <h2>
+                <a href="">
+                    Standard Post Type Example
+                </a>
+            </h2>
+            <div class="blog-post-details">
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-time"></i>
+                    <a href="">
+                        12 Nov, 2013
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-user"></i>
+                    <a href="">
+                        Admin
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Tags -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-tags"></i>
+                    <a href="">
+                        Business
+                    </a> ,
+                    <a href="">
+                        Investment
+                    </a> ,
+                    <a href="">
+                        Freelancing
+                    </a>
+                </div>
+                <!-- //Tags// -->
+
+                <!-- Comments -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-comment"></i>
+                    <a href="">
+                        3 Comments
+                    </a>
+                </div>
+                <!-- //Comments// -->
+
+            </div>
+            <div class="space-sep20"></div>
+            <div class="blog-post-body">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.                <!-- Read More -->
+                <div class="blog-post-details-item blog-read-more">
+                    <a href="">
+                        Continue Reading ....
+                    </a>
+                </div>
+                <!-- //Read More// -->
+            </div>
+
+        </div>
+    </div>
+    <!-- Blog Post -->
+
+
+    <!-- Slider Blog Post -->
+    <div class="blog-post">
+        <div class="blog-post-date">
+
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-picture"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+        <div class="blog-span">
+
+            <!-- Slider -->
+            <div class="blog-post-featured-img">
+
+                <div class="blog-slider cycle-slideshow"
+                     data-cycle-slides="> .slider-img"
+                     data-cycle-swipe="true"
+                     data-cycle-prev=".cycle-prev"
+                     data-cycle-next=".cycle-next"
+                     data-cycle-timeout="0"
+                     data-auto-height="947:432"
+                    >
+
+                    <div class="icon-angle-right cycle-next"></div>
+                    <div class="icon-angle-left cycle-prev"></div>
+                    <div class="cycle-pager"></div>
+
+                                            <!-- slider item -->
+                        <div class="slider-img">
+                            <img src="{{ 'assets/images/media/blog2.jpg'|theme }}" alt=""/>
+                        </div>
+                        <!-- //slider item// -->
+                                            <!-- slider item -->
+                        <div class="slider-img">
+                            <img src="{{ 'assets/images/media/blog3.jpg'|theme }}" alt=""/>
+                        </div>
+                        <!-- //slider item// -->
+                                            <!-- slider item -->
+                        <div class="slider-img">
+                            <img src="{{ 'assets/images/media/blog4.jpg'|theme }}" alt=""/>
+                        </div>
+                        <!-- //slider item// -->
+                                    </div>
+            </div>
+            <!-- Slider -->
+            <h2>
+                <a href="">
+                    Gallery Post Type Example
+                </a>
+            </h2>
+
+            <div class="blog-post-details">
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-time"></i>
+                    <a href="">
+                        12 Nov, 2013
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-user"></i>
+                    <a href="">
+                        Admin
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Tags -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-tags"></i>
+                    <a href="">
+                        Business
+                    </a> ,
+                    <a href="">
+                        Investment
+                    </a> ,
+                    <a href="">
+                        Freelancing
+                    </a>
+                </div>
+                <!-- //Tags// -->
+
+                <!-- Comments -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-comment"></i>
+                    <a href="">
+                        3 Comments
+                    </a>
+                </div>
+                <!-- //Comments// -->
+
+            </div>
+            <div class="space-sep20"></div>
+            <div class="blog-post-body">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.                <!-- Read More -->
+                <div class="blog-post-details-item blog-read-more">
+                    <a href="">
+                        Continue Reading ....
+                    </a>
+                </div>
+                <!-- //Read More// -->
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Slider Blog Post -->
+
+
+    <!-- Video Blog Post ( youtube ) -->
+    <div class="blog-post">
+        <div class="blog-post-date">
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-play"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+        <div class="blog-span">
+
+
+            <div class="blog-post-featured-img blog-post-featured-img-with-vid">
+                <!-- Youtube video, dont forget to blog-post-youtube class-->
+                <a href="http://www.youtube.com/watch?v=mcw6j-QWGMo" class="blog-post-youtube">My Video</a>
+            </div>
+
+            <h2>
+                <a href="">
+                    Youtube Video Post Type Example
+                </a>
+            </h2>
+
+            <div class="blog-post-details">
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-time"></i>
+                    <a href="">
+                        12 Nov, 2013
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-user"></i>
+                    <a href="">
+                        Admin
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Tags -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-tags"></i>
+                    <a href="">
+                        Business
+                    </a> ,
+                    <a href="">
+                        Investment
+                    </a> ,
+                    <a href="">
+                        Freelancing
+                    </a>
+                </div>
+                <!-- //Tags// -->
+
+                <!-- Comments -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-comment"></i>
+                    <a href="">
+                        3 Comments
+                    </a>
+                </div>
+                <!-- //Comments// -->
+
+            </div>
+            <div class="space-sep20"></div>
+            <div class="blog-post-body">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.                <!-- Read More -->
+                <div class="blog-post-details-item blog-read-more">
+                    <a href="">
+                        Continue Reading ....
+                    </a>
+                </div>
+                <!-- //Read More// -->
+            </div>
+
+        </div>
+    </div>
+    <!-- Video Blog Post -->
+
+    <!-- Video Blog Post ( vimeo ) -->
+    <div class="blog-post">
+        <div class="blog-post-date">
+
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-play"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+        <div class="blog-span">
+
+
+            <div class="blog-post-featured-img blog-post-featured-img-with-vid">
+                <!-- Vimeo video, dont forget to blog-post-vimeo class-->
+                <a href="http://vimeo.com/23237102" class="blog-post-vimeo">My Video</a>
+            </div>
+
+            <h2>
+                <a href="">
+                    Vimeo Video Post Type Example
+                </a>
+            </h2>
+            <div class="blog-post-details">
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-time"></i>
+                    <a href="">
+                        12 Nov, 2013
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-user"></i>
+                    <a href="">
+                        Admin
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Tags -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-tags"></i>
+                    <a href="">
+                        Business
+                    </a> ,
+                    <a href="">
+                        Investment
+                    </a> ,
+                    <a href="">
+                        Freelancing
+                    </a>
+                </div>
+                <!-- //Tags// -->
+
+                <!-- Comments -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-comment"></i>
+                    <a href="">
+                        3 Comments
+                    </a>
+                </div>
+                <!-- //Comments// -->
+
+            </div>
+            <div class="space-sep20"></div>
+
+            <div class="blog-post-body">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                <!-- Read More -->
+                <div class="blog-post-details-item blog-read-more">
+                    <a href="">
+                        Continue Reading ....
+                    </a>
+                </div>
+                <!-- //Read More// -->
+
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Video Blog Post -->
+
+
+    <!-- Audio Blog Post ( Soundcloud ) -->
+    <div class="blog-post">
+        <div class="blog-post-date">
+
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-headphones"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+        <div class="blog-span">
+
+
+            <div class="blog-post-featured-img">
+                <a href="https://soundcloud.com/haloproject/halo-scenes-from-the-four" class="blog-post-soundcloud">My
+                    Audio</a>
+            </div>
+
+            <h2>
+                <a href="">
+                    Audio Post Type Example
+                </a>
+            </h2>
+
+            <div class="blog-post-details">
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-time"></i>
+                    <a href="">
+                        12 Nov, 2013
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-user"></i>
+                    <a href="">
+                        Admin
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Tags -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-tags"></i>
+                    <a href="">
+                        Business
+                    </a> ,
+                    <a href="">
+                        Investment
+                    </a> ,
+                    <a href="">
+                        Freelancing
+                    </a>
+                </div>
+                <!-- //Tags// -->
+
+                <!-- Comments -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-comment"></i>
+                    <a href="">
+                        3 Comments
+                    </a>
+                </div>
+                <!-- //Comments// -->
+
+            </div>
+            <div class="space-sep20"></div>
+
+            <div class="blog-post-body">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                <!-- Read More -->
+                <div class="blog-post-details-item blog-read-more">
+                    <a href="">
+                        Continue Reading ....
+                    </a>
+                </div>
+                <!-- //Read More// -->
+
+            </div>
+
+
+        </div>
+    </div>
+    <!-- Audio Blog Post ( Soundcloud ) -->
+
+    <!-- Blog Post, Type:LINK -->
+    <div class="blog-post">
+        <div class="blog-post-date">
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-link"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+        <div class="blog-span">
+            <h2>
+                <a href="">
+                    Link Post Type Example
+                </a>
+                <span class="blog-post-link"> https://www.wrapbootstrap.com  </span>
+            </h2>
+            <div class="blog-post-details">
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-time"></i>
+                    <a href="">
+                        12 Nov, 2013
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Author Name -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-user"></i>
+                    <a href="">
+                        Admin
+                    </a>
+                </div>
+                <!-- //Author Name// -->
+
+                <!-- Tags -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-tags"></i>
+                    <a href="">
+                        Business
+                    </a> ,
+                    <a href="">
+                        Investment
+                    </a> ,
+                    <a href="">
+                        Freelancing
+                    </a>
+                </div>
+                <!-- //Tags// -->
+
+                <!-- Comments -->
+                <div class="blog-post-details-item blog-post-details-item-left">
+                    <i class="icon-comment"></i>
+                    <a href="">
+                        3 Comments
+                    </a>
+                </div>
+                <!-- //Comments// -->
+
+            </div>
+            <div class="space-sep20"></div>
+
+            <div class="blog-post-body">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                <!-- Read More -->
+                <div class="blog-post-details-item blog-read-more">
+                    <a href="">
+                        Continue Reading ....
+                    </a>
+                </div>
+                <!-- //Read More// -->
+
+            </div>
+
+        </div>
+    </div>
+    <!-- //Blog Post, Type:LINK// -->
+
+
+    <!-- Blog Post, Type:Quote -->
+    <div class="blog-post">
+        <div class="blog-post-date">
+            <!-- Icon -->
+            <div class="blog-post-icon">
+                <i class="icon-quote-right"> </i>
+            </div>
+            <!-- Icon -->
+        </div>
+        <div class="blog-span">
+
+            <div class="blog-post-body">
+                <div class="blog-post-quote">
+                    Lorem ipsum dolor sit amet, in pri offendit ocurreret. Vix sumo ferri an. pfs adodio fugit delenit ut qui. Omittam suscipiantur ex  vel,ex audiam  intellegat gfIn labitur discere eos, nam an feugiat voluptua.
+                    <div class="blog-post-quote-author">John Doe</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- //Blog Post, Type:Quote// -->
+
+    <!-- Pagination -->
+    <div class="pagination">
+    <a href="" class="prev">&laquo; </a>
+        <a href="#" > 1 </a>
+        <a href="#"  class="current" > 2 </a>
+        <a href="#" > 3 </a>
+        <a href="#" > 4 </a>
+        <a href="#" > 5 </a>
+        <a href="#" > 6 </a>
+        <a href="#" > 7 </a>
+        <a href="#" > 8 </a>
+        <a href="#" > 9 </a>
+        <a href="#" > 10 </a>
+        <a href="" class="next">&raquo;</a>
+</div>
+    <!-- //Pagination -->
+
+
+
+    </div>
+
+
+    <div class="col-md-3 col-sm-3">
+
+
+
+        <!-- Sidebar Block -->
+        <div class="sidebar-block">
+            <div class="sidebar-content tags blog-search">
+                <form  action="#" method="post">
+                    <div class="form-group">
+                    <input type="text" name="q" class="blog-search-input text-input" placeholder="Search.."/>
+                    <button class="blog-search-button icon-search "> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Sidebar Block -->
+
+
+        <!-- Sidebar Block -->
+        <div class="sidebar-block">
+            <h3 class="h3-sidebar-title sidebar-title">
+                Tags
+            </h3>
+
+            <div class="sidebar-content tags">
+                <a href="">HTML5</a>
+                <a href="">CSS3</a>
+                <a href="">jQuery</a>
+                <a href="">JavaScript</a>
+                <a href="">WordPress</a>
+                <a href="">PHP</a>
+                <a href="">CSS</a>
+                <a href="">Social Media</a>
+                <a href="">HTML</a>
+            </div>
+        </div>
+        <!-- Sidebar Block -->
+
+
+        <!-- Sidebar Block -->
+        <div class="sidebar-block">
+            <h3 class="h3-sidebar-title sidebar-title">
+                Recent Posts
+            </h3>
+
+            <div class="sidebar-content">
+                <ul class="posts-list">
+                                            <li>
+                            <div class="posts-list-thumbnail">
+                                <a href="">
+                                    <img src="{{ 'assets/images/media/blog1-thumb.jpg'|theme }}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="posts-list-content">
+                                <a href="" class="posts-list-title">Sidebar post example </a>
+                                        <span class="posts-list-meta">
+                                            July 30, 2013
+                                        </span>
+                            </div>
+                        </li>
+                                            <li>
+                            <div class="posts-list-thumbnail">
+                                <a href="">
+                                    <img src="{{ 'assets/images/media/blog2-thumb.jpg'|theme }}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="posts-list-content">
+                                <a href="" class="posts-list-title">Sidebar post example </a>
+                                        <span class="posts-list-meta">
+                                            July 30, 2013
+                                        </span>
+                            </div>
+                        </li>
+                                            <li>
+                            <div class="posts-list-thumbnail">
+                                <a href="">
+                                    <img src="{{ 'assets/images/media/blog3-thumb.jpg'|theme }}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="posts-list-content">
+                                <a href="" class="posts-list-title">Sidebar post example </a>
+                                        <span class="posts-list-meta">
+                                            July 30, 2013
+                                        </span>
+                            </div>
+                        </li>
+                                            <li>
+                            <div class="posts-list-thumbnail">
+                                <a href="">
+                                    <img src="{{ 'assets/images/media/blog4-thumb.jpg'|theme }}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="posts-list-content">
+                                <a href="" class="posts-list-title">Sidebar post example </a>
+                                        <span class="posts-list-meta">
+                                            July 30, 2013
+                                        </span>
+                            </div>
+                        </li>
+                                    </ul>
+            </div>
+        </div>
+        <!-- Sidebar Block -->
+
+    </div>
+
+
+    </div>
+    </div>
+</div>
+</div><!--.content-wrapper end -->

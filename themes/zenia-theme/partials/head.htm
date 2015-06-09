@@ -1,0 +1,40 @@
+description = "Global contents of section for templates."
+==
+<?php
+function onStart(){
+   
+}
+?>
+==
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ this.page.title }}</title>
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="author" content="Christopher J. Roberts">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 
+    <meta name="msapplication-TileImage" content="{{ 'assets/ico/mstile-144x144.png'|theme }}">
+    <meta name="theme-color" content="#ffffff">
+    
+     <link href="{{ [ 
+        'assets/css/site.css',
+        'assets/css/font-awesome-ie7.css', 'assets/css/font-awesome-ie7.min.css',
+        'assets/css/font-awesome-ie7.css', 'assets/css/font-awesome-ie7.min.css',
+        'assets/css/font-awesome.css', 'assets/css/revolution_settings.css',
+        'assets/css/font-awesome-ie7.css', 'assets/css/font-awesome-ie7.min.css',
+        'assets/css/bootstrap.css', 'assets/css/eislider.css',
+        'assets/css/normalize.css', 'assets/css/tipsy.css',
+        'assets/css/prettyPhoto.css', 'assets/css/isotop_animation.css',
+        'assets/css/normalize.css', 'assets/css/tipsy.css',
+        'assets/css/animate.css', 'assets/css/style.css',
+        'assets/css/responsive.css', 'assets/css/skins/bright-green.css' 
+        ]|theme }}" rel="stylesheet">
+    {% styles %}
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
