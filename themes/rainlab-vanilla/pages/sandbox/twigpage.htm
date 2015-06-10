@@ -1,0 +1,41 @@
+title = "Twig"
+url = "/sandbox/twig"
+layout = "developer"
+description = "Sandbox page to be used for Twig template stuff."
+hidden = "0"
+==
+{% put head %}
+    <style>
+        .twigpage-wrapper {
+            color: #0000;
+        }
+    </style>
+{% endput %}
+
+
+<div class="row">
+   <section class="col-xs-12">
+       
+        <p class="lead">To see this in action, add somthing to the url /sandbox/twig/HERE and the Post_Id variable will be passed into the page.</p>
+        
+        {% set name = 'post_id' %}
+    
+        <p>The post ID is: {{ this.param[name] }}</p>
+           
+           
+   </section>
+   <hr>
+   <section class="col-xs-12">
+       {% partial 'twig/autoescape.htm' %}
+   </section>
+</div>
+{# /.row #}
+
+
+
+
+{% put foot %}
+    <script>
+       
+    </script>
+{% endput %}

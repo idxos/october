@@ -1,0 +1,66 @@
+title = "Parallax"
+url = "/sandbox/parallax"
+layout = "developer"
+description = "Example Parallax that works with mobile sensors."
+hidden = "0"
+==
+{% put head %}
+     <link href="{{ [ 'assets/vendor/parallax-advanced/css/parallax.css' ]|theme }}" rel="stylesheet">
+{% endput %}
+
+<div id="container" class="container">
+    <div class="row">
+        <section class="col-lg -3 col-md-3 hidden-sm hidden-xs">
+            <div id="prompt" class="wrapper prompt accelerate">
+                <div class="cell accelerate">
+                    <div class="panel center unselectable accelerate">
+                        <button id="dismiss" class="dismiss">
+                            <div class="cross">
+                                <div class="x"></div>
+                                <div class="y"></div>
+                            </div>
+                        </button>
+                        <div class="tilt-scene">
+                            <img class="tilt" src="{{ 'assets/images/tilt.png'|theme }}">
+                        </div>
+                        <h2>Tilting is fun!</h2>
+                        <p>For the best experience, check out this site on a mobile or tablet equipped with a gyroscope</p>
+                        <p>(iPads are the coolest)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <ul id="scene" class="scene">
+                <li class="layer" data-depth="0.15"><img class="img-responsive" src="{{ 'assets/images/palmer-parallax/sky2.png'|theme }}"></li>
+                <li class="layer" data-depth="0.15"><img class="img-responsive" src="{{ 'assets/images/palmer-parallax/trees.png'|theme }}"></li>
+                <li class="layer" data-depth="0.10"><img class="img-responsive" src="{{ 'assets/images/palmer-parallax/dirt-ramp.png'|theme }}"></li>
+                <li class="layer" data-depth="0.75"><img class="img-responsive" src="{{ 'assets/images/palmer-parallax/flyer.png'|theme }}"></li>
+            </ul>
+        </section>
+    </div>
+</div>
+
+{% put foot %}
+
+<!-- Start advanced-parallax scripts -->
+<script src="{{ 'assets/vendor/parallax-advanced/js/jquery.parallax.js'|theme }}"></script>
+<script>
+  $('#scene').parallax({
+    // calibrateX: false,
+    // calibrateY: true,
+    // invertX: false,
+    // invertY: true,
+    // limitX: false,
+    // limitY: 10,
+    // scalarX: 2,
+    // scalarY: 8,
+    // frictionX: 0.2,
+    // frictionY: 0.8,
+    // originX: 0.0,
+    // originY: 1.0
+  });
+</script>
+<!-- /advanced-parallax -->
+
+{% endput %}

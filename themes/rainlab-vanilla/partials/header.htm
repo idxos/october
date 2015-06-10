@@ -1,8 +1,5 @@
 ==
-<!-- Header -->
-<header id="layout-header">
-
-    <!-- Nav -->
+<!-- Nav -->
     <nav id="layout-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -21,6 +18,11 @@
                     <li class="{% if this.page.id == 'forum' %}active{% endif %}"><a href="{{ 'forum'|page }}">Forum</a></li>
                     <li class="{% if this.page.id == 'portfolio' %}active{% endif %}"><a href="{{ 'portfolio'|page }}">Portfolio</a></li>
                     <li class="{% if this.page.id == 'sandbox' %}active{% endif %}"><a href="{{ 'sandbox'|page }}">Sandbox</a></li>
+                    <li class="{% if this.page.id == 'sandbox-twigpage' %}active{% endif %}"><a href="{{ 'sandbox/twigpage'|page }}">Twig</a></li>
+                    <li class="{% if this.page.id == 'sandbox-javascriptpage' %}active{% endif %}"><a href="{{ 'sandbox/javascriptpage'|page }}">Javascript</a></li>
+                    <li class="{% if this.page.id == 'sandbox-jquery' %}active{% endif %}"><a href="{{ 'sandbox/jquery'|page }}">jQuery</a></li>
+                    <li class="{% if this.page.id == 'sandbox-parallax' %}active{% endif %}"><a href="{{ 'sandbox/parallax'|page }}">Parallax</a></li>
+                    <li class="{% if this.page.id == 'sandbox-mobile' %}active{% endif %}"><a href="{{ 'sandbox/mobile'|page }}">Mobile</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if user %}
@@ -30,5 +32,3 @@
             </div>
         </div>
     </nav>
-
-</header>

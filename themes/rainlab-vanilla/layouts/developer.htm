@@ -1,34 +1,28 @@
+description = "Developer Layout, barebones setup."
+
 [session]
 security = "all"
 ==
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
-        <meta charset="utf-8">
-        <title>idxos - {{ this.page.title }}</title>
-        <meta name="description" content="{{ this.page.meta_description }}">
-        <meta name="title" content="{{ this.page.meta_title }}">
-        <meta name="author" content="Christopher J. Roberts">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        {% partial "meta" %}
         {% styles %}
         <link href="{{ [
             'assets/less/theme.less',
-            'assets/css/site.css',
-            'assets/vendor/crydrops/css/demo.css',
-            'assets/vendor/crydrops/css/icons.css'
+            'assets/css/site.css'
             ]|theme }}" rel="stylesheet">
         {% placeholder head %}
     </head>
   <body>
-<!-- Header -->
-<header id="layout-header">
-    {% partial "header" %}
-</header>
         
+    <!-- Header -->
+    <header id="layout-header">
+        {% partial "header" %}
+    </header>
+    
+    <!-- Start Main Content -->
     {% set jumbotronTexture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
-        
-    <!-- Content -->
     <section id="layout-content">
         <div class="jumbotron" style="background-image:url({{ ('assets/images/textures/'~jumbotronTexture~'.png')|theme }})">
             <div class="container">
@@ -46,13 +40,12 @@ security = "all"
     </section>
     <!--/.Content-->
 
-    <!-- Footer -->
     <footer id="layout-footer">
         {% partial "footer" %}
     </footer>
-    <!-- Scripts -->
+   
     <script src="{{ [
-        'assets/javascript/jquery.js',
+        'assets/js/jquery-1.11.1.js',
         'assets/vendor/bootstrap/js/transition.js',
         'assets/vendor/bootstrap/js/alert.js',
         'assets/vendor/bootstrap/js/button.js',
@@ -65,13 +58,11 @@ security = "all"
         'assets/vendor/bootstrap/js/scrollspy.js',
         'assets/vendor/bootstrap/js/tab.js',
         'assets/vendor/bootstrap/js/affix.js',
-        'assets/javascript/app.js',
-        'assets/vendor/crydrops/js/borderMenu.js',
-        'assets/vendor/crydrops/js/classie.js',
-        'assets/vendor/crydrops/js/modernizr.custom.js'
-        ]|theme }}"></script>
+        'assets/javascript/app.js'
+         ]|theme }}"></script>
     {% framework extras %}
     {% scripts %}
+    
     {% placeholder foot %}
   </body>
 </html>

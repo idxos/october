@@ -1,0 +1,39 @@
+title = "Sandbox5"
+url = "/sandbox/sandbox5"
+layout = "crydrop"
+hidden = "0"
+==
+{% put head %}
+<link href="{{ [ 
+    'assets/vendor/crydrops/css/style5.css'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+
+    {% partial "AnimatedBorderMenu/header" %}
+
+
+
+
+<div class="row">
+   <section class="col-xs-12">
+           {% content 'sandbox5.htm' %}
+           
+<p>
+    {{ this.page.id }}
+</p>
+
+   </section>
+</div>
+
+
+
+
+
+{% put foot %}
+ <script src="{{ [
+    'assets/vendor/crydrops/js/borderMenu.js',
+    'assets/vendor/crydrops/js/classie.js',
+    'assets/vendor/crydrops/js/modernizr.custom.js'
+    ]|theme }}"></script>   
+{% endput %}

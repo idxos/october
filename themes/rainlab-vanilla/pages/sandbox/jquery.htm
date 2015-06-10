@@ -1,0 +1,54 @@
+title = "jQuery"
+url = "/sandbox/jquery"
+layout = "developer"
+description = "jQuery examples and custom scripts."
+hidden = "0"
+==
+{% put head %}
+<style>
+    div#theDiv {
+        width: 250px;
+        height: 180px;
+        margin: 10px;
+        padding: 20px;
+        background: #b3c8d0;
+        border: 1px solid gray;
+        cursor: pointer;
+    }
+</style>
+{% endput %}
+
+
+<div class="row">
+   <section class="col-xs-12">
+        <div id="theDiv"></div>
+    </section>
+    <section class="col-xs-12">
+        <button class="btn btn-primary btn-lg" id="slideup">Slide Up</button>
+        <button class="btn btn-primary btn-lg" id="slidedown">Slide Down</button>
+        <button class="btn btn-primary btn-lg" id="toggle">Toggle Slide</button>
+   </section>
+</div>
+
+
+{% put foot %}
+<script type="text/javascript">
+
+    $(function() {
+        $("#slideup").click(function() {
+            $("#theDiv").slideUp(1000);
+        });
+        $("#slidedown").click(function() {
+            $("#theDiv").slideDown("fast", "linear");
+        });
+        $("#toggle").click(function() {
+            $("#theDiv").slideToggle("slow", onToggleFinished);
+        });
+    });
+
+    function onToggleFinished() {
+        // the value of this is set to the DOM element being animated
+        console.log ("slideToggle complete on: " + this.id);
+    }
+</script>
+{% endput %}

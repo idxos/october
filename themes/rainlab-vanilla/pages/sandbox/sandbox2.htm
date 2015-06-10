@@ -1,0 +1,37 @@
+title = "Sandbox2"
+url = "/sandbox/sandbox2"
+layout = "crydrop"
+hidden = "0"
+==
+{% put head %}
+<link href="{{ [ 
+    'assets/vendor/crydrops/css/style2.css'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+    
+    
+{% partial "AnimatedBorderMenu/header" %}
+
+
+
+
+<p>
+    {{ this.page.id }}
+    
+</p>
+
+
+<div class="row">
+   <section class="col-xs-12">
+           {% content 'sandbox2.htm' %}
+   </section>
+</div>
+
+
+
+
+
+{% put foot %}
+ 
+{% endput %}
