@@ -1,2 +1,2 @@
 #!/bin/bash
-sass --watch themes/roberts-portfolio-theme/assets/sass/_site.scss:themes/rroberts-portfolio-theme/assets/css/site.css
+sass --watch themes/rainlab-vanilla/assets/sass/_site.scss:themes/rainlab-vanilla/assets/css/site.css
