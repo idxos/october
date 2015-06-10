@@ -1,0 +1,148 @@
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px;
+    border-bottom: none !important;
+    text-align: center;
+
+    h3 {
+        margin: 10px 0 0 0;
+    }
+}
+
+.modal-footer {
+    border: none !important;
+}
+
+#login-modal .modal-dialog {
+    width: 100%;
+    max-width: 380px;
+    padding: 0 15px;
+    background: #f7f7f7;
+    border: none !important;
+}
+
+#login-modal .modal-content {
+    width: 100%;
+    background: #fff;
+    border-radius: 0;
+    border: none !important;;
+    -webkit-box-shadow: none !important;;
+    box-shadow: none !important;
+}
+
+#login-modal h3 {
+    font-size: 20px;
+    color: $brand-primary;
+    padding: 0 0 12px;
+    margin: 0;
+    border-bottom: 1px dashed #333;
+}
+
+#login-modal p {
+    font-size: 14px;
+    color: #333;
+    margin: 0 0 12px;
+}
+
+#login-modal select {
+    display: block;
+    height: 46px;
+    font-size: 18px;
+    margin: 0 0 11px;
+}
+
+#login-modal input {
+    width: 100%;
+    height: 46px;
+    line-height: 46px;
+    padding: 0 0 0 10px;
+    color: #333;
+    font-weight: 300;
+    border: 1px solid #e1e1e1;
+    border-radius: 0;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+#login-modal input:focus {
+    outline: none;
+}
+
+#login-modal input[type="submit"] {
+    background: #ec008c;
+    color: #fff;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+}
+
+#login-modal input[type="submit"].login {
+    width: 60px;
+    height: 29px;
+}
+
+
+
+
+// Container that the modal scrolls within
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  -webkit-overflow-scrolling: touch;
+
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+  outline: 0;
+
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    @include translate(0, -25%);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .modal-dialog { @include translate(0, 0) }
+
+
+  // When fading in the modal, animate it to slide up
+  &.fade-up .modal-dialog {
+    @include translate(0, 25%);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .modal-dialog { @include translate(0, 0) }
+
+
+
+  // When fading in the modal, animate it to slide left
+  &.fade-right .modal-dialog {
+    @include translate(25%, 0);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .modal-dialog { @include translate(0, 0) }
+
+
+  // When fading in the modal, animate it to slide right
+  &.fade-right .modal-dialog {
+    @include translate(-25%, 0);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .modal-dialog { @include translate(0, 0) }
+
+
+
+
+}
+
+
+
+
+
+

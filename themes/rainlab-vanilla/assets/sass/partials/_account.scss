@@ -1,0 +1,310 @@
+
+.bdr-solid {
+  border: 1px solid;
+}
+
+.bdr-med {
+  border-width: 2px;
+}
+
+.bdr-lg {
+  border-width: 3px;
+}
+
+.bdr-dotted {
+  border: 1px dotted;
+}
+
+.bdr-left-only {
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+.bdr-right-only {
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+.bdr-top-only {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.bdr-bottom-only {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.bdr-top-bottom {
+  border-right: none;
+  border-left: none;
+}
+
+.bdr-left-right {
+  border-top: none;
+  border-bottom: none;
+}
+
+.bdr-none {
+  border: none !important;
+}
+
+.circle-xs {
+  color: white;
+  font-size: 12px;
+  @include centeredCircle(20);
+}
+
+.circle-sm {
+  color: white;
+  font-size: 16px;
+  @include centeredCircle(30);
+}
+
+.circle-form {
+  color: white;
+  font-size: 16px;
+  @include centeredCircle(34);
+}
+
+button.circle-form {
+  border: none;
+}
+
+.circle, .circle-md {
+  color: white;
+  font-size: 20px;
+  @include centeredCircle(50);
+}
+
+.cirlce-lg {
+  color: white;
+  font-size: 24px;
+  @include centeredCircle(80);
+}
+
+.circle-xs.fa, .circle-sm.fa, .circle.fa, .circle-md.fa, .circle-lg.fa {
+  font-size: inherit;
+}
+
+//li seperated by line in the middle, place .line-separated in ul and last on the final li
+.line-separated li {
+  border-right: 2px solid black;
+  line-height: 14px;
+  &:last-child {
+    border-right:none !important;
+  }
+}
+
+.last {
+  border: none !important;
+}
+
+//div seperated by line in the middle, place .line-separated class in div and last on the final li
+.line-separated .line-sep-div {
+  border-right: 1px dotted gray;
+  line-height: 14px;
+}
+
+.last {
+  border: none !important;
+}
+
+.line-sep-div h4 {
+  text-align: center;
+}
+
+.box-shadow {
+  box-shadow: 5px 5px 4px #575757;
+}
+
+//places a black solid line to the right of a paragraph tag. .line-div-p is the class for the word on the left and .line-div is the class of the div which will display the line
+.line-div {
+  background: none repeat scroll 0 0 #000;
+  height: 5px;
+  margin-top: -17.5px;
+  z-index: -1;
+  margin-bottom: 60px;
+}
+
+.line-div-p {
+  background: none repeat scroll 0 0 white;
+  display: inline;
+  padding-right: 10px !important;
+  text-align: left !important;
+  text-transform: uppercase;
+}
+
+//div with text going through the top of the border
+//Create a div with the specified class below, within that div place an h1 with a span inside it and your text within the span
+
+.div-with-border-intext {
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  h1 {
+    margin-left: 15%;
+    margin-top: -10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    span {
+      background-color: white;
+      padding-left: 5px;
+      padding-right: 5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+}
+
+//dotted line between two words. Create three divs, all get class word div, one gets class left, the other right, and the last one the class dotted.
+.word-div {
+  height: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.left, .right {
+  padding: 1px 0.5em;
+  background: #fff;
+  float: right;
+}
+
+.word-in-middle {
+  text-align: center;
+  margin-top: 64px;
+  margin-left: -20px !important;
+  margin-right: -20px !important;
+}
+
+.left {
+  float: left;
+  clear: both;
+}
+
+.line-div-each-side {
+  background: none repeat scroll 0 0 #000;
+  height: 3px;
+  margin-bottom: 0;
+  margin-top:80px;
+}
+
+.dotted {
+  border-bottom: 1px dotted grey;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+//cart flyout dotted line between items
+//.cart-item {
+//  border-bottom: 2px dotted;
+// }
+
+//text inbetween a line,
+.divider {
+  text-align: center;
+  & hr {
+    border-color: black;
+    border-width: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 45%;
+  }
+}
+
+.the-form {
+  padding-left: 80px;
+  padding-top: 10px;
+}
+
+.margin-top-83 {
+  margin-top: 83px;
+}
+
+.margin-top-5 {
+  margin-top: 5px;
+}
+
+.checkboxes-biz-rez {
+  margin-bottom: 10px;
+}
+
+
+
+
+#account-container {
+
+  .loyalty-points-blurb {
+    padding: 20px;
+    & p {
+      font-size: 12px;
+    }
+  }
+
+  .loyalty-points-blurb {
+    & .h2bold {
+      font-weight: bold;
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+  }
+
+  .customer-care-links {
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+
+
+  h4 {
+    background-color: transparent;
+    font-size-adjust: none;
+    text-decoration: none;
+    font-stretch: normal;
+    border: none;
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    padding: 0;
+    font-family: "Lato Regular", sans-serif;
+    font-weight: 300;
+  }
+
+  .therow {
+    margin-top: 50px;
+  }
+
+  .email-alerts .shoe-details div {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  .shoe-image-emails {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .email-alerts-signup {
+    & h5 {
+      margin-top: 10px;
+      text-align: center;
+    }
+    & label {
+      text-transform: none !important;
+      font-size: 12px;
+    }
+  }
+
+  .one-col-div {
+    & h1 {
+      margin-left: 7% !important;
+    }
+  }
+}
