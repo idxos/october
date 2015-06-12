@@ -1,0 +1,30 @@
+title = "Blog"
+url = "/blog"
+layout = "default"
+description = "Welcome to the Blog Index page."
+hidden = "0"
+meta_title = "Blog Page"
+meta_description = "Blog posts about shoes and stuff."
+
+[blogPosts]
+pageNumber = "{{ :slug }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = "0"
+categoryPage = "blog/category"
+==
+<div class="row">
+    <section class="col-xs-8">
+        {% component 'blogPosts' %}
+    </section>
+    <section class="col-xs-4">
+        {% component 'blogCategories' %}
+    </section>
+</div>

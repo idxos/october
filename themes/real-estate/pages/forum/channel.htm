@@ -1,0 +1,16 @@
+title = "Forum Channel"
+url = "/forum/channel/:slug"
+layout = "default"
+description = "One Single Forum Channel filtered by slug in third segment of url."
+hidden = "0"
+
+[forumChannel]
+slug = "{{ :slug }}"
+memberPage = "Account"
+topicPage = "forum/topic"
+==
+<div class="row">
+    <section class="col-xs-12">
+        {% component 'forumChannel' %}
+    </section>
+</div>

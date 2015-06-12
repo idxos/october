@@ -1,0 +1,21 @@
+{
+  "name": "idxos.com",
+  "version": "0.0.2",
+  "authors": [
+    "kentucky-roberts <croberts@lknpro.com>"
+  ],
+  "description": "Portfolio website",
+  "main": "index.php",
+  "keywords": [
+    "portfolio"
+  ],
+  "license": "MIT",
+  "homepage": "www.idxos.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

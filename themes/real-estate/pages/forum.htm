@@ -1,0 +1,24 @@
+title = "Forum"
+url = "/forum"
+layout = "default"
+description = "Forum with channels."
+hidden = "0"
+
+[forumChannels]
+memberPage = "Account"
+channelPage = "forum/channel"
+topicPage = "forum/topic"
+
+[forumTopics]
+memberPage = "Account"
+topicPage = "forum/topic"
+topicsPerPage = "20"
+==
+<div class="row">
+    <section class="col-xs-8">
+        {% component 'forumChannels' %}
+    </section>
+    <section class="col-xs-4">
+        {% component 'forumTopics' %}
+    </section>
+</div>

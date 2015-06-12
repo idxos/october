@@ -1,0 +1,22 @@
+{
+    "name": "october/dirtbike-theme",
+    "type": "october-theme",
+    "description": "Custom theme developed by Christopher J. Roberts",
+    "keywords": ["october", "cms", "professional", "theme"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher J. Roberts",
+            "email": "croberts@lknpro.com",
+            "role": "Web Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

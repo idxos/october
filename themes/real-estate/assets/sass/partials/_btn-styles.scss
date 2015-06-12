@@ -1,0 +1,194 @@
+
+.btn-cta {
+    background-color: $brand-primary-hover;
+    border-color: $brand-primary-hover;
+    
+    .btn-cta-modal {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+.btn-light-grey, .btn-light-grey-hover:hover {
+    background: #f7f7f7;
+    border-color: #ccc;
+}
+
+.btn-dark-grey, .btn-dark-grey-hover:hover {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.btn-pink, .btn-pink-hover:hover {
+    background: #ec008c;
+    color: #fff;
+    border-color: #ec008c;
+}
+
+.btn-black, .btn-black-hover:hover, .btn-black-hover:focus {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.btn-gray, .btn-gray-hover:hover, .btn-gray-hover:focus {
+    background: #666;
+    color: #fff;
+    border-color: #666;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: $brand-primary-hover;
+    border-color: $brand-primary-hover;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    background-color: $brand-primary-hover !important;
+    border-color: $brand-primary-hover !important;
+}
+
+.btn-primary .badge {
+    color: #000;
+    background-color: #fff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: $brand-primary !important;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+//   Circle Button Styles Start
+/*
+//
+//    <div class="circle">Call Us!<span class="info">123.456.7890</span></div>
+//    <a href="#" class="inset">Hello</a>
+//    <a href="#" class="stylish">Hello</a>
+//
+*/
+
+.circle {
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:20px;
+    color:#fff;
+    line-height:100px;
+    text-align:center;
+    background:#000;
+}
+
+.info {
+    position:absolute;
+    color:#777;
+    margin-left:20px;
+}
+
+.inset {
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:20px;
+    color:#fff;
+    line-height:100px;
+    text-shadow:0 1px 0 #666;
+    text-align:center;
+    text-decoration:none;
+    box-shadow:1px 1px 2px #000;
+    background:#cccbbb;
+    opacity:0.95;
+    &:hover {
+        color:#eee;
+        text-shadow:0 0 1px #666;
+        text-decoration:none;
+        box-shadow:0 0 4px #222 inset;
+        opacity:1;
+    }
+}
+
+.stylish {
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:66px;
+    border:4px double #ccc;
+    font-size:20px;
+    color:#666;
+    line-height:100px;
+    text-align:center;
+    text-decoration:none;
+    text-shadow:0 1px 0 #fff;
+    background:#ddd;
+    &:hover { 
+        border:4px double #bbb;
+        color:#aaa;
+        text-decoration:none;
+        background:#e6e6e6;
+    }
+}
+// end circle buttons
+
+
+
+
+
+
+

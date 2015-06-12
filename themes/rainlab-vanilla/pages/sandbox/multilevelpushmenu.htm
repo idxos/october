@@ -1,0 +1,33 @@
+title = "Multi-Level Push Menu"
+url = "/sandbox/multi-level-push-menu"
+layout = "crydrop"
+description = "Sandbox \"Multi-Level Push Menu\" UI/UX demo group."
+hidden = "0"
+==
+{% put head %}
+<link href="{{ [ 
+    'assets/vendor/crydrops/css/multilevelpush.css'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+
+<div class="row">
+   <section class="col-xs-12">
+        {% partial 'MultiLevelPushMenu/default.htm' %}
+   </section>
+</div>
+
+
+<div class="row">
+   <section class="col-xs-12">
+   </section>
+</div>
+
+
+
+{% put foot %}
+    
+    <script>
+       
+    </script>
+{% endput %}

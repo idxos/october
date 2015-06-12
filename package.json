@@ -1,0 +1,36 @@
+{
+  "name": "idxos.com",
+  "version": "0.0.2",
+  "description": "Custom portfolio website",
+  "main": "index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "jshint": "^2.8.0",
+    "yeoman-generator": "^0.20.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2"
+  },
+  "scripts": {
+    "test": "console.log('your test command is amazing');"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idxos/october.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "Christopher J. Roberts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idxos/october/issues"
+  },
+  "homepage": "https://github.com/idxos/october#readme"
+}

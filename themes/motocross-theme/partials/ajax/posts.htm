@@ -1,0 +1,20 @@
+==
+{% for post in posts %}
+    <div class="post-preview">
+        <a href="{{ 'post'|page({slug: post.slug}) }}">
+            <h2 class="post-title">
+                {{ post.title }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ post.excerpt }}
+            </h3>
+        </a>
+        <span class="post-meta">Published on {{ post.published_at|date("F jS, Y") }}</span> <br/>
+        {% for category in post.categories %}
+            <a href="{{ 'category'|page({slug: category.slug }) }}">
+                <span class="label label-primary">{{ category.name }}</span>
+            </a>
+        {% endfor %}
+    </div>
+    <hr>
+{% endfor %}

@@ -54,11 +54,11 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => $_ENV['DB_HOST'],
+            'host'      => 'localhost',
             'port'      => '3306',
-            'database'  => $_ENV['DB_DATABASE'],
-            'username'  => $_ENV['DB_USERNAME'],
-            'password'  => $_ENV['DB_PASSWORD'],
+            'database'  => 'october',
+            'username'  => 'forge',
+            'password'  => 'mxUnvwDPcQVyPuX3AwWp',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

@@ -2,39 +2,25 @@ title = "Sandbox"
 url = "/sandbox"
 layout = "crydrop"
 hidden = "0"
+meta_title = "Sandbox"
 ==
 {% put head %}
 <link href="{{ [ 
-    'assets/vendor/crydrops/css/demo.css',
-    'assets/vendor/crydrops/css/icons.css',
-    'assets/vendor/crydrops/css/style1.css',
-    'assets/vendor/crydrops/css/style1.css',
-    'assets/vendor/crydrops/css/style2.css',
-    'assets/vendor/crydrops/css/style3.css',
-    'assets/vendor/crydrops/css/style4.css',
-    'assets/vendor/crydrops/css/style5.css',
-    'assets/vendor/crydrops/css/style6.css'
+    'assets/vendor/crydrops/css/style1.css'
     ]|theme }}" rel="stylesheet">
 {% endput %}
 
 
 
-{% put foot %}
- <script src="{{ [
-    'assets/vendor/crydrops/js/borderMenu.js',
-    'assets/vendor/crydrops/js/classie.js',
-    'assets/vendor/crydrops/js/modernizr.custom.js'
-    ]|theme }}"></script>   
-
-{% endput %}
-
-
 <div class="row">
    <section class="col-xs-12">
-       This is the sandbox.
-       <img src="{{ 'assets/images/plugin-user.png'|theme }}" alt="RainLab.User" />
-       
-       
-       
+        {% partial 'sandbox/sandbox.htm' %}
    </section>
 </div>
+
+
+{% put foot %}
+    <script>
+      
+    </script>
+{% endput %}

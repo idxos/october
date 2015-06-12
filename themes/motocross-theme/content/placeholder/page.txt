@@ -1,0 +1,12 @@
+<div class="row">
+    <section class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="main-section">
+      <h1>Underdog Wood LLC- Cincinnati, OH</h1>
+      <p class="lead">
+        Nam pretium turpis et arcu. In ac felis quis tortor malesuada pretium. Curabitur turpis. Fusce neque. Nulla porta dolor. Pellentesque posuere. Maecenas vestibulum mollis diam. Vestibulum ullamcorper mauris at ligula.
+      </p>
+      <p>
+        Welcome to Underdogwood.com your #1 source for everything reclaimed. Choose from a variety of reclaimed wood products like wide plank flooring, fireplace mantels, dimensional lumber, hand hewn timbers, barn wood siding, green building supplies and much more!! We offer our reclaimed wood products in a variety of species including; Ash, Cherry, Chestnut, Elm Heart Pine, White Pine, Hickory, Maple, White Oak, Red Oak, Poplar, Beech, Walnut and more. Please contact us to learn about what we currently have in our inventory ready for you to build with.
+      </p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </section>
+</div><!--/.row -->

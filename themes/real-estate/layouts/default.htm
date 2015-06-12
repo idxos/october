@@ -1,0 +1,19 @@
+description = "Default website layout"
+==
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  {% partial 'head' %}
+ </head>
+<body>
+
+    {% partial 'top-nav' %}
+    {% partial 'hero' %}
+    
+    {% page %}
+
+
+    {% partial 'footer' %}
+
+ </body>
+</html>

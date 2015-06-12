@@ -1,0 +1,99 @@
+title = "Mobile"
+url = "/sandbox/mobile"
+layout = "developer"
+hidden = "0"
+==
+{% put head %}
+<style>
+
+.blue {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: blue;
+    border-radius: 200px;
+}
+ 
+.purple {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: purple;
+    border-radius: 200px;
+}
+ 
+.red {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: red;
+    border-radius: 200px;
+}
+</style>
+{% endput %}
+
+
+<div class="row">
+   <section class="col-xs-12">
+        <p>
+            Run this page in a mobile browser and drag your finger accross the screen to see javascript code interacting with touch screens.
+        </p>
+    </section>
+</div>
+
+
+{% put foot %}
+<script type="text/javascript">
+addEventListener('touchmove', function(e) { // When the user moves their finger, the function will begin.
+     
+    e.preventDefault(); // Stop any annoying scrolling.
+ 
+    var touch = e.touches[0]; // Fires every time the user moves.
+         
+    var posY = touch.pageY - 25; // Get the Y position (-25 to center)
+    var posX = touch.pageX - 25; // Get the X position (-25 to center)
+     
+    if(e.touches.length == 1) { // If one finger is touching
+     
+        // Creates div at current position of finger 
+        // -----------------------------------------
+         
+        var blue = document.createElement('div');
+        blue.setAttribute('class', 'blue');
+         
+        blue.style.top = posY+'px';
+        blue.style.left = posX+'px';
+         
+        document.body.appendChild(blue); 
+         
+    }
+     
+    if(e.touches.length == 2) { // If two fingers are touching
+     
+        var purple = document.createElement('div');
+        purple.setAttribute('class', 'purple');
+         
+        purple.style.top = posY+'px';
+        purple.style.left = posX+'px';
+         
+        document.body.appendChild(purple);
+     
+    }
+     
+    if(e.touches.length == 3) { // If three fingers are touching
+     
+        var red = document.createElement('div');
+        red.setAttribute('class', 'red');
+         
+        red.style.top = posY+'px';
+        red.style.left = posX+'px';
+         
+        document.body.appendChild(red);
+     
+    }
+     
+}, false);
+
+
+</script>
+{% endput %}

@@ -1,34 +1,94 @@
 ==
-<!-- Header -->
-<header id="layout-header">
-
-    <!-- Nav -->
-    <nav id="layout-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ 'home'|page }}">IDXOS</a>
-            </div>
-            <div class="collapse navbar-collapse navbar-main-collapse">
-                <ul class="nav navbar-nav">
+<!-- Nav -->
+<nav id="layout-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'home'|page }}">IDXOS</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CMS<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
                     <li class="{% if this.page.id == 'account' %}active{% endif %}"><a href="{{ 'account'|page }}">Account</a></li>
                     <li class="{% if this.page.id == 'blog' %}active{% endif %}"><a href="{{ 'blog'|page }}">Blog</a></li>
-                    <li class="{% if this.page.id == 'forum' %}active{% endif %}"><a href="{{ 'forum'|page }}">Forum</a></li>
-                    <li class="{% if this.page.id == 'portfolio' %}active{% endif %}"><a href="{{ 'portfolio'|page }}">Portfolio</a></li>
-                    <li class="{% if this.page.id == 'sandbox' %}active{% endif %}"><a href="{{ 'sandbox'|page }}">Sandbox</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    {% if user %}
-                        <li><a href="#" data-request="onLogout">Logout</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
+                    <li class="{% if this.page.id == 'forum' %}active{% endif %}"><a href="{{ 'forum'|page }}">FORUM</a></li>
+                    <li class="{% if this.page.id == 'portfolio' %}active{% endif %}"><a href="{{ 'portfolio'|page }}">PORTFOLIO</a></li>
+                  </ul>
+                </li>
 
-</header>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">UI/UX <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ 'sandbox/sidebartransitions'|page }}">Sidebar Transitions</a></li>
+                    <li><a href="{{ 'sandbox/multilevelpushmenu'|page }}">Multi-level Push Menu</a></li>
+                    <li><a href="{{ 'icons'|page }}">Icons</a></li>
+                    <li><a href="{{ 'icons/flaticons'|page }}">Flat Icons</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{ 'icons/about'|page }}">About UI/UX</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">API <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Google Api</a></li>
+                    <li><a href="#">Facebook Graph Api</a></li>
+                    <li><a href="#">Pinterest Api</a></li>
+                    <li><a href="#">LinkedIn Api</a></li>
+                    <li><a href="#">Twitter Api</a></li>
+                    <li><a href="#">Stripe eCommerce Solutions</a></li>
+                    <li><a href="#">PayPal eCommerce Solutions</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">About Api's</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SCRIPTS <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ 'sandbox/javascriptpage'|page }}">Javascript</a></li>
+                    <li><a href="{{ 'sandbox/jquery'|page }}">jQuery</a></li>
+                    <li><a href="{{ 'sandbox/angular-notifications'|page }}">Angularjs</a></li>
+                    <li><a href="{{ 'sandbox/parallax'|page }}">Parallax</a></li>
+                    <li><a href="{{ 'scripts/checkoutflow'|page }}">Checkout Flow</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">HTML5 <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ 'sandbox/mobile'|page }}">Mobile Integration</a></li>
+                    <li><a href="{{ 'sandbox/twigpage'|page }}">TWIG Template Engine</a></li>
+                    <li><a href="#">Video Components</a></li>
+                    <li><a href="#">Audio</a></li>
+                    <li><a href="#">Syntax</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">More about HTML5</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONCEPT<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ 'concepts/html5coloring'|page }}">HTML5 Drag n' Drop Coloring Concept</a></li>
+                  </ul>
+                </li>
+                <li class="{% if this.page.id == 'sandbox' %}active{% endif %}"><a href="{{ 'sandbox'|page }}">SANDBOX</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user %}
+                    <li><a href="#" data-request="onLogout">Logout</a></li>
+                  { % ifelse %}
+                    <li><a href="{{ 'account'|page }}">Login</a></li>
+                    <li><a href="{{ 'account'|page }}">Join</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
