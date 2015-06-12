@@ -20,7 +20,9 @@ body {
 }
 
 footer {
-  
+  margin-top: 250px;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .container {  }
@@ -126,7 +128,56 @@ aside[role="complimentary"] {
 
 
 
+/* Start notification styles */
+.warningMsg {
+    background: #ff4500 url("http://cdn1.iconfinder.com/data/icons/crystalproject/128x128/apps/alert.png") no-repeat 10px center;
+    border: 5px solid #8b0000;
+    border-radius: 10px;
+    padding: 10px 10px 10px 150px;
+}
 
+.notificationLevel {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.notificationLevel.default {
+    background: orange;
+}
+
+.notificationLevel.allowed {
+    background-color: green;
+}
+
+.notificationLevel.denied {
+    background-color: red;
+}
+
+.step {
+    margin: 10px;
+}
+
+.step header {
+    border-bottom: 1px solid #ff4500;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.step .block {
+    background: rgba(255, 69, 0, 0.5);
+    display: inline-block;
+    height: 100px;
+    min-width: 100px;
+    vertical-align: top;
+}
+
+.step .block label {
+    display: block;
+}
+/* end notification styles */
 
 
 

@@ -10,21 +10,10 @@ hidden = "0"
 {% endput %}
 
 
-    {% partial "AnimatedBorderMenu/header" %}
-
-
-
-<p>
-    {{ this.page.id }}
-    
-</p>
-
 
 <div class="row">
    <section class="col-xs-12">
-       
-       
-           {% content 'sandbox4.htm' %}
+        {% partial 'sandbox/sandbox4.htm' %}
    </section>
 </div>
 
@@ -33,9 +22,5 @@ hidden = "0"
 
 
 {% put foot %}
- <script src="{{ [
-    'assets/vendor/crydrops/js/borderMenu.js',
-    'assets/vendor/crydrops/js/classie.js',
-    'assets/vendor/crydrops/js/modernizr.custom.js'
-    ]|theme }}"></script>   
+
 {% endput %}

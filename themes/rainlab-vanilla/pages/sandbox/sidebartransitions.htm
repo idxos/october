@@ -1,0 +1,40 @@
+title = "Sidebar Transitions"
+url = "/sandbox/sidebartransitions"
+layout = "crydrop"
+description = "Master Page for sandbox/SidebarTransitions"
+hidden = "0"
+==
+{% put head %}
+<link href="{{ [ 
+    'assets/vendor/crydrops/css/style1.css'
+    ]|theme }}" rel="stylesheet">
+{% endput %}
+
+
+
+<div class="row">
+   <section class="col-xs-12">
+        {% partial 'SidebarTransitions/demo1.htm' %}
+   </section>
+</div>
+
+
+<div class="row">
+   <section class="col-xs-12">
+        <div class="codrops-related">
+            If you enjoyed this menu, you might also like:<br />
+            <a href="{{'sandbox/MultiLevelPushMenu'|page }}">Multi-Level Push Menu</a><br/>
+            <a href="{{'sandbox/sidebartransitions'|page }}">Transitions for Off-canvas Navigations</a>
+        </div>
+   </section>
+</div>
+
+
+
+
+
+{% put foot %}
+    <script>
+       
+    </script>
+{% endput %}

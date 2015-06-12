@@ -19,38 +19,29 @@ security = "all"
             'assets/vendor/crydrops/css/icons.css'
             ]|theme }}" rel="stylesheet">
         {% placeholder head %}
+        <script src="{{ [ 'assets/vendor/crydrops/js/modernizr.custom.js' ]|theme }}"></script>
     </head>
   <body>
-<!-- Header -->
-<header id="layout-header">
-    {% partial "header" %}
-</header>
+          
+    <!-- Header -->
+    <header id="layout-header">
+        {% partial "sandbox/header" %}
+    </header>
         
-    {% set jumbotronTexture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
+    {% set customHeader = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
+
+    <div class="container">
+        {% page %}
+    </div>
+
         
-    <!-- Content -->
-    <section id="layout-content">
-        <div class="jumbotron" style="background-image:url({{ ('assets/images/textures/'~jumbotronTexture~'.png')|theme }})">
-            <div class="container">
-                <h1>{{ this.page.title }}</h1>
-                <p>{{ this.page.description }}</p>
-            </div>
-        </div>
-        <div class="workbench-table">
-            <div class="container">
                 
-                {% page %}
-                
-            </div>
-        </div>
-    </section>
-    <!--/.Content-->
 
     <!-- Footer -->
     <footer id="layout-footer">
         {% partial "footer" %}
     </footer>
-    <!-- Scripts -->
+   <!-- Scripts -->
     <script src="{{ [
         'assets/javascript/jquery.js',
         'assets/vendor/bootstrap/js/transition.js',
@@ -65,10 +56,8 @@ security = "all"
         'assets/vendor/bootstrap/js/scrollspy.js',
         'assets/vendor/bootstrap/js/tab.js',
         'assets/vendor/bootstrap/js/affix.js',
-        'assets/javascript/app.js',
-        'assets/vendor/crydrops/js/borderMenu.js',
         'assets/vendor/crydrops/js/classie.js',
-        'assets/vendor/crydrops/js/modernizr.custom.js'
+        'assets/vendor/crydrops/js/borderMenu.js'
         ]|theme }}"></script>
     {% framework extras %}
     {% scripts %}

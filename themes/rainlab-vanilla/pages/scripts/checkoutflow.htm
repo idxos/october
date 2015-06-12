@@ -1,0 +1,181 @@
+title = "Checkout Flow"
+url = "/scripts/checkoutflow"
+layout = "default"
+description = "Custom jquery scripts that open and close panel forms during checkout process.  Experience Optimized for mobile page-scroll effects."
+hidden = "0"
+==
+{% put head %}
+<link href="{{ 'assets/css/checkout.css'|theme }}" rel="stylesheet">
+{% endput %}
+
+
+
+
+<div id="mobile-almost-there" class="text-center">
+	<h2>Checkout</h2>
+	<hr>
+	<h6>Skip Login and enter information below or select a Login method to complete your order.</h6>
+</div>
+
+<div id="mobile-login">
+	<h3 class="section-title"><small><span class="mid-border-dotted visible-xs visible-lg"><span class="bg-white text-upper">Login or Create Account</span></span></small></h3>
+	<span class="col-xs-12 col-md-4">
+		<div class="black-bar-header">Sign In</div>
+		<form class="form-horizontal" action="/account/login" role="form"  id="sign-in" method="post">
+			<div class="form-group clearfix">
+				<label for="username" id="mobile-login-label" class="col-md-4 col-xs-4 control-label">Email:</label>
+				<div class="col-md-8 col-xs-8">
+					<input type="text" id="username" name="username" class="form-control" value="" />
+				</div>
+			</div>
+			<div class="form-group clearfix">
+				<label for="password" id="mobile-password-label" class="col-md-4 col-xs-4 control-label">Password:</label>
+				<div class="col-md-8 col-xs-8">
+					<input id="password" type="password" name="password" class="form-control" value="" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-8 col-sm-10">
+					<button type="submit" class="btn btn-black btn-black-hover btn-outline visible-xs text-upper pull-right em-bot-25 btn-wide em-top-15" id="btn_register_modal">Sign In</button>
+					<input type="hidden" name="referrer" value="/cart/checkout">
+				</div>
+			</div>
+		</form>
+	</span>
+	<span class="col-xs-12 col-md-4">
+		<div class="black-bar-header">I'm New to Heels.com</div>
+		<form class="form-horizontal" action="account/register" method="post" id="sign-up" role="form">
+			<div class="form-group clearfix">
+				<label for="mobile-new-email" id="mobile-new-email-label" class="col-md-4 col-xs-4 control-label">Email:</label>
+				<div class="col-md-8 col-xs-8">
+					<input type="text" id="reg-email" name="email" class="form-control" value="" />
+				</div>
+			</div>
+			<div class="form-group clearfix">
+				<label for="mobile-new-password" id="mobile-new-password-label" class="col-md-4 col-xs-4 control-label">Password:</label>
+
+				<div class="col-md-8 col-xs-8">
+					<input type="password" id="reg-password" name="password" class="form-control" value="" />
+				</div>
+			</div>
+			<div class="form-group clearfix">
+				<label for="mobile-password-confirm" id="mobile-password-confirm-label" class="col-md-4 col-xs-4 control-label">Confirm:</label>
+
+				<div class="col-md-8 col-xs-8">
+					<input type="password" id="reg-confirm" name="password2" class="form-control" value="" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-offset-2 col-md-offset-2 col-xs-10 col-md-10">
+					<button type="submit" class="btn btn-black btn-black-hover btn-outline visible-xs text-upper pull-right em-bot-25 em-top-15 btn-wide" id="btn_register_modal">Sign Up</button>
+					<input type="hidden" name="referrer" value="/cart/checkout">
+				</div>
+			</div>
+		</form>
+	</span>
+	<span class="col-xs-12 col-md-4">
+		<hr class="dotted em-bot-25 hidden-md hidden-lg">
+		<a href="<?php echo isset($fbLogin) ? $fbLogin : 'javascript:void(0);'; ?>" class="btn bg-fb  bg-fb-hover btn-block text-upper text-center">Sign In With Facebook</a>
+		<a href="<?php echo isset($googleLogin) ? $googleLogin : 'javascript:void(0);'; ?>" class="btn bg-gplus bg-gplus-hover btn-block text-upper text-center">Sign In With Google</a>
+	</span>
+</div>
+
+{% put foot %}
+<script type="text/javascript">
+
+	$(function () {
+		$('#myTab a:first').tab('show')
+	})
+
+</script>
+<script type="text/javascript">
+
+ // handle showing/hiding address information
+    $(document).on('click', '#different-shipping', function () {
+        var $this = $(this);
+
+        if ($this.prop('checked')) {
+
+            $('#collapse2').addClass('hidden');
+
+        } else {
+
+            $('#collapse2').removeClass('hidden');
+
+        }
+    });
+
+
+    // handle showing/hiding address information
+    $(document).on('click', '#different-shipping', function () {
+        var $this = $(this);
+
+        if ($this.prop('checked')) {
+
+            $('#collapse2').addClass('collapse in');
+
+        } else {
+
+            $('#collapse2').removeClass('collapse');
+
+        }
+    });
+
+
+  // hompage toggle button
+	$("#toggle").click(function () {
+		$("#mobile-search-form").toggleClass("collapsed").slideToggle("fast");
+	});
+</script>
+<script type="text/javascript">
+
+$(document).on('click', '.next-div', function (e) {
+	e.preventDefault();
+	// var target = $(this).data('collapsenumber').attr('divNumber');
+	
+	var divNumber = $(this).closest('.collapseNumber');
+	
+	divNumber = divNumber.attr('divnumber');
+
+	if (!divNumber) {
+		divNumber = $(this).attr('divnumber');
+
+		if (divNumber == 0) {
+
+			$('#mobile-login')
+				.removeClass('visible-xs')
+				.css('display', 'none');
+
+			$('html,body').animate({scrollTop: $('#collapse1').offset().top}, 'slow');
+
+		} else {
+
+			divNumber++;
+
+			$('#collapse' + divNumber).collapse('hide');
+		}
+
+		} else {
+			var divNumberId = '#collapse' + divNumber;
+
+
+			$(divNumberId).addClass('collapse');
+
+
+			$.when($(divNumberId).collapse('hide')).then($('html,body').animate({scrollTop: $('#collapse' + divNumber).offset().top}, 'slow'));
+
+				divNumber++;
+
+
+			var differentShipping = $('#different-shipping').prop('checked');
+
+				if (differentShipping == false && divNumber < 3) 
+				{
+					divNumber++;
+				}
+
+			$('#collapse' + divNumber).collapse('show');
+		}
+});
+</script>
+{% endput %}

@@ -10,6 +10,10 @@ body  {
 	background: #95a5a6;
 }
 
+.container {
+	padding: 80px;
+}
+
 .bt-menu-trigger-out {
 	display: block;
 	width: 300px;

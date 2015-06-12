@@ -1,0 +1,105 @@
+==
+<!DOCTYPE html>
+<html data-ng-app>
+    <head>
+        {% partial "meta" %}
+        {% styles %}
+        <link href="{{ [
+            'assets/less/theme.less',
+            'assets/css/site.css'
+            ]|theme }}" rel="stylesheet">
+        {% placeholder head %}
+        
+        <script src="{{ [
+            'assets/js/jquery-1.11.1.js',
+            'assets/vendor/bootstrap/js/transition.js',
+            'assets/vendor/bootstrap/js/alert.js',
+            'assets/vendor/bootstrap/js/button.js',
+            'assets/vendor/bootstrap/js/carousel.js',
+            'assets/vendor/bootstrap/js/collapse.js',
+            'assets/vendor/bootstrap/js/dropdown.js',
+            'assets/vendor/bootstrap/js/modal.js',
+            'assets/vendor/bootstrap/js/tooltip.js',
+            'assets/vendor/bootstrap/js/popover.js',
+            'assets/vendor/bootstrap/js/scrollspy.js',
+            'assets/vendor/bootstrap/js/tab.js',
+            'assets/vendor/bootstrap/js/affix.js',
+            
+            'assets/javascript/app.js'
+            
+             ]|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+        
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="public/js/desktop-notify-min.js"></script>
+        <script type="text/javascript" src="bower_components/angularfire/dist/angularfire.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps_dev_mapped.min.js"></script>
+        <script>
+        function NotificationCenter($scope) {
+            var permissionLevels = {};
+            permissionLevels[notify.PERMISSION_GRANTED] = 0;
+            permissionLevels[notify.PERMISSION_DEFAULT] = 1;
+            permissionLevels[notify.PERMISSION_DENIED] = 2;
+            $scope.isSupported = notify.isSupported;
+            $scope.permissionLevel = permissionLevels[notify.permissionLevel()];
+            $scope.getClassName = function() {
+                if ($scope.permissionLevel === 0) {
+                    return "allowed"
+                } else if ($scope.permissionLevel === 1) {
+                    return "default"
+                } else {
+                    return "denied"
+                }
+            }
+            $scope.callback = function() {
+                console.log("test");
+            }
+            $scope.requestPermissions = function() {
+                notify.requestPermission(function() {
+                    $scope.$apply($scope.permissionLevel = permissionLevels[notify.permissionLevel()]);
+                })
+            }
+        }
+        function show() {
+            notify.createNotification("Notification", {body:"Body", icon: "alert.ico"})
+        }
+    </script>
+    </head>
+  <body data-ng-controller="NotificationCenter">
+        
+    <!-- Header -->
+    <header id="layout-header">
+        {% partial "header" %}
+    </header>
+    
+    <!-- Start Main Content -->
+    {% set jumbotronTexture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
+    <section id="layout-content">
+        <div class="jumbotron" style="background-image:url({{ ('assets/images/textures/'~jumbotronTexture~'.png')|theme }})">
+            <div class="container">
+                <h1>{{ this.page.title }}</h1>
+                <p>{{ this.page.description }}</p>
+            </div>
+        </div>
+        <div class="workbench-table">
+            <div class="container">
+                
+                {% page %}
+                
+            </div><!--/.container-->
+            
+            
+            
+        </div><!--/.workbench-table -->
+    </section>
+    <!--/.Content-->
+
+    <footer id="layout-footer">
+        {% partial "footer" %}
+    </footer>
+   
+    
+    {% placeholder foot %}
+  </body>
+</html>

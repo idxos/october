@@ -1,0 +1,18 @@
+title = "Angular Notifications"
+url = "/sandbox/angular-notifications"
+layout = "Angularjs"
+hidden = "0"
+==
+<!-- warning message stuff -->
+            <div class="warningMsg" data-ng-show="!isSupported" style="display: none;">
+                Desktop notifications are currently not supported for your browser.
+                <p>
+                Open the page in Chrome(version 23+), Safari(version6+), Firefox(with ff-html5notifications plugin installed) and IE9+.
+            </div>
+            <a class="notificationLevel" ng-class="getClassName()" data-ng-click="requestPermissions()" data-ng-pluralize data-count="permissionLevel" when="{
+                '0': 'Notifications allowed.',
+                '1': 'Notifications not allowed. (click to enable)',
+                '2': 'Notifications denied. (Change notifications permission in you browser\'s settings)'}">
+            </a>
+            <button onclick="show()">Show notification</button>
+            <!-- END warning message stuff -->
