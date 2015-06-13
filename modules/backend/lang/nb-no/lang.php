@@ -72,7 +72,7 @@ return [
     'user' => [
         'name' => 'Administrator',
         'menu_label' => 'Administratorer',
-        'menu_description' => 'Administrer backend-administratorer, grupper og tilganger.',
+        'menu_description' => 'Håndter backend-administratorer, grupper og tilganger.',
         'list_title' => 'Håndter administratorer',
         'new' => 'Ny administrator',
         'login' => 'Brukernavn',
@@ -86,7 +86,6 @@ return [
         'password' => 'Passord',
         'password_confirmation' => 'Bekreft passord',
         'permissions' => 'Tilganger',
-        'account' => 'konto',
         'superuser' => 'Superbruker',
         'superuser_comment' => 'Kryss av denne boksen for å gi personen tilgang til alle områder.',
         'send_invite' => 'Send invitasjon via e-post',
@@ -104,7 +103,7 @@ return [
             'code_field' => 'Kode',
             'code_comment' => 'Fyll inn en unik kode for å bruke API-en.',
             'menu_label' => 'Grupper',
-            'list_title' => 'Administrere grupper',
+            'list_title' => 'Håndter grupper',
             'new' => 'New Administrator Group',
             'delete_confirm' => 'Vil du virkelig slette denne administratorgruppen?',
             'return' => 'Tilbake til gruppeoversikten',
@@ -189,6 +188,7 @@ return [
         'insert_row' => 'Sett inn rad',
         'delete_row' => 'Slett rad',
         'concurrency_file_changed_title' => 'Fil endret',
+        'concurrency_file_changed_description' => "The file you're editing has been changed on disk by another user. You can either reload the file and lose your changes or override the file on the disk.",
         'concurrency_file_changed_description' => "Filen du endrer på har blitt endret på disken av en annen bruker. Du kan enten oppdatere filen og tape endret data eller overskrive filen på disken.",
     ],
     'relation' => [
@@ -284,7 +284,8 @@ return [
     ],
     'backend_preferences' => [
         'menu_label' => 'Backend-innstillinger',
-        'menu_description' => 'Administrer kontoinnstillinger som for eksempel språk.',
+        'menu_description' => 'Håndter kontoinnstillinger som for eksempel språk.',
+        'menu_description' => 'Manage your account preferences such as desired language.',
         'locale' => 'Språk',
         'locale_comment' => 'Velg ditt ønsket språk.'
     ],
@@ -300,6 +301,6 @@ return [
         'email' => 'E-postadresse'
     ],
     'filter' => [
-        'all' => 'alle'
+      'all' => 'alle'
     ]
 ];
