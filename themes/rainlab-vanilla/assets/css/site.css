@@ -19015,4 +19015,20 @@ i.icon-flat {
 .icon-flat.count {
   background-position: -408px -637px; }
 
+.section-cta {
+  text-align: center; }
+
+.section-cta h1, .section-cta h2, .section-cta h3, .section-cta h4, .section-cta h4, .section-cta h5, .section-cta h6 {
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 0; }
+
+.section-cta p {
+  text-align: center;
+  margin-bottom: 0; }
+
+.section-cta .button {
+  margin-top: 20px;
+  margin-bottom: 0; }
+
 /*# sourceMappingURL=site.css.map */
