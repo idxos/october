@@ -23,6 +23,13 @@
                     <li class="{% if this.page.id == 'portfolio' %}active{% endif %}"><a href="{{ 'portfolio'|page }}">PORTFOLIO</a></li>
                   </ul>
                 </li>
+                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MOBILE<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ 'sandbox/mobile'|page }}">Mobile</a></li>
+                  </ul>
+                </li>
 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">UI/UX <span class="caret"></span></a>
@@ -54,7 +61,7 @@
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ 'sandbox/javascriptpage'|page }}">Javascript</a></li>
                     <li><a href="{{ 'sandbox/jquery'|page }}">jQuery</a></li>
-                    <li><a href="{{ 'sandbox/angular-notifications'|page }}">Angularjs</a></li>
+                    <li><a href="{{ 'angular/angular-mobile-ui'|page }}">Angular-Mobile-UI</a></li>
                     <li><a href="{{ 'sandbox/parallax'|page }}">Parallax</a></li>
                     <li><a href="{{ 'scripts/checkoutflow'|page }}">Checkout Flow</a></li>
                     <li class="divider"></li>
@@ -77,6 +84,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CONCEPT<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ 'concepts/html5coloring'|page }}">HTML5 Drag n' Drop Coloring Concept</a></li>
+                    <li><a href="{{ 'theme-darko'|page }}">Theme Darko</a></li>
                   </ul>
                 </li>
                 <li class="{% if this.page.id == 'sandbox' %}active{% endif %}"><a href="{{ 'sandbox'|page }}">SANDBOX</a></li>

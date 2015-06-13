@@ -1,0 +1,61 @@
+title = "Theme Darko"
+url = "/theme-darko"
+layout = "default"
+hidden = "0"
+==
+{% put head %}
+<link href="{{ [ 'assets/css/theme-darko.css' ]|theme }}" rel="stylesheet">
+{% endput %}
+
+ 
+ 
+ 
+<div class="container">
+<header role="banner">
+  <nav class="mobile-nav pull-right">
+    <ul class="pull-right">
+      <li class="{% if this.page.id == 'home' %}current{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
+      <li class="{% if this.page.id == 'account' %}current{% endif %}"><a href="{{ 'account'|page }}">Account</a></li>
+      <li class="{% if this.page.id == 'blog' %}current{% endif %}"><a href="{{ 'blog'|page }}">Blog</a></li>
+      <li class="{% if this.page.id == 'forum' %}active{% endif %}"><a href="{{ 'forum'|page }}">Forum</a></li>
+      <li class="{% if this.page.id == 'calendar-api' %}active{% endif %}"><a href="{{ 'calendar-api'|page }}">Calendar API</a></li>
+      {% if user %}
+      {% component 'session' %}
+      <li><a href="#" data-request="onLogout">Logout</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+</div>
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <section class="col-xs-12 ">
+                <h1>{{ this.page.title }}</h1>
+                <p class="lead">{{ this.page.description }}</p>
+                
+                <div class="highlight">
+                    <h1>Welcome to Theme Darko!</h1>
+                    <p class="lead">
+                        Nam pretium turpis et arcu. In ac felis quis tortor malesuada pretium. Curabitur turpis. Fusce neque. Nulla porta dolor. Pellentesque posuere. Maecenas vestibulum mollis diam. Vestibulum ullamcorper mauris at ligula.
+                    </p>
+                    <p>
+                        Welcome to Underdogwood.com your #1 source for everything reclaimed. Choose from a variety of reclaimed wood products like wide plank flooring, fireplace mantels, dimensional lumber, hand hewn timbers, barn wood siding, green building supplies and much more!! We offer our reclaimed wood products in a variety of species including; Ash, Cherry, Chestnut, Elm Heart Pine, White Pine, Hickory, Maple, White Oak, Red Oak, Poplar, Beech, Walnut and more. Please contact us to learn about what we currently have in our inventory ready for you to build with.
+                    </p>
+                </div>
+                
+                
+                <article>
+                Nam pretium turpis et arcu. In ac felis quis tortor malesuada pretium. Curabitur turpis. Fusce neque. Nulla porta dolor. Pellentesque posuere. Maecenas vestibulum mollis diam. Vestibulum ullamcorper mauris at ligula.
+                </article>
+                <div class="highlight">
+                    <pre>Home</pre> 
+                    <pre>About</pre> 
+                    <pre>Page</pre> 
+                </div>
+            </section>
+        </div>
+    </div>
+</header>
