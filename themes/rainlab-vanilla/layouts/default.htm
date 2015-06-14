@@ -18,6 +18,7 @@ security = "all"
             'assets/less/theme.less',
             'assets/css/revolution_settings.css',
             'assets/css/eislider.css',
+            'assets/css/octoshop.css',
             'assets/css/site.css'
             ]|theme }}" rel="stylesheet">
         {% placeholder head %}
@@ -70,6 +71,8 @@ security = "all"
         ]|theme }}"></script>
         {% framework extras %}
         {% scripts %}
-
+        {# IE10 viewport hack for Surface/desktop Windows 8 bug #}
+        <script src="{{ 'assets/js/ie10-viewport-bug-workaround.js'|theme }}"></script>
+        <script src="{{ 'assets/js/octoshop.js'|theme }}"></script>
     </body>
 </html>

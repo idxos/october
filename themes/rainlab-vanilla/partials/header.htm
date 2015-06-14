@@ -87,10 +87,19 @@
                     <li><a href="{{ 'theme-darko'|page }}">Theme Darko</a></li>
                   </ul>
                 </li>
-                <li class="{% if this.page.id == 'sandbox' %}active{% endif %}"><a href="{{ 'sandbox'|page }}">SANDBOX</a></li>
-                <li class="{% if this.page.id == 'icons' %}active{% endif %}"><a href="{{ 'icons'|page }}">ICONS</a></li>
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">SHOP<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="{% if this.page.id == 'browse' %}active{% endif %}"><a href="{{ 'browse'|page }}">Products</a></li>
+                        <li class="{% if this.page.id == 'basket' %}active{% endif %}"><a href="{{ 'basket'|page }}">Basket</a></li>
+                        <li class="{% if this.page.id == 'checkout' %}active{% endif %}"><a href="{{ 'checkout'|page }}">Checkout</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li class="active navbar-right" id="minibasket">
+                  {% partial "minibasket" %}
+                </li>
                 {% if user %}
                     <li><a href="#" data-request="onLogout">Logout</a></li>
                   { % ifelse %}
@@ -98,6 +107,8 @@
                     <li><a href="{{ 'account'|page }}">Join</a></li>
                 {% endif %}
             </ul>
+            
+            
         </div>
     </div>
 </nav>
