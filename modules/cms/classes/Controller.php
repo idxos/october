@@ -18,7 +18,6 @@ use Twig_Environment;
 use Cms\Twig\Loader as TwigLoader;
 use Cms\Twig\DebugExtension;
 use Cms\Twig\Extension as CmsTwigExtension;
-use Cms\Classes\FileHelper as CmsFileHelper;
 use Cms\Models\MaintenanceSettings;
 use System\Models\RequestLog;
 use System\Classes\ErrorHandler;
@@ -106,12 +105,12 @@ class Controller
     /**
      * @var Cms\Classes\ComponentBase Object of the active component, used internally.
      */
-    protected $componentContext;
+    protected $componentContext = null;
 
     /**
      * @var array Component partial stack, used internally.
      */
-    protected $partialComponentStack = [];
+    protected $partialStack = [];
 
     /**
      * Creates the controller.
@@ -127,6 +126,7 @@ class Controller
 
         $this->assetPath = Config::get('cms.themesPath', '/themes').'/'.$this->theme->getDirName();
         $this->router = new Router($this->theme);
+        $this->partialStack = new PartialStack;
         $this->initTwigEnvironment();
 
         self::$instance = $this;
@@ -154,7 +154,7 @@ class Controller
          * Hidden page
          */
         $page = $this->router->findByUrl($url);
-        if ($page && $page->hidden) {
+        if ($page && $page->is_hidden) {
             if (!BackendAuth::getUser()) {
                 $page = null;
             }
@@ -461,20 +461,21 @@ class Controller
 
     /**
      * Post-processes page HTML code before it's sent to the client.
+     * Note for pre-processing see cms.template.processTwigContent event.
      * @param \Cms\Classes\Page $page Specifies the current CMS page.
      * @param string $url Specifies the current URL.
-     * @param string $html The page markup to post processs.
+     * @param string $content The page markup to post processs.
      * @return string Returns the updated result string.
      */
-    protected function postProcessResult($page, $url, $html)
+    protected function postProcessResult($page, $url, $content)
     {
-        $html = MediaViewHelper::instance()->processHtml($html);
+        $content = MediaViewHelper::instance()->processHtml($content);
 
-        $holder = (object) ['html' => $html];
+        $dataHolder = (object) ['content' => $content];
 
-        Event::fire('cms.page.postprocess', [$this, $url, $page, $holder]);
+        Event::fire('cms.page.postprocess', [$this, $url, $page, $dataHolder]);
 
-        return $holder->html;
+        return $dataHolder->content;
     }
 
     //
@@ -566,12 +567,29 @@ class Controller
     //
 
     /**
+     * Returns the AJAX handler for the current request, if available.
+     * @return string
+     */
+    public function getAjaxHandler()
+    {
+        if (!Request::ajax() || Request::method() != 'POST') {
+            return null;
+        }
+
+        if ($handler = Request::header('X_OCTOBER_REQUEST_HANDLER')) {
+            return trim($handler);
+        }
+
+        return null;
+    }
+
+    /**
      * Executes the page, layout, component and plugin AJAX handlers.
      * @return mixed Returns the AJAX Response object or null.
      */
     protected function execAjaxHandlers()
     {
-        if ($handler = trim(Request::header('X_OCTOBER_REQUEST_HANDLER'))) {
+        if ($handler = $this->getAjaxHandler()) {
             try {
                 /*
                  * Validate the handler name
@@ -829,6 +847,8 @@ class Controller
          */
 
         if ($partial instanceof Partial) {
+            $this->partialStack->stackPartial();
+
             $manager = ComponentManager::instance();
 
             foreach ($partial->settings['components'] as $component => $properties) {
@@ -850,10 +870,7 @@ class Controller
                 $componentObj->alias = $alias;
                 $parameters[$alias] = $partial->components[$alias] = $componentObj;
 
-                array_push($this->partialComponentStack, [
-                    'name' => $alias,
-                    'obj' => $componentObj
-                ]);
+                $this->partialStack->addComponent($alias, $componentObj);
 
                 $this->setComponentPropertiesFromParams($componentObj, $parameters);
                 $componentObj->init();
@@ -872,7 +889,7 @@ class Controller
         }
 
         /*
-         * Render the parital
+         * Render the partial
          */
         CmsException::mask($partial, 400);
         $this->loader->setObject($partial);
@@ -881,13 +898,10 @@ class Controller
         CmsException::unmask();
 
         if ($partial instanceof Partial) {
-            if ($this->partialComponentStack) {
-                array_pop($this->partialComponentStack);
-            }
+            $this->partialStack->unstackPartial();
         }
 
         $this->vars = $vars;
-        $this->componentContext = null;
         return $result;
     }
 
@@ -944,17 +958,15 @@ class Controller
      */
     public function renderComponent($name, $parameters = [])
     {
-        $componentVars = [];
         if ($componentObj = $this->findComponentByName($name)) {
             $componentObj->id = uniqid($name);
             $componentObj->setProperties(array_merge($componentObj->getProperties(), $parameters));
-            $componentVars = $componentObj->getVars();
             if ($result = $componentObj->onRender()) {
                 return $result;
             }
         }
 
-        return $this->renderPartial($name.'::default', $componentVars, false);
+        return $this->renderPartial($name.'::default', [], false);
     }
 
     //
@@ -1104,7 +1116,11 @@ class Controller
      */
     public function currentPageUrl($parameters = [], $routePersistence = true)
     {
-        return $this->pageUrl($this->page->getFileName(), $parameters, $routePersistence);
+        if (!$currentFile = $this->page->getFileName()) {
+            return null;
+        }
+
+        return $this->pageUrl($currentFile, $parameters, $routePersistence);
     }
 
     /**
@@ -1129,6 +1145,16 @@ class Controller
         }
 
         return $_url;
+    }
+
+    /**
+     * Converts supplied file to a URL relative to the media library.
+     * @param string $file Specifies the media-relative file
+     * @return string
+     */
+    public function mediaUrl($file = null)
+    {
+        return MediaLibrary::url($file);
     }
 
     /**
@@ -1194,10 +1220,9 @@ class Controller
             return $this->layout->components[$name];
         }
 
-        foreach ($this->partialComponentStack as $componentInfo) {
-            if ($componentInfo['name'] == $name) {
-                return $componentInfo['obj'];
-            }
+        $partialComponent = $this->partialStack->getComponent($name);
+        if ($partialComponent !== null) {
+            return $partialComponent;
         }
 
         return null;
@@ -1260,7 +1285,7 @@ class Controller
      * @param ComponentBase $component
      * @return void
      */
-    public function setComponentContext(ComponentBase $component)
+    public function setComponentContext(ComponentBase $component = null)
     {
         $this->componentContext = $component;
     }

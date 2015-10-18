@@ -68,7 +68,6 @@ class FormController extends ControllerBehavior
     /**
      * Behavior constructor
      * @param Backend\Classes\Controller $controller
-     * @return void
      */
     public function __construct($controller)
     {
@@ -126,8 +125,9 @@ class FormController extends ControllerBehavior
             $this->controller->formExtendFields($this->formWidget, $fields);
         });
 
-        $this->formWidget->bindEvent('form.beforeRefresh', function ($saveData) {
-            return $this->controller->formExtendRefreshData($this->formWidget, $saveData);
+        $this->formWidget->bindEvent('form.beforeRefresh', function ($holder) {
+            $result = $this->controller->formExtendRefreshData($this->formWidget, $holder->data);
+            if (is_array($result)) $holder->data = $result;
         });
 
         $this->formWidget->bindEvent('form.refreshFields', function ($fields) {
@@ -693,7 +693,7 @@ class FormController extends ControllerBehavior
             if (!is_a($widget->getController(), $calledClass)) {
                 return;
             }
-            $callback($widget, $widget->model, $widget->getContext());
+            call_user_func_array($callback, [$widget, $widget->model, $widget->getContext()]);
         });
     }
 

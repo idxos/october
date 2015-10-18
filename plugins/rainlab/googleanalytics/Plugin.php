@@ -13,7 +13,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'Google Analytics',
-            'description' => 'Provides the Google Analytics tracking and reporting.',
+            'description' => 'rainlab.googleanalytics::lang.strings.plugin_desc',
             'author'      => 'Alexey Bobkov, Samuel Georges',
             'icon'        => 'icon-bar-chart-o'
         ];
@@ -23,6 +23,16 @@ class Plugin extends PluginBase
     {
         return [
             '\RainLab\GoogleAnalytics\Components\Tracker' => 'googleTracker'
+        ];
+    }
+
+    public function registerPermissions()
+    {
+        return [
+            'rainlab.googleanalytics.access_settings' => [
+                'tab'   => 'rainlab.googleanalytics::lang.permissions.tab',
+                'label' => 'rainlab.googleanalytics::lang.permissions.settings',
+            ],
         ];
     }
 
@@ -58,10 +68,16 @@ class Plugin extends PluginBase
             'config' => [
                 'label'       => 'Google Analytics',
                 'icon'        => 'icon-bar-chart-o',
-                'description' => 'Configure Google Analytics API code and tracking options.',
+                'description' => 'rainlab.googleanalytics::lang.strings.settings_desc',
                 'class'       => 'RainLab\GoogleAnalytics\Models\Settings',
+                'permissions' => ['rainlab.googleanalytics.settings'],
                 'order'       => 600
             ]
         ];
+    }
+
+    public function boot()
+    {
+        set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__.'/vendor/google/apiclient/src');
     }
 }

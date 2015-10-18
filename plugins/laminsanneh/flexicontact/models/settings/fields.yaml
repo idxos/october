@@ -1,0 +1,25 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  recipient_email:
+    label: laminsanneh.flexicontact::lang.strings.recipient_email
+    comment: laminsanneh.flexicontact::lang.strings.recipient_email_comment
+    description: laminsanneh.flexicontact::lang.strings.recipient_email_desc
+    type: text
+  recipient_name:
+    label: laminsanneh.flexicontact::lang.strings.recipient_name
+    comment: laminsanneh.flexicontact::lang.strings.recipient_name_comment
+    description: laminsanneh.flexicontact::lang.strings.recipient_name_desc
+    type: text
+  subject:
+    label: laminsanneh.flexicontact::lang.strings.subject
+    comment: laminsanneh.flexicontact::lang.strings.subject_comment
+    description: laminsanneh.flexicontact::lang.strings.subject_desc
+    type: text
+  confirmation_text:
+    label: laminsanneh.flexicontact::lang.strings.confirmation_text
+    comment: laminsanneh.flexicontact::lang.strings.confirmation_text_comment
+    description: laminsanneh.flexicontact::lang.strings.confirmation_text_desc
+    type: textarea

@@ -27,13 +27,15 @@ class ServiceProvider extends ModuleServiceProvider
         $this->registerComponents();
         $this->registerAssetBundles();
 
-        // Disabled for now
-        // if (App::runningInBackend()) {
+        /*
+         * Backend specific
+         */
+        if (App::runningInBackend()) {
             $this->registerBackendNavigation();
             $this->registerBackendPermissions();
             $this->registerBackendWidgets();
             $this->registerBackendSettings();
-        // }
+        }
     }
 
     /**
@@ -46,6 +48,7 @@ class ServiceProvider extends ModuleServiceProvider
         parent::boot('cms');
 
         $this->bootMenuItemEvents();
+        $this->bootRichEditorEvents();
     }
 
     /**
@@ -69,6 +72,7 @@ class ServiceProvider extends ModuleServiceProvider
         CombineAssets::registerCallback(function($combiner) {
             $combiner->registerBundle('~/modules/cms/widgets/mediamanager/assets/js/mediamanager-global.js');
             $combiner->registerBundle('~/modules/cms/widgets/mediamanager/assets/js/mediamanager-browser.js');
+            $combiner->registerBundle('~/modules/cms/widgets/mediamanager/assets/less/mediamanager.less');
         });
     }
 
@@ -140,7 +144,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'label'       => 'cms::lang.media.menu_label',
                     'icon'        => 'icon-folder',
                     'url'         => Backend::url('cms/media'),
-                    'permissions' => ['cms.*'],
+                    'permissions' => ['media.*'],
                     'order'       => 20
                 ]
             ]);
@@ -183,6 +187,11 @@ class ServiceProvider extends ModuleServiceProvider
                     'label' => 'cms::lang.permissions.manage_themes',
                     'tab' => 'cms::lang.permissions.name',
                     'order' => 100
+                ],
+                'media.manage_media' => [
+                    'label' => 'cms::lang.permissions.manage_media',
+                    'tab' => 'cms::lang.permissions.name',
+                    'order' => 100
                 ]
             ]);
         });
@@ -195,6 +204,10 @@ class ServiceProvider extends ModuleServiceProvider
     {
         WidgetManager::instance()->registerFormWidgets(function ($manager) {
             $manager->registerFormWidget('Cms\FormWidgets\Components');
+            $manager->registerFormWidget('Cms\FormWidgets\MediaFinder', [
+                'label' => 'Media Finder',
+                'code'  => 'mediafinder'
+            ]);
         });
     }
 
@@ -250,4 +263,23 @@ class ServiceProvider extends ModuleServiceProvider
             }
         });
     }
+
+    /**
+     * Registers events for rich editor page links.
+     */
+    protected function bootRichEditorEvents()
+    {
+        Event::listen('backend.richeditor.listTypes', function () {
+            return [
+                'cms-page' => 'CMS Page'
+            ];
+        });
+
+        Event::listen('backend.richeditor.getTypeInfo', function ($type) {
+            if ($type == 'cms-page') {
+                return CmsPage::getRichEditorTypeInfo($type);
+            }
+        });
+    }
+
 }

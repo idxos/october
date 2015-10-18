@@ -1,7 +1,9 @@
 <?php namespace Cms\Classes;
 
-use Config;
 use File;
+use Config;
+use Backend\Models\UserPreferences;
+use Carbon\Carbon;
 
 /**
  * Represents a file or folder in the Media Library.
@@ -22,7 +24,7 @@ class MediaLibraryItem
     /**
      * @var string Specifies the item path relative to the Library root.
      */
-    public $path; 
+    public $path;
 
     /**
      * @var integer Specifies the item size.
@@ -48,15 +50,15 @@ class MediaLibraryItem
 
     /**
      * @var array Contains a default list of files and directories to ignore.
-     * The list can be customized with the following configuration options: 
+     * The list can be customized with the following configuration options:
      * - cms.storage.media.image_extensions
      * - cms.storage.media.video_extensions
      * - cms.storage.media.audo_extensions
      */
     protected static $defaultTypeExtensions = [
         'image' => ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
-        'video' => ['mp4', 'avi', 'mov', 'mpg'],
-        'audio' => ['mp3', 'wav', 'wma', 'm4a']
+        'video' => ['mp4', 'avi', 'mov', 'mpg', 'mpeg', 'mkv', 'webm'],
+        'audio' => ['mp3', 'wav', 'wma', 'm4a', 'ogg']
     ];
 
     protected static $imageExtensions;
@@ -84,8 +86,9 @@ class MediaLibraryItem
      */
     public function getFileType()
     {
-        if (!$this->isFile())
+        if (!$this->isFile()) {
             return null;
+        }
 
         if (!self::$imageExtensions) {
             self::$imageExtensions = Config::get('cms.storage.media.image_extensions', self::$defaultTypeExtensions['image']);
@@ -94,17 +97,21 @@ class MediaLibraryItem
         }
 
         $extension = pathinfo($this->path, PATHINFO_EXTENSION);
-        if (!strlen($extension))
+        if (!strlen($extension)) {
             return self::FILE_TYPE_DOCUMENT;
+        }
 
-        if (in_array($extension, self::$imageExtensions))
+        if (in_array($extension, self::$imageExtensions)) {
             return self::FILE_TYPE_IMAGE;
+        }
 
-        if (in_array($extension, self::$videoExtensions))
+        if (in_array($extension, self::$videoExtensions)) {
             return self::FILE_TYPE_VIDEO;
+        }
 
-        if (in_array($extension, self::$audioExtensions))
+        if (in_array($extension, self::$audioExtensions)) {
             return self::FILE_TYPE_AUDIO;
+        }
 
         return self::FILE_TYPE_DOCUMENT;
     }
@@ -117,17 +124,21 @@ class MediaLibraryItem
      */
     public function sizeToString()
     {
-        return $this->type == self::TYPE_FILE ? 
-            File::sizeToString($this->size) : 
-            $this->size.' '.trans('cms::lang.media.folder_size_items');
+        return $this->type == self::TYPE_FILE
+            ? File::sizeToString($this->size)
+            : $this->size.' '.trans('cms::lang.media.folder_size_items');
     }
 
     /**
      * Returns the item last modification date as string.
-     * @return string Returns the item last modification date as string.
+     * @return string Returns the item's last modification date as string.
      */
     public function lastModifiedAsString()
     {
-        return $this->lastModified ? date('M d, Y', $this->lastModified) : null;
+        if (!($date = $this->lastModified)) {
+            return null;
+        }
+
+        return Carbon::createFromTimestamp($date)->toFormattedDateString();
     }
 }

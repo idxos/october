@@ -6,6 +6,7 @@ return [
         'tagline' => 'Atgriežamies pie pamatiem'
     ],
     'locale' => [
+        'cs' => 'Czech',
         'en' => 'English',
         'de' => 'German',
         'es' => 'Spanish',
@@ -23,10 +24,11 @@ return [
         'pt-br' => 'Portuguese (Brazil)',
         'ro' => 'Romanian',
         'ru' => 'Russian',
-        'se' => 'Swedish',
+        'sv' => 'Swedish',
         'sk' => 'Slovak (Slovakia)',
         'tr' => 'Turkish',
-        'zh-cn' => 'Chinese (China)'
+        'zh-cn' => 'Chinese (China)',
+        'zh-tw' => 'Chinese (Taiwan)',
     ],
     'directory' => [
         'create_fail' => 'Nevar izveidot mapi: :name'
@@ -56,6 +58,7 @@ return [
         ]
     ],
     'theme' => [
+        'label' => 'Tēma',
         'unnamed' => 'Nenosaukta tēma',
         'name' => [
             'label' => 'Tēmas Nosaukums',
@@ -71,6 +74,7 @@ return [
         'remove_confirm' => 'Vai esat pārliecināts, ka vēlaties noņemt šo tēmu?'
     ],
     'plugin' => [
+        'label' => 'Spraudnis',
         'unnamed' => 'Nenosaukts spraudnis',
         'name' => [
             'label' => 'Spraudņa nosaukums',
@@ -91,6 +95,8 @@ return [
         'refresh' => 'Atsvaidzināt',
         'disabled_label' => 'Atspējots',
         'disabled_help' => 'Atspējotie spraudņi tiek ignorēti.',
+        'frozen_label' => 'Iesaldēt spraudņus',
+        'frozen_help' => 'Spraudņi, kuri ir iesaldēti tiks ignorēti atjaunināšanas procesā.',
         'selected_amount' => 'Izvēlēti spraudņi: :amount',
         'remove_confirm' => 'Vai esat pārliecināts, ka vēlaties noņemt šo sparudni?',
         'remove_success' => 'Šie spraudņi tika veiksmīgi noņemti no sistēmas.',
@@ -150,7 +156,9 @@ return [
         'mailgun_secret_comment' => 'Ievadiet savu Mailgun API kodu.',
         'mandrill' => 'Mandrill',
         'mandrill_secret' => 'Mandrill Secret',
-        'mandrill_secret_comment' => 'Ievadiet savu Mandrill API kodu.'
+        'mandrill_secret_comment' => 'Ievadiet savu Mandrill API kodu.',
+        'drivers_hint_header' => 'Dziņi nav instalēti',
+        'drivers_hint_content' => 'Šai pasta metodei nepieciešams spraudnis ":plugin" instalējiet to pirms pasta sūtīšanas.'
     ],
     'mail_templates' => [
         'menu_label' => 'Epasta veidnes',
@@ -190,16 +198,17 @@ return [
         'name' => 'Programmatūras atjauninājumi',
         'menu_label' => 'Atjauninājumi',
         'menu_description' => 'Atjauniniet sistēmu, pārvaldiet un instalējiet spraudņus un tēmas.',
+        'return_link' => 'Atgriezties sistēmas atjauninājumos',
         'check_label' => 'Pārbaudīt atjauninājumus',
         'retry_label' => 'Mēģināt vēlreiz',
         'plugin_name' => 'Nosaukums',
+        'plugin_code' => 'Kods',
         'plugin_description' => 'Apraksts',
         'plugin_version' => 'Versija',
         'plugin_author' => 'Autors',
-        'core_build' => 'Patreizējā versija',
-        'core_build_old' => 'Patreizējā versija :build',
-        'core_build_new' => 'Versija :build',
-        'core_build_new_help' => 'Jaunāka versija ir pieejama.',
+        'core_current_build' => 'Patreizējā versija',
+        'core_build' => 'Versija :build',
+        'core_build_help' => 'Jaunāka versija ir pieejama.',
         'core_downloading' => 'Lejupielādējam aplikācijas failus',
         'core_extracting' => 'Atpakojam aplikācijas failus',
         'plugins' => 'Spraudņi',
@@ -208,9 +217,7 @@ return [
         'plugin_downloading' => 'Lejupielādējam spraudni: :name',
         'plugin_extracting' => 'Atpakojam spraudni: :name',
         'plugin_version_none' => 'Jauns spraudnis',
-        'plugin_version_old' => 'Tagadējā v:version',
-        'plugin_version_new' => 'v:version',
-        'theme_label' => 'Tēma',
+        'plugin_current_version' => 'Patreizējā versija',
         'theme_new_install' => 'Jauna tēmas instalācija.',
         'theme_downloading' => 'Lejupielādējam tēmu: :name',
         'theme_extracting' => 'Atpakojam tēmu: :name',
@@ -227,7 +234,24 @@ return [
         'none' => [
             'label' => 'Nav atjauninājumu',
             'help' => 'Netika atrasti jauni atjauninājumi.'
-        ]
+        ],
+        'important_action' => [
+            'empty' => 'Izvēlēties darbību',
+            'confirm' => 'Apstiprināt atjauninājumu',
+            'skip' => 'Izlaist šo spraudni (vienreiz)',
+            'ignore' => 'Izlaist šo spraudni (vienmēr)',
+        ],
+        'important_action_required' => 'Jāpievērš uzmanība',
+        'important_view_guide' => 'Skatīt atjaunināšanas padomus',
+        'important_alert_text' => 'Daži atjauninājumi ir jāpārskata.',
+        'details_title' => 'Spraudņa detaļas',
+        'details_view_homepage' => 'Rādīt mājaslapu',
+        'details_readme' => 'Dokumentācija',
+        'details_readme_missing' => 'Dokumentācija nav pievienota.',
+        'details_upgrades' => 'Atjaunināšanas padomi',
+        'details_upgrades_missing' => 'Atjaunināšanas padomi nav pievienoti.',
+        'details_current_version' => 'Patreizējā versija',
+        'details_author' => 'Autors',
     ],
     'server' => [
         'connect_error' => 'Kļūda savienojoties ar serveri.',

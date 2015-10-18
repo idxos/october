@@ -1,5 +1,6 @@
 <?php namespace System\Classes;
 
+use Db;
 use App;
 use URL;
 use File;
@@ -208,6 +209,8 @@ class UpdateManager
         $installed = PluginVersion::all();
         $versions = $installed->lists('version', 'code');
         $names = $installed->lists('name', 'code');
+        $icons = $installed->lists('icon', 'code');
+        $frozen = $installed->lists('is_frozen', 'code');
         $build = Parameters::get('system::core.build');
 
         $params = [
@@ -239,7 +242,18 @@ class UpdateManager
         foreach (array_get($result, 'plugins', []) as $code => $info) {
             $info['name'] = isset($names[$code]) ? $names[$code] : $code;
             $info['old_version'] = isset($versions[$code]) ? $versions[$code] : false;
-            $plugins[$code] = $info;
+            $info['icon'] = isset($icons[$code]) ? $icons[$code] : false;
+
+            /*
+             * If plugin has updates frozen, do not add it to the list
+             * and discount an update unit.
+             */
+            if (isset($frozen[$code]) && $frozen[$code]) {
+                $updateCount = max(0, --$updateCount);
+            }
+            else {
+                $plugins[$code] = $info;
+            }
         }
         $result['plugins'] = $plugins;
 
@@ -402,6 +416,9 @@ class UpdateManager
 
         @unlink($filePath);
 
+        // Database may fall asleep after this long process
+        Db::reconnect();
+
         Parameters::set([
             'system::core.hash'  => $hash,
             'system::core.build' => $build
@@ -420,6 +437,17 @@ class UpdateManager
     public function requestPluginDetails($name)
     {
         $result = $this->requestServerData('plugin/detail', ['name' => $name]);
+        return $result;
+    }
+
+    /**
+     * Looks up content for a plugin from the update server.
+     * @param string $name Plugin name.
+     * @return array Content for the plugin.
+     */
+    public function requestPluginContent($name)
+    {
+        $result = $this->requestServerData('plugin/content', ['name' => $name]);
         return $result;
     }
 
@@ -808,7 +836,7 @@ class UpdateManager
      */
     protected function applyHttpAttributes($http, $postData)
     {
-        $postData['url'] = base64_encode(URL::to('/'));
+        $postData['server'] = base64_encode(serialize(['php' => PHP_VERSION, 'url' => URL::to('/')]));
         if (Config::get('cms.edgeUpdates', false)) {
             $postData['edge'] = 1;
         }

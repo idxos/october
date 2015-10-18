@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title></title>
+		<link></link>
+		<description></description>
+		<atom:link href="/rss.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+			<title>CSS tricks with letter-spacing vs word-spacing</title>
+			<link>/css-tricks-letter-spacing-vs-word-spacing</link>
+			<guid>/css-tricks-letter-spacing-vs-word-spacing</guid>
+			<pubDate>Fri, 31 Jul 2015 00:00:00 -0400</pubDate>
+			<description>&lt;p&gt;Customize your UI with css&#039;s &#039;letter-spacing&#039; and &#039;word-spacing&#039; class attributes.&lt;/p&gt;</description>
+		</item>
+		<item>
+			<title>WhirlygigDesigns Website</title>
+			<link>/whirlygigdesigns-website</link>
+			<guid>/whirlygigdesigns-website</guid>
+			<pubDate>Tue, 09 Jun 2015 00:00:00 -0400</pubDate>
+			<description>&lt;p&gt;Local interior designer Michelle Lane owner of Whirlygig Designs LLC, had recently moved to the area and need some major updates to her existing website...&lt;/p&gt;</description>
+		</item>
+		<item>
+			<title>Donna Sintay’s Website</title>
+			<link>/donna-sintays-website</link>
+			<guid>/donna-sintays-website</guid>
+			<pubDate>Tue, 09 Jun 2015 00:00:00 -0400</pubDate>
+			<description>&lt;p&gt;Donna Sintay, a real estate Broker-In-Charge had just changed real estate firms and did not have any web platform for marketing...&lt;/p&gt;</description>
+		</item>
+		<item>
+			<title>Wendy Smith Team’s Real Estate Website</title>
+			<link>/wendy-smith-teams-real-estate-website</link>
+			<guid>/wendy-smith-teams-real-estate-website</guid>
+			<pubDate>Tue, 09 Jun 2015 00:00:00 -0400</pubDate>
+			<description>&lt;p&gt;Wendy is a real estate broker who was looking for a fully featured, cross-platform, website...&lt;/p&gt;</description>
+		</item>
+	</channel>
+</rss>

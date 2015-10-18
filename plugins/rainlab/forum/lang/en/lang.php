@@ -23,7 +23,7 @@ return [
     ],
     'channels' => [
         'new_channel' => 'New Channel',
-        'sure' => 'Are you sure?',
+        'delete_selected_confirm' => 'Are you sure?',
         'delete' => 'Delete',
         'manage' => 'Manage Channel Order',
         'return' => 'Return to Channels',
@@ -112,7 +112,7 @@ return [
     ],
     'topicpage' => [
         'name' => 'Topic',
-        'self' => 'Displays a topic and posts.',
+        'self_desc' => 'Displays a topic and posts.',
         'slug_name' => 'Slug param name',
         'slug_desc' => 'The URL route parameter used for looking up the topic by its slug. A hard coded slug can also be used.',
         'channel_title' => 'Channel Page',

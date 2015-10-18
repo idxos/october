@@ -64,7 +64,7 @@ class Topic extends ComponentBase
     {
         return [
             'name'        => 'rainlab.forum::lang.topicpage.name',
-            'description' => 'rainlab.forum::lang.topicpage.desc'
+            'description' => 'rainlab.forum::lang.topicpage.self_desc'
         ];
     }
 
@@ -286,6 +286,9 @@ class Topic extends ComponentBase
             $member = $this->getMember();
             $channel = $this->getChannel();
 
+            if (TopicModel::checkThrottle($member))
+                throw new ApplicationException('Please wait a few minutes before posting another topic.');
+
             if ($member->is_banned)
                 throw new ApplicationException('You cannot create new topics: Your account is banned.');
 
@@ -369,11 +372,14 @@ class Topic extends ComponentBase
                 throw new ApplicationException('You cannot edit posts or make replies.');
             }
 
-            $post->save(post());
+            $post->fill(post());
+            $post->save();
 
             // First post will update the topic subject
-            if ($topic->first_post->id == $post->id)
-                $topic->save(['subject' => post('subject')]);
+            if ($topic->first_post->id == $post->id) {
+                $topic->fill(['subject' => post('subject')]);
+                $topic->save();
+            }
         }
         elseif ($mode == 'delete') {
             $post->delete();
@@ -418,7 +424,7 @@ class Topic extends ComponentBase
         }
     }
 
-    public function onFollow($isAjax = true)
+    public function onFollow()
     {
         try {
             if (!$user = Auth::getUser())
@@ -431,12 +437,12 @@ class Topic extends ComponentBase
             $member->touchActivity();
         }
         catch (Exception $ex) {
-            if ($isAjax) throw $ex;
+            if (Request::ajax()) throw $ex;
             else Flash::error($ex->getMessage());
         }
     }
 
-    public function onSticky($isAjax = true)
+    public function onSticky()
     {
         try {
             $member = $this->getMember();
@@ -450,12 +456,12 @@ class Topic extends ComponentBase
             $this->page['topic']  = $topic;
         }
         catch (Exception $ex) {
-            if ($isAjax) throw $ex;
+            if (Request::ajax()) throw $ex;
             else Flash::error($ex->getMessage());
         }
     }
 
-    public function onLock($isAjax = true)
+    public function onLock()
     {
         try {
             $member = $this->getMember();
@@ -469,7 +475,7 @@ class Topic extends ComponentBase
             $this->page['topic']  = $topic;
         }
         catch (Exception $ex) {
-            if ($isAjax) throw $ex;
+            if (Request::ajax()) throw $ex;
             else Flash::error($ex->getMessage());
         }
     }

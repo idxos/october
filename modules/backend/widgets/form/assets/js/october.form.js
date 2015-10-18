@@ -5,22 +5,48 @@
  * - Nil
  */
 +function ($) { "use strict";
+    var Base = $.oc.foundation.base,
+        BaseProto = Base.prototype
 
     var FormWidget = function (element, options) {
+        this.$el = $(element)
+        this.options = options || {}
 
-        var $el = this.$el = $(element);
+        /*
+         * Throttle dependency updating
+         */
+        this.dependantUpdateInterval = 300
+        this.dependantUpdateTimers = {}
 
-        this.$form = $el.closest('form')
-        this.options = options || {};
+        $.oc.foundation.controlUtils.markDisposable(element)
+        Base.call(this)
+        this.init()
+    }
+
+    FormWidget.prototype = Object.create(BaseProto)
+    FormWidget.prototype.constructor = FormWidget
+
+    FormWidget.prototype.init = function() {
+
+        this.$form = this.$el.closest('form')
 
         this.bindDependants()
         this.bindCheckboxlist()
         this.toggleEmptyTabs()
         this.bindCollapsibleSections()
+
+        this.$el.on('oc.triggerOn.afterUpdate', this.proxy(this.toggleEmptyTabs))
+        this.$el.one('dispose-control', this.proxy(this.dispose))
     }
 
-    FormWidget.DEFAULTS = {
-        refreshHandler: null
+    FormWidget.prototype.dispose = function() {
+        this.$el.off('dispose-control', this.proxy(this.dispose))
+        this.$el.removeData('oc.formwidget')
+
+        this.$el = null
+        this.options = null
+
+        BaseProto.dispose.call(this)
     }
 
     /*
@@ -51,13 +77,12 @@
     FormWidget.prototype.bindDependants = function() {
         var self = this,
             form = this.$el,
-            formEl = this.$form,
             fieldMap = {}
 
         /*
-         * Map master and slave field map
+         * Map master and slave fields
          */
-        form.find('[data-field-depends]').each(function(){
+        form.find('[data-field-depends]').each(function() {
             var name = $(this).data('field-name'),
                 depends = $(this).data('field-depends')
 
@@ -73,36 +98,79 @@
          * When a master is updated, refresh its slaves
          */
         $.each(fieldMap, function(fieldName, toRefresh){
-            form.find('[data-field-name="'+fieldName+'"]')
-                .on('change', 'select, input', function(){
-                    formEl.request(self.options.refreshHandler, {
-                        data: toRefresh
-                    }).success(function(){
-                        self.toggleEmptyTabs()
-                    })
-
-                    $.each(toRefresh.fields, function(index, field){
-                        form.find('[data-field-name="'+field+'"]:visible')
-                            .addClass('loading-indicator-container size-form-field')
-                            .loadIndicator()
-                    })
-                })
+            form
+                .find('[data-field-name="'+fieldName+'"]')
+                .on('change.oc.formwidget', $.proxy(self.onRefreshDependants, self, fieldName, toRefresh))
         })
     }
 
     /*
-     * Hides tabs that have no content
+     * Refresh a dependancy field
+     * Uses a throttle to prevent duplicate calls and click spamming
+     */
+    FormWidget.prototype.onRefreshDependants = function(fieldName, toRefresh) {
+        var self = this,
+            form = this.$el,
+            formEl = this.$form
+
+        if (this.dependantUpdateTimers[fieldName] !== undefined) {
+            window.clearTimeout(this.dependantUpdateTimers[fieldName])
+        }
+
+        this.dependantUpdateTimers[fieldName] = window.setTimeout(function() {
+            formEl.request(self.options.refreshHandler, {
+                data: toRefresh
+            }).success(function() {
+                self.toggleEmptyTabs()
+            })
+        }, this.dependantUpdateInterval)
+
+        $.each(toRefresh.fields, function(index, field) {
+            form.find('[data-field-name="'+field+'"]:visible')
+                .addClass('loading-indicator-container size-form-field')
+                .loadIndicator()
+        })
+    }
+
+    /*
+     * Hides tabs that have no content, it is possible this can be
+     * called multiple times in a single cycle due to input.trigger.
      */
     FormWidget.prototype.toggleEmptyTabs = function() {
-        var tabControl = $('[data-control=tab]', this.$el)
+        var self = this,
+            form = this.$el
 
-        if (!tabControl.length)
-            return
+        if (this.toggleEmptyTabsTimer !== undefined) {
+            window.clearTimeout(this.toggleEmptyTabsTimer)
+        }
 
-        $('.tab-pane', tabControl).each(function(){
-            $('[data-target="#' + $(this).attr('id') + '"]', tabControl)
-                .toggle(!!$('.form-group:not(:empty)', $(this)).length)
-        })
+        this.toggleEmptyTabsTimer = window.setTimeout(function() {
+
+            var tabControl = $('[data-control=tab]', this.$el),
+                tabContainer = $('.nav-tabs', tabControl)
+
+            if (!tabControl.length || !$.contains(form.get(0), tabControl.get(0)))
+                return
+
+            /*
+             * Check each tab pane for form field groups
+             */
+            $('.tab-pane', tabControl).each(function() {
+                $('[data-target="#' + $(this).attr('id') + '"]', tabControl)
+                    .closest('li')
+                    .toggle(!!$('.form-group:not(:empty):not(.hide)', $(this)).length)
+            })
+
+            /*
+             * If a hidden tab was selected, select the first visible tab
+             */
+            if (!$('> li.active:visible', tabContainer).length) {
+                $('> li:visible:first', tabContainer)
+                    .find('> a:first')
+                    .tab('show')
+            }
+
+        }, 1)
     }
 
     /*
@@ -121,6 +189,10 @@
                     .nextUntil('.section-field').toggle()
             })
             .nextUntil('.section-field').hide()
+    }
+
+    FormWidget.DEFAULTS = {
+        refreshHandler: null
     }
 
     // FORM WIDGET PLUGIN DEFINITION
@@ -157,7 +229,7 @@
     // FORM WIDGET DATA-API
     // ==============
 
-    $(document).render(function(){
+    $(document).render(function() {
         $('[data-control="formwidget"]').formWidget();
     })
 

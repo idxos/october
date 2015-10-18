@@ -22,6 +22,7 @@ security = "all"
             'assets/css/site.css'
             ]|theme }}" rel="stylesheet">
         {% placeholder head %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
 
@@ -67,12 +68,11 @@ security = "all"
             'assets/vendor/bootstrap/js/scrollspy.js',
             'assets/vendor/bootstrap/js/tab.js',
             'assets/vendor/bootstrap/js/affix.js',
+            'assets/js/ie10-viewport-bug-workaround.js',
+            'assets/js/octoshop.js',
             'assets/javascript/app.js'
         ]|theme }}"></script>
         {% framework extras %}
         {% scripts %}
-        {# IE10 viewport hack for Surface/desktop Windows 8 bug #}
-        <script src="{{ 'assets/js/ie10-viewport-bug-workaround.js'|theme }}"></script>
-        <script src="{{ 'assets/js/octoshop.js'|theme }}"></script>
     </body>
 </html>

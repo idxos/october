@@ -6,21 +6,22 @@
         "source": {
             "type": "git",
             "url": "https://github.com/google/google-api-php-client.git",
-            "reference": "517fc2bb11d2d3cfd27af3f783fce6f2f61c688c"
+            "reference": "188e47442381b671184d36d60d7cb4bc0b71d8df"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-api-php-client/zipball/517fc2bb11d2d3cfd27af3f783fce6f2f61c688c",
-            "reference": "517fc2bb11d2d3cfd27af3f783fce6f2f61c688c",
+            "url": "https://api.github.com/repos/google/google-api-php-client/zipball/188e47442381b671184d36d60d7cb4bc0b71d8df",
+            "reference": "188e47442381b671184d36d60d7cb4bc0b71d8df",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.1"
         },
         "require-dev": {
-            "phpunit/phpunit": "3.7.*"
+            "phpunit/phpunit": "3.7.*",
+            "squizlabs/php_codesniffer": "~2.3"
         },
-        "time": "2015-05-21 19:40:29",
+        "time": "2015-09-10 17:05:21",
         "type": "library",
         "extra": {
             "branch-alias": {

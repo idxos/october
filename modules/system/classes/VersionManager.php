@@ -390,7 +390,8 @@ class VersionManager
             return $this->databaseHistory[$code];
         }
 
-        $historyInfo = Db::table('system_plugin_history')->where('code', $code)->get();
+        $historyInfo = Db::table('system_plugin_history')->where('code', $code)->orderBy('id')->get();
+
         return $this->databaseHistory[$code] = $historyInfo;
     }
 

@@ -6,7 +6,7 @@ use Event;
 use Config;
 use Backend;
 use Request;
-use DbDongle;
+use Validator;
 use BackendMenu;
 use BackendAuth;
 use Twig_Environment;
@@ -21,6 +21,7 @@ use System\Twig\Extension as TwigExtension;
 use System\Models\EventLog;
 use System\Models\MailSettings;
 use System\Models\MailTemplate;
+use System\Classes\CombineAssets;
 use Backend\Classes\WidgetManager;
 use October\Rain\Support\ModuleServiceProvider;
 use October\Rain\Router\Helper as RouterHelper;
@@ -50,6 +51,8 @@ class ServiceProvider extends ModuleServiceProvider
         $this->registerTwigParser();
         $this->registerMailer();
         $this->registerMarkupTags();
+        $this->registerAssetBundles();
+        $this->registerValidator();
 
         /*
          * Register other module providers
@@ -60,13 +63,15 @@ class ServiceProvider extends ModuleServiceProvider
             }
         }
 
-        // Disabled for now
-        // if (App::runningInBackend()) {
+        /*
+         * Backend specific
+         */
+        if (App::runningInBackend()) {
             $this->registerBackendNavigation();
             $this->registerBackendReportWidgets();
             $this->registerBackendPermissions();
             $this->registerBackendSettings();
-        // }
+        }
     }
 
     /**
@@ -173,6 +178,8 @@ class ServiceProvider extends ModuleServiceProvider
                 'trans'          => ['Lang', 'get'],
                 'transchoice'    => ['Lang', 'choice'],
                 'md'             => ['Markdown', 'parse'],
+                'time_since'     => ['System\Helpers\DateTime', 'timeSince'],
+                'time_tense'     => ['System\Helpers\DateTime', 'timeTense'],
             ]);
         });
     }
@@ -238,7 +245,7 @@ class ServiceProvider extends ModuleServiceProvider
     protected function registerLogging()
     {
         Event::listen('illuminate.log', function ($level, $message, $context) {
-            if (DbDongle::hasDatabase() && !defined('OCTOBER_NO_EVENT_LOGGING')) {
+            if (EventLog::useLogging()) {
                 EventLog::add($message, $level);
             }
         });
@@ -250,10 +257,10 @@ class ServiceProvider extends ModuleServiceProvider
     protected function registerTwigParser()
     {
         /*
-         * Register basic Twig
+         * Register system Twig environment
          */
-        App::singleton('twig', function ($app) {
-            $twig = new Twig_Environment(new TwigLoader(), ['auto_reload' => true]);
+        App::singleton('twig.environment', function ($app) {
+            $twig = new Twig_Environment(new TwigLoader, ['auto_reload' => true]);
             $twig->addExtension(new TwigExtension);
             return $twig;
         });
@@ -262,16 +269,7 @@ class ServiceProvider extends ModuleServiceProvider
          * Register .htm extension for Twig views
          */
         App::make('view')->addExtension('htm', 'twig', function () {
-            return new TwigEngine(App::make('twig'));
-        });
-
-        /*
-         * Register Twig that will parse strings
-         */
-        App::singleton('twig.string', function ($app) {
-            $twig = $app['twig'];
-            $twig->setLoader(new Twig_Loader_String);
-            return $twig;
+            return new TwigEngine(App::make('twig.environment'));
         });
     }
 
@@ -417,7 +415,8 @@ class ServiceProvider extends ModuleServiceProvider
                     'icon'        => 'icon-exclamation-triangle',
                     'url'         => Backend::url('system/eventlogs'),
                     'permissions' => ['system.access_logs'],
-                    'order'       => 900
+                    'order'       => 900,
+                    'keywords'    => 'error exception'
                 ],
                 'request_logs' => [
                     'label'       => 'system::lang.request_log.menu_label',
@@ -426,9 +425,45 @@ class ServiceProvider extends ModuleServiceProvider
                     'icon'        => 'icon-file-o',
                     'url'         => Backend::url('system/requestlogs'),
                     'permissions' => ['system.access_logs'],
-                    'order'       => 910
+                    'order'       => 910,
+                    'keywords'    => '404 error'
                 ]
             ]);
         });
     }
+
+    /**
+     * Register asset bundles
+     */
+    protected function registerAssetBundles()
+    {
+        /*
+         * Register asset bundles
+         */
+        CombineAssets::registerCallback(function($combiner) {
+            $combiner->registerBundle('~/modules/system/assets/less/styles.less');
+            $combiner->registerBundle('~/modules/system/assets/ui/storm.less');
+            $combiner->registerBundle('~/modules/system/assets/ui/storm.js');
+        });
+    }
+
+    /**
+     * Extends the validator with custom rules
+     */
+    protected function registerValidator()
+    {
+        /*
+         * Allowed file extensions, as opposed to mime types.
+         * - extensions: png,jpg,txt
+         */
+        Validator::extend('extensions', function($attribute, $value, $parameters) {
+            $extension = $value->getClientOriginalExtension();
+            return in_array($extension, $parameters);
+        });
+
+        Validator::replacer('extensions', function($message, $attribute, $rule, $parameters) {
+            return strtr($message, [':values' => implode(', ', $parameters)]);
+        });
+    }
+
 }

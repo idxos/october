@@ -25,6 +25,7 @@ return [
         ],
         'settings_menu' => 'Front-end tēma',
         'settings_menu_description' => 'Priekšskatiet instalētās tēmas un izvēlieties aktīvo tēmu.',
+        'default_tab' => 'Rekvizīti',
         'name_label' => 'Nosaukums',
         'name_create_placeholder' => 'Jaunas tēmas nosaukums',
         'author_label' => 'Autors',
@@ -38,8 +39,10 @@ return [
         'dir_name_label' => 'Direktorijas nosaukums',
         'dir_name_create_label' => 'Tēmas mērķdirektorija',
         'theme_label' => 'Tēma',
+        'theme_title' => 'Tēmas',
         'activate_button' => 'Aktivizēt',
         'active_button' => 'Aktivizēt',
+        'customize_theme' => 'Pielāgot tēmu',
         'customize_button' => 'Pielāgot',
         'duplicate_button' => 'Dublēt',
         'duplicate_title' => 'Dublēt tēmu',
@@ -75,6 +78,7 @@ return [
         'dir_name_invalid' => 'Nosaukums drīkst saturēt tikai skaitļus, Latīņu burtus un sekojošos simbolus: _-',
         'dir_name_taken' => 'Izvēlētā tēmas mape jau pastāv.',
         'find_more_themes' => 'Atrodast vairāk tēmas',
+        'saving' => 'Saglabājam tēmu...',
         'return' => 'Atgriezties tēmu sarakstā',
     ],
     'maintenance' => [
@@ -218,7 +222,7 @@ return [
     'template' => [
         'invalid_type' => 'Nezināms veidnes tips.',
         'not_found' => 'Pieprasītā veidne nav atrasta.',
-        'saved'=> 'Veidne tika veiksmīgi saglabāta.'
+        'saved'=> 'Fails tika veiksmīgi saglabāts.'
     ],
     'permissions' => [
         'name' => 'Cms',
@@ -227,7 +231,11 @@ return [
         'manage_pages' => 'Pārvaldīt lapas',
         'manage_layouts' => 'Pārvaldīt izkārtojumus',
         'manage_partials' => 'Pārvaldīt daļas',
-        'manage_themes' => 'Pārvaldīt tēmas'
+        'manage_themes' => 'Pārvaldīt tēmas',
+        'manage_media' => 'Pārvaldīt multividi'
+    ],
+    'mediafinder' => [
+        'default_prompt' => 'Klikšķiniet uz %s pogas, lai atrastu multividi'
     ],
     'media' => [
         'invalid_path' => "Norādīts nederīgs ceļš līdz failam: ':path'.",
@@ -258,7 +266,6 @@ return [
         'uploading_file_num' => 'Augšupielādējam :number failu(us)...',
         'uploading_complete' => 'Augšupielāde pabeigta',
         'order_by' => 'Kārtot pēc',
-        'search' => 'Meklēt',
         'folder' => 'Mape',
         'no_files_found' => 'Jūsu pieprasītie faili netika atrasti.',
         'delete_empty' => 'Lūdzu izvēlaties objektus, kurus dzēst.',

@@ -7,8 +7,6 @@ body.mainmenu-open {
 }
 
 nav#layout-mainmenu.navbar {
-    // .clearfix();
-    // position: relative;
     background-color: @color-mainmenu;
     padding: 0 0 0 20px;
     line-height: 0;
@@ -83,9 +81,11 @@ nav#layout-mainmenu.navbar {
     .menu-toggle { display: none; }
 
     .toolbar-item {
-        margin-right: 0;
+        padding-right: 0;
 
-        &:before, &:after { margin-top: 0; }
+        &:before, &:after {
+            margin-top: 0;
+        }
         &:before { left: -12px; }
         &:after { right: -12px; }
 
@@ -175,6 +175,15 @@ nav#layout-mainmenu .menu-toggle,
     }
 }
 
+nav#layout-mainmenu.navbar ul li {
+    a {
+        i { font-size: 28px; }
+    }
+    &.active a {
+        i { font-size: 35px; }
+    }
+}
+
 .mainmenu-collapsed li a i {
     width: 40px;
     text-align: left;
@@ -190,7 +199,9 @@ nav#layout-mainmenu.navbar ul li:hover,
     }
 }
 
-.touch .mainmenu-collapsed li a:hover {color: @color-mainmenu-inactive;}
+.touch .mainmenu-collapsed li a:hover {
+    color: @color-mainmenu-inactive;
+}
 
 nav#layout-mainmenu.navbar ul li,
 .mainmenu-collapsed li {
@@ -198,7 +209,9 @@ nav#layout-mainmenu.navbar ul li,
         color: @color-mainmenu-active !important;
         font-weight: 600;
 
-        a {color: @color-mainmenu-active !important;}
+        a {
+            color: @color-mainmenu-active !important;
+        }
     }
 
     &:hover {

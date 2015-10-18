@@ -149,7 +149,7 @@ class Form extends WidgetBase
     /**
      * {@inheritDoc}
      */
-    public function loadAssets()
+    protected function loadAssets()
     {
         $this->addJs('js/october.form.js', 'core');
     }
@@ -287,7 +287,7 @@ class Form extends WidgetBase
      */
     public function setFormValues($data = null)
     {
-        if ($data == null) {
+        if ($data === null) {
             $data = $this->getSaveData();
         }
 
@@ -312,12 +312,10 @@ class Form extends WidgetBase
         /*
          * Extensibility
          */
-        $eventResults = $this->fireEvent('form.beforeRefresh', [$saveData]) +
-            Event::fire('backend.form.beforeRefresh', [$this, $saveData]);
-
-        foreach ($eventResults as $eventResult) {
-            $saveData = $eventResult + $saveData;
-        }
+        $dataHolder = (object) ['data' => $saveData];
+        $this->fireEvent('form.beforeRefresh', [$dataHolder]);
+        Event::fire('backend.form.beforeRefresh', [$this, $dataHolder]);
+        $saveData = $dataHolder->data;
 
         /*
          * Set the form variables and prepare the widget
@@ -356,8 +354,10 @@ class Form extends WidgetBase
         /*
          * Extensibility
          */
-        $eventResults = $this->fireEvent('form.refresh', [$result]) +
-            Event::fire('backend.form.refresh', [$this, $result]);
+        $eventResults = array_merge(
+            $this->fireEvent('form.refresh', [$result]),
+            Event::fire('backend.form.refresh', [$this, $result])
+        );
 
         foreach ($eventResults as $eventResult) {
             $result = $eventResult + $result;
@@ -460,7 +460,7 @@ class Form extends WidgetBase
                 continue;
             }
 
-            $widget = $this->makeFormWidget($field);
+            $widget = $this->makeFormFieldWidget($field);
             $widget->bindToController();
         }
 
@@ -674,7 +674,7 @@ class Form extends WidgetBase
     /**
      * Makes a widget object from a form field object.
      */
-    protected function makeFormWidget($field)
+    protected function makeFormFieldWidget($field)
     {
         if ($field->type != 'widget') {
             return null;
@@ -700,7 +700,7 @@ class Form extends WidgetBase
             ));
         }
 
-        $widget = new $widgetClass($this->controller, $field, $widgetConfig);
+        $widget = $this->makeFormWidget($widgetClass, $field, $widgetConfig);
 
         return $this->formWidgets[$field->fieldName] = $widget;
     }
@@ -820,7 +820,7 @@ class Form extends WidgetBase
         }
 
         if ($field->type == 'widget') {
-            $widget = $this->makeFormWidget($field);
+            $widget = $this->makeFormFieldWidget($field);
             return $widget->showLabels;
         }
 
@@ -832,28 +832,36 @@ class Form extends WidgetBase
      */
     public function getSaveData()
     {
-        $data = ($this->arrayName) ? post($this->arrayName) : post();
+        $this->defineFormFields();
 
+        $result = [];
+
+        /*
+         * Source data
+         */
+        $data = $this->arrayName ? post($this->arrayName) : post();
         if (!$data) {
             $data = [];
         }
 
         /*
-         * Number fields should be converted to integers
+         * Spin over each field and extract the postback value
          */
         foreach ($this->allFields as $field) {
-            if ($field->type != 'number') {
-                continue;
-            }
-
             /*
              * Handle HTML array, eg: item[key][another]
              */
             $parts = HtmlHelper::nameToArray($field->fieldName);
-            $dotted = implode('.', $parts);
-            if (($value = array_get($data, $dotted)) !== null) {
-                $value = !strlen(trim($value)) ? null : (float) $value;
-                array_set($data, $dotted, $value);
+            if (($value = $this->dataArrayGet($data, $parts)) !== null) {
+
+                /*
+                 * Number fields should be converted to integers
+                 */
+                if ($field->type == 'number') {
+                    $value = !strlen(trim($value)) ? null : (float) $value;
+                }
+
+                $this->dataArraySet($result, $parts, $value);
             }
         }
 
@@ -862,46 +870,12 @@ class Form extends WidgetBase
          */
         foreach ($this->formWidgets as $field => $widget) {
             $parts = HtmlHelper::nameToArray($field);
-            $dotted = implode('.', $parts);
 
-            $widgetValue = $widget->getSaveValue(array_get($data, $dotted));
-
-            array_set($data, $dotted, $widgetValue);
+            $widgetValue = $widget->getSaveValue($this->dataArrayGet($result, $parts));
+            $this->dataArraySet($result, $parts, $widgetValue);
         }
 
-        /*
-         * Handle fields that differ by fieldName and valueFrom
-         * @todo @deprecated / Not needed? Remove if year >= 2016
-         */
-        // $remappedFields = [];
-        // foreach ($this->allFields as $field) {
-        //     if ($field->fieldName == $field->valueFrom) {
-        //         continue;
-        //     }
-
-        //     /*
-        //      * Get the value, remove it from the data collection
-        //      */
-        //     $parts = HtmlHelper::nameToArray($field->fieldName);
-        //     $dotted = implode('.', $parts);
-        //     $value = array_get($data, $dotted);
-        //     array_forget($data, $dotted);
-
-        //     /*
-        //      * Set the new value to the data collection
-        //      */
-        //     $parts = HtmlHelper::nameToArray($field->valueFrom);
-        //     $dotted = implode('.', $parts);
-        //     array_set($remappedFields, $dotted, $value);
-        // }
-
-        // if (count($remappedFields) > 0) {
-        //     $data = array_merge($remappedFields, $data);
-        //     // Could be useful one day for field name collisions
-        //     // $data['X_OCTOBER_REMAPPED_FIELDS'] = $remappedFields;
-        // }
-
-        return $data;
+        return $result;
     }
 
     /*
@@ -1005,4 +979,59 @@ class Form extends WidgetBase
 
         return method_exists($object, $method);
     }
+
+    /**
+     * Variant to array_get() but preserves dots in key names.
+     */
+    protected function dataArrayGet(array $array, array $parts, $default = null)
+    {
+        if (is_null($parts)) {
+            return $array;
+        }
+
+        if (count($parts) === 1) {
+            $key = array_shift($parts);
+            if (isset($array[$key])) {
+                return $array[$key];
+            }
+            else {
+                return $default;
+            }
+        }
+
+        foreach ($parts as $segment) {
+            if (!is_array($array) || !array_key_exists($segment, $array)) {
+                return $default;
+            }
+
+            $array = $array[$segment];
+        }
+
+        return $array;
+    }
+
+    /**
+     * Variant to array_set() but preserves dots in key names.
+     */
+    protected function dataArraySet(array &$array, array $parts, $value)
+    {
+        if (is_null($parts)) {
+            return $array = $value;
+        }
+
+        while (count($parts) > 1) {
+            $key = array_shift($parts);
+
+            if (!isset($array[$key]) || !is_array($array[$key])) {
+                $array[$key] = [];
+            }
+
+            $array =& $array[$key];
+        }
+
+        $array[array_shift($parts)] = $value;
+
+        return $array;
+    }
+
 }
