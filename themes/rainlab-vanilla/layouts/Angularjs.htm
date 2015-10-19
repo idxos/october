@@ -1,57 +1,119 @@
 ==
-<!doctype html>
-<html ng-app="myapp">
-<head>
-    <meta charset="utf-8">
-    <title>angularjs ng-repeat using json object</title>
-    <script src="http://code.angularjs.org/1.1.4/angular.js"></script>
-    <script>
-        var app = angular.module('myapp', []);
+<!DOCTYPE html>
+<html class="no-js csstransforms csstransforms3d csstransitions" data-ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>idxos - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="October CMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        {% styles %}
+        <link href="{{ [
+            'assets/less/theme.less',
+            'assets/css/revolution_settings.css',
+            'assets/css/eislider.css',
+            'assets/css/octoshop.css',
+            'bower_components/bootstrap/dist/css/bootstrap.css',
+            'bower_components/ngToast/dist/ngToast.css',
+            'bower_components/ngToast-animations.min.css',
+            'app/content/css/app.css',
+            'assets/css/site.css'
+            ]|theme }}" rel="stylesheet">
+        {% placeholder head %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+    <body>
 
-        app.controller('myController', function ($scope) {
-            var json = {
-                "employees": [{
-                    "title": "SE",
-                    "description": "This is a hard worker",
-                    "weeks": [{
-                        "id": 001,
-                        "title": "1st Week"
-                    }]
-                }, {
-                    "title": "SR. SE",
-                    "description": "This is smart worker",
-                    "weeks": [{
-                        "id": 002,
-                        "title": "2nd Week"
-                    }, {
-                        "id": 003,
-                        "title": "3rd Week"
-                    }]
-                }, {
-                    "title": "Tech Lead",
-                    "description": "This is both hard and smart worker",
-                    "weeks": [{
-                        "id": 004,
-                        "title": "4th Week"
-                    }, {
-                        "id": 005,
-                        "title": "5th Week"
-                    }]
-                }]
-            };
+ 
+    <!-- Header -->
+    <header id="layout-header">
+         {% partial "header" %}
+    </header>
 
-            $scope.myscope = json;
-        });
-    </script>
-</head>
-<body ng-controller="myController">
-    <div ng-repeat="emp in myscope.employees">
-        <h3>{{ emp.title }}</h3>
-        <p>{{ emp.description }}</p>
-        <div ng-repeat="week in emp.weeks">
-            {{ week.title }}
-        </div>
-    </div>
-</body>
 
+        {% set jumbotronTexture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
+
+        <!-- Content -->
+        <section id="layout-content">
+            <div class="jumbotron" style="background-image:url({{ ('assets/images/textures/'~jumbotronTexture~'.png')|theme }})">
+                <div class="container">
+                    <h1>{{ this.page.title }}</h1>
+                    <p>{{ this.page.description }}</p>
+                </div>
+            </div>
+            <div class="container">
+                {% page %}
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial "footer" %}
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'assets/javascript/jquery.js',
+            'assets/vendor/bootstrap/js/transition.js',
+            'assets/vendor/bootstrap/js/alert.js',
+            'assets/vendor/bootstrap/js/button.js',
+            'assets/vendor/bootstrap/js/carousel.js',
+            'assets/vendor/bootstrap/js/collapse.js',
+            'assets/vendor/bootstrap/js/dropdown.js',
+            'assets/vendor/bootstrap/js/modal.js',
+            'assets/vendor/bootstrap/js/tooltip.js',
+            'assets/vendor/bootstrap/js/popover.js',
+            'assets/vendor/bootstrap/js/scrollspy.js',
+            'assets/vendor/bootstrap/js/tab.js',
+            'assets/vendor/bootstrap/js/affix.js',
+            'assets/js/ie10-viewport-bug-workaround.js',
+            'assets/js/octoshop.js',
+
+
+
+
+
+    'assets/bower_components/jquery/dist/jquery.js',
+    'assets/bower_components/angular/angular.js',
+    'assets/bower_components/firebase/firebase.js',
+    'assets/bower_components/firebase-util/dist/firebase-util.js',
+    'assets/bower_components/angularfire/dist/angularfire.js',
+    'assets/bower_components/angularfire-resource/dist/angularfire-resource.js',
+    'assets/bower_components/bootstrap/dist/js/bootstrap.js',
+    'assets/bower_components/angular-loader/angular-loader.min.js',
+    'assets/bower_components/angular-animate/angular-animate.js',
+    'assets/bower_components/angular-cookies/angular-cookies.js',
+    'assets/bower_components/angular-resource/angular-resource.js',
+    'assets/bower_components/angular-route/angular-route.js',
+    'assets/bower_components/angular-sanitize/angular-sanitize.js',
+    'assets/bower_components/angular-touch/angular-touch.js',
+    'assets/bower_components/angular-messages/angular-messages.js',
+    'assets/bower_components/ngToast/dist/ngToast.js',
+    'assets/bower_components/masonry/masonry.js',
+    'assets/bower_components/angular-masonry/angular-masonry.js',
+    'assets/app/app.module.js',
+    'assets/app/core/core.module.js',
+    'assets/app/core/core.constant.js',
+    'assets/app/config/demo.config.route.js',
+    'assets/app/cookie/cookie.module.js',
+    'assets/app/cookie/cookie.controller.js',
+    'assets/app/demo/demo.module.js',
+    'assets/app/demo/demo.controller.js',
+    'assets/app/demo/demo.module.form.js',
+    'assets/app/demo/demo.form.js',
+    'assets/app/timer/timer.module.js',
+    'assets/app/toast/toast.module.js',
+    'assets/app/toast/toast.controller.js',
+    'assets/app/demo/demo.masonry.js',
+    
+
+
+
+            'assets/javascript/app.js'
+        ]|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+    </body>
 </html>
