@@ -14,12 +14,22 @@
             'assets/less/theme.less',
             'assets/css/revolution_settings.css',
             'assets/css/eislider.css',
-            'assets/css/octoshop.css',
-            'assets/bower_components/bootstrap/dist/css/bootstrap.css',
-            'assets/app/content/css/app.css',
-            'assets/css/site.css'
+            'assets/css/octoshop.css'
             ]|theme }}" rel="stylesheet">
         {% placeholder head %}
+
+        <!-- bower:css -->
+        <link href="public/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="public/bower_components/ngToast/dist/ngToast.css" rel="stylesheet"/>
+        <link href="public/bower_components/ngtoast/dist/ngToast-animations.min.css" rel="stylesheet">
+        <!-- endinject -->
+
+        <!-- inject:css -->
+        <link href="public/app/content/css/app.css" rel="stylesheet">
+        <!-- endinject -->
+
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
@@ -51,6 +61,7 @@
             {% partial "footer" %}
         </footer>
 
+
         <!-- Scripts -->
         <script src="{{ [
             'assets/javascript/jquery.js',
@@ -68,47 +79,6 @@
             'assets/vendor/bootstrap/js/affix.js',
             'assets/js/ie10-viewport-bug-workaround.js',
             'assets/js/octoshop.js',
-
-
-
-
-
-    'assets/bower_components/jquery/dist/jquery.js',
-    'assets/bower_components/angular/angular.js',
-    'assets/bower_components/firebase/firebase.js',
-    'assets/bower_components/firebase-util/dist/firebase-util.js',
-    'assets/bower_components/angularfire/dist/angularfire.js',
-    'assets/bower_components/angularfire-resource/dist/angularfire-resource.js',
-    'assets/bower_components/bootstrap/dist/js/bootstrap.js',
-    'assets/bower_components/angular-loader/angular-loader.min.js',
-    'assets/bower_components/angular-animate/angular-animate.js',
-    'assets/bower_components/angular-cookies/angular-cookies.js',
-    'assets/bower_components/angular-resource/angular-resource.js',
-    'assets/bower_components/angular-route/angular-route.js',
-    'assets/bower_components/angular-sanitize/angular-sanitize.js',
-    'assets/bower_components/angular-touch/angular-touch.js',
-    'assets/bower_components/angular-messages/angular-messages.js',
-    'assets/bower_components/ngToast/dist/ngToast.js',
-    'assets/bower_components/masonry/masonry.js',
-    'assets/bower_components/angular-masonry/angular-masonry.js',
-    'assets/app/app.module.js',
-    'assets/app/core/core.module.js',
-    'assets/app/core/core.constant.js',
-    'assets/app/config/demo.config.route.js',
-    'assets/app/cookie/cookie.module.js',
-    'assets/app/cookie/cookie.controller.js',
-    'assets/app/demo/demo.module.js',
-    'assets/app/demo/demo.controller.js',
-    'assets/app/demo/demo.module.form.js',
-    'assets/app/demo/demo.form.js',
-    'assets/app/timer/timer.module.js',
-    'assets/app/toast/toast.module.js',
-    'assets/app/toast/toast.controller.js',
-    'assets/app/demo/demo.masonry.js',
-    
-
-
-
             'assets/javascript/app.js'
         ]|theme }}"></script>
         {% framework extras %}
