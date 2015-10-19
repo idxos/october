@@ -1,0 +1,15 @@
+{
+  "name": "grunt-contrib-uglify",
+  "homepage": "https://github.com/gruntjs/grunt-contrib-uglify",
+  "version": "0.9.2",
+  "_release": "0.9.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.2",
+    "commit": "47d414ad6b4e529e8fa25385f232b27bcc7bee2c"
+  },
+  "_source": "git://github.com/gruntjs/grunt-contrib-uglify.git",
+  "_target": "~0.9.2",
+  "_originalSource": "grunt-contrib-uglify",
+  "_direct": true
+}

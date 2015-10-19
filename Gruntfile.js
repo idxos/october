@@ -59,7 +59,7 @@ copy: {
                 boss: true
             },
             gruntfile: {
-                src: 'gruntfile.js'
+                src: 'Gruntfile.js'
             },
             lib_test: {
                 src: ['lib/**/*.js', 'test/**/*.js']

@@ -1,0 +1,19 @@
+{
+  "name": "angular-iterator",
+  "version": "0.1.0",
+  "main": "./angular-iterator.js",
+  "dependencies": {
+    "angular": "1.0.6"
+  },
+  "homepage": "https://github.com/PascalPrecht/bower-angular-iterator",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "6049851ec163f80532592f6d17f236b24b6eeec4"
+  },
+  "_source": "git://github.com/PascalPrecht/bower-angular-iterator.git",
+  "_target": "~0.1.0",
+  "_originalSource": "angular-iterator",
+  "_direct": true
+}
