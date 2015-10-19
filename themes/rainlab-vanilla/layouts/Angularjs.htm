@@ -1,12 +1,12 @@
 ==
 <!DOCTYPE html>
-<html class="no-js csstransforms csstransforms3d csstransitions" data-ng-app="app">
+<html class="csstransforms csstransforms3d csstransitions" data-ng-app="app">
     <head>
         <meta charset="utf-8">
         <title>idxos - {{ this.page.title }}</title>
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="title" content="{{ this.page.meta_title }}">
-        <meta name="author" content="October CMS">
+        <meta name="author" content="Christopher J. Roberts - Web Developer Portfolio and Sandbox.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
         {% styles %}
@@ -14,45 +14,22 @@
             'assets/less/theme.less',
             'assets/css/revolution_settings.css',
             'assets/css/eislider.css',
-<<<<<<< HEAD
             'assets/css/octoshop.css'
             ]|theme }}" rel="stylesheet">
         {% placeholder head %}
-
-        <!-- bower:css -->
         <link href="public/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
         <link href="public/bower_components/ngToast/dist/ngToast.css" rel="stylesheet"/>
         <link href="public/bower_components/ngtoast/dist/ngToast-animations.min.css" rel="stylesheet">
-        <!-- endinject -->
-
-        <!-- inject:css -->
         <link href="public/app/content/css/app.css" rel="stylesheet">
-        <!-- endinject -->
-
-
-
-=======
-            'assets/css/octoshop.css',
-            'assets/bower_components/bootstrap/dist/css/bootstrap.css',
-            'assets/app/content/css/app.css',
-            'assets/css/site.css'
-            ]|theme }}" rel="stylesheet">
-        {% placeholder head %}
->>>>>>> 9aa5971d89a81d5b0df537b4b9e13a38889bae91
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
-    <body>
-
+<body>
  
-    <!-- Header -->
     <header id="layout-header">
-         {% partial "header" %}
+        {% partial "header" %}
     </header>
 
-
         {% set jumbotronTexture = random(['carbon', 'dustnscratches', 'elegant', 'grunge', 'leather', 'lines', 'plaid', 'wood']) %}
-
-        <!-- Content -->
+        
         <section id="layout-content">
             <div class="jumbotron" style="background-image:url({{ ('assets/images/textures/'~jumbotronTexture~'.png')|theme }})">
                 <div class="container">
@@ -61,24 +38,25 @@
                 </div>
             </div>
             <div class="container">
-<<<<<<< HEAD
-                {% page %}
-=======
-                
-                {% page %}
-                
 
->>>>>>> 9aa5971d89a81d5b0df537b4b9e13a38889bae91
+            <div class="row">
+                <toast></toast>
+            </div>
+
+                {% page %}
+
             </div>
         </section>
 
-        <!-- Footer -->
+
+
+            <div data-ng-include="'public/app/layout/demo.html'"></div>
+
+
         <footer id="layout-footer">
             {% partial "footer" %}
         </footer>
 
-
-        <!-- Scripts -->
         <script src="{{ [
             'assets/javascript/jquery.js',
             'assets/vendor/bootstrap/js/transition.js',
@@ -95,61 +73,51 @@
             'assets/vendor/bootstrap/js/affix.js',
             'assets/js/ie10-viewport-bug-workaround.js',
             'assets/js/octoshop.js',
-<<<<<<< HEAD
             'assets/javascript/app.js'
         ]|theme }}"></script>
-=======
-        ]|theme }}"></script>
+
+        <script src="public/bower_components/jquery/dist/jquery.js"></script>
+        <script src="public/bower_components/angular/angular.js"></script>
         
+        <script src="public/bower_components/firebase/firebase.js"></script>
+        <script src="public/bower_components/firebase-util/dist/firebase-util.js"></script>
+        <script src="public/bower_components/angularfire/dist/angularfire.js"></script>
+        <script src="public/bower_components/angularfire-resource/dist/angularfire-resource.js"></script>
+        <script src="public/bower_components/bootstrap/dist/js/bootstrap.js"></script>
         
+        <script src="public/bower_components/angular-loader/angular-loader.min.js"></script>
+        <script src="public/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="public/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="public/bower_components/angular-resource/angular-resource.js"></script>
+        <script src="public/bower_components/angular-route/angular-route.js"></script>
+        <script src="public/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="public/bower_components/angular-touch/angular-touch.js"></script>
+        <script src="public/bower_components/angular-messages/angular-messages.js"></script>
+        <script src="public/bower_components/ngToast/dist/ngToast.js"></script>
+        <script src="public/bower_components/masonry/masonry.js"></script>
+        <script src="public/bower_components/angular-masonry/angular-masonry.js"></script>
 
+        <script src="public/app/app.module.js"></script>
+        <script src="public/app/core/core.module.js"></script>
+        <script src="public/app/core/core.constant.js"></script>
+        
+        <script src="public/app/config/demo.config.route.js"></script>
 
-    <!-- bower:js -->
-    <script src="public/bower_components/jquery/dist/jquery.js"></script>
-    <script src="public/bower_components/angular/angular.js"></script>
-    
-    <script src="public/bower_components/firebase/firebase.js"></script>
-    <script src="public/bower_components/firebase-util/dist/firebase-util.js"></script>
-    <script src="public/bower_components/angularfire/dist/angularfire.js"></script>
-    <script src="public/bower_components/angularfire-resource/dist/angularfire-resource.js"></script>
-    <script src="public/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    
-    <script src="public/bower_components/angular-loader/angular-loader.min.js"></script>
-    <script src="public/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="public/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="public/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="public/bower_components/angular-route/angular-route.js"></script>
-    <script src="public/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="public/bower_components/angular-touch/angular-touch.js"></script>
-    <script src="public/bower_components/angular-messages/angular-messages.js"></script>
-    <script src="public/bower_components/ngToast/dist/ngToast.js"></script>
-    <script src="public/bower_components/masonry/masonry.js"></script>
-    <script src="public/bower_components/angular-masonry/angular-masonry.js"></script>
-    <!-- endinject -->
+        <script src="public/app/cookie/cookie.module.js"></script>
+        <script src="public/app/cookie/cookie.controller.js"></script>
 
+        <script src="public/app/demo/demo.module.js"></script>
+        <script src="public/app/demo/demo.controller.js"></script>
 
-    <script src="public/app/app.module.js"></script>
-    <script src="public/app/core/core.module.js"></script>
-    <script src="public/app/core/core.constant.js"></script>
-    
-    <script src="public/app/config/demo.config.route.js"></script>
+        <script src="public/app/demo/demo.module.form.js"></script>
+        <script src="public/app/demo/demo.form.js"></script>
+        <script src="public/app/timer/timer.module.js"></script>
 
-    <script src="public/app/cookie/cookie.module.js"></script>
-    <script src="public/app/cookie/cookie.controller.js"></script>
+        <script src="public/app/toast/toast.module.js"></script>
+        <script src="public/app/toast/toast.controller.js"></script>
 
+        <script src="public/app/demo/demo.masonry.js"></script>
 
-    <script src="public/app/demo/demo.module.js"></script>
-    <script src="public/app/demo/demo.controller.js"></script>
-
-    <script src="public/app/demo/demo.module.form.js"></script>
-    <script src="public/app/demo/demo.form.js"></script>
-    <script src="public/app/timer/timer.module.js"></script>
-
-    <script src="public/app/toast/toast.module.js"></script>
-    <script src="public/app/toast/toast.controller.js"></script>
-    <script src="public/app/demo/demo.masonry.js"></script>
-   
->>>>>>> 9aa5971d89a81d5b0df537b4b9e13a38889bae91
         {% framework extras %}
         {% scripts %}
     </body>
