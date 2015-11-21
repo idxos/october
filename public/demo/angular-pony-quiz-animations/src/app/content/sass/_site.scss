@@ -1,0 +1,334 @@
+@import "fonts.scss";
+@import "wf.scss";
+
+
+html, body {
+    line-height: 1;
+    min-height: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "MyriadProRegular", sans-serif;
+}
+
+body {
+    color: #000;
+    background-color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "MyriadProRegular", sans-serif;  
+}
+
+.navbar {
+  margin-bottom: 0!important;
+  background-color: #fff!important;;
+  background: #fff!important;
+  border: none;
+  text-align: center;
+}
+
+.navbar-default {
+    background-color: #ffffff!important;
+    background: #fff;
+    border-color: #e7e7e7;
+}
+
+.navbar-brand {
+	height: 70px;
+	width: 70px;
+}
+
+.btn-start {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1 {
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif; 
+    text-align: center!important;
+} 
+
+h2.quiz-title {
+	margin-bottom: 50px;
+  margin-top: 0;
+}
+
+.sr-clip {
+  display: hidden;
+}
+
+.step-container {
+  display: inline-block;
+
+  .step {
+    height: 25px;
+    width:25px;
+    margin-right:5px;
+    display: inline-block;
+
+    .active{
+      background-color: yellow;
+    }
+    .inactive {
+      background-color: #ccc;
+    }
+  }
+}
+
+.btn-quiz {
+    background: #75040C;
+    color:#fff;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: "MyriadProRegular", sans-serif; 
+    width: 290px;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    &:hover {
+		background-color: #75040C;
+		color: #FFCA07;
+    }
+    &:active {
+		background-color: #75040C;
+		color: #FFCA07;
+    }
+}
+
+.panel-body {
+    padding: 0;
+    background-color: #BB0826;
+    position: relative;
+    display: table;
+    width: 100%;
+}
+
+.panel {
+    padding: 0;
+    background-color: #BB0826;
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+
+.top-nav {
+    background-color: #fff;
+    color: #B3B3B3;
+    font-size: 10px;
+    font-weight: 300;
+    font-family: "MyriadProRegular", sans-serif; 
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: none;
+}
+
+.quiz-skip .quiz-skip-icon {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    line-height: 26px;
+    margin-left: 3px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+footer {
+	font-family: Verdana, Geneva, sans-serif;
+	background-color: #3F3F3F;
+	color: #B3B3B3;
+	font-size: 8px;
+	height: 50px;
+	padding-top: 25px;
+	border-top: #B3B3B3 solid 4px;
+
+	ul {
+		
+		li {
+			
+
+			a {
+				color: #B3B3B3;
+				font-size: 8px;
+
+				&:hover {
+					text-decoration: none;
+					color: #B3B3B3;
+					font-size: 8px;
+				}
+			}
+		}
+	}
+}
+
+
+.animate-switch-container {
+    position: relative;
+    background: white;
+    border: 1px solid black;
+    height: 40px;
+    overflow: hidden;
+}
+
+.animate-switch {
+    padding: 10px;
+}
+
+.animate-switch.ng-animate {
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.animate-switch.ng-leave.ng-leave-active,
+.animate-switch.ng-enter {
+    top: -50px;
+}
+
+.animate-switch.ng-leave,
+.animate-switch.ng-enter.ng-enter-active {
+    top: 0;
+}
+
+
+.animate-hide {
+  transition: all linear 0.5s;
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+
+.animate-hide.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.check-element {
+  padding: 10px;
+  border: 1px solid black;
+  background: white;
+}
+
+.ng-hide {
+  /* this is just another form of hiding an element */
+  display: block!important;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+
+.animate-if {
+  background:white;
+  border:1px solid black;
+  padding:10px;
+}
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+
+#myQuiz {
+  transition: left 1.5s ease-in-out;
+
+  .active {
+    left:40px;
+  }
+
+  .inactive {
+    display: none;
+  }
+
+  .intro {
+    left: -1350px;
+  }
+
+  .progress {
+    height:50px;
+    width:550px;
+    display:inline-block;
+    position: relative;
+
+    div {
+      background-color: transparent;
+      height:25px;
+      width:25px;
+      border-radius: 50%;
+      border: 1px solid black;
+      margin-right: 30px;
+      display:inline-block;
+      
+
+      .on {
+        background-color: #efbe5e!important;
+        height:25px;
+        width:25px;
+        border-radius: 50%;
+        border: 1px solid black;
+        margin: 0 5px;
+        display:inline-block;
+      }
+
+      .off {
+        background-color: transparent;
+        display:inline-block;
+
+      }
+
+    }
+  }
+
+}

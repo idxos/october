@@ -1,0 +1,118 @@
+
+
+<div>
+
+<span class="base-class" ng-class="myVar">Sample Text</span>
+
+  <select ng-model="selection" ng-options="item for item in items"></select>
+  <code>selection={{selection}}</code>
+  <hr/>
+  <div class="animate-switch-container"
+    ng-switch on="selection">
+      <div class="panel panel-group animate-switch" ng-switch-when="q2">
+        <div class="quiz-question">
+            Question 2 q2
+        </div>
+
+      <div class="panel panel-group animate-switch" ng-switch-when="q1">Question 1 q2</div>
+      <div class="panel panel-group animate-switch" ng-switch-default>Welcome</div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+  <div class="quiz-question animated fadeOutUpBig" ng-repeat="question in quiz">
+                    <img src="{{question.icon}}" class="question-header-image header-image-1" alt="q1">
+                    <h2 class="quiz-title"><p>{{quiz.question}}</p></h2>
+
+
+                    <div class="responses">
+
+                        <div class="radio" ng-repeat="a in quiz.answers">
+                          <label>
+                            <input type="radio" ng-model="quiz.model" name="q{{a.id}}" id="q{{a.id}}" value="{{a.text}}">
+                                {{a.text}}
+                          </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                
+
+<div ng-controller="StepsController" ng-if="quiz.started">
+
+    <form class="form-horizontal">
+
+      <ul class="nav nav-tabs">
+        <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+          <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+        </li>
+      </ul>
+      <div ng-switch on="selection">
+
+        <!-- First Step -->
+        <div ng-switch-when="Question 1">
+          <div class="row">
+            <div class="col-xs-12">
+
+
+
+                <div ng-class="question">
+
+                    <h2><p>{{quiz.activeQuestion}}</p></h2>
+
+                    <div class="btn-group">
+
+                        <div class="radio" ng-repeat="a in quiz.activeAnswers">
+                          <label>
+                            <input type="radio" ng-model="quiz.model" name="q{{a.id}}" id="q{{a.id}}" value="{{a.text}}">
+                                {{a.text}}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Step -->
+        <div ng-switch-when="Step 2: Campaign Info">
+            <h1>Step 2</h1>
+        </div>
+
+        <!-- Third Step -->
+        <div ng-switch-when="Step 3: Campaign Media">
+            <h1>Step 3</h1>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <ul class="pager pull-left">
+        <li class="" ng-class="{disabled: !hasPreviousStep()}">
+          <a href="javascript:void(0);" ng-click="decrementStep()">&larr; Previous Step</a>
+        </li>
+        <li class="" ng-class="{disabled: !hasNextStep()}">
+          <a href="javascript:void(0);" ng-click="incrementStep()">Next Step &rarr;</a>
+        </li>
+      </ul>
+      <div class="pull-right"><button style="margin:20px 0;" class="btn btn-success">Confirm and Register</button></div>
+      <div class="clearfix"></div>
+    </form>
+
+</div>

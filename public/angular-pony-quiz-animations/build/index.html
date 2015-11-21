@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pony Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="content/css/site.css">
+    <!-- endinject -->
+    <style>
+    </style>
+</head>
+<body>
+    <div data-ng-include="'../src/app/layout/partials/top-nav.html'"></div>
+
+
+    <div class="container">    
+
+        <app-quiz></app-quiz>
+
+    </div>
+
+
+
+    <script src="../build/vendor/jquery.js"></script>
+    <!-- bower:js -->
+    <script src="../build/vendor/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-animate.js"></script>
+    <script src="../build/vendor/bootstrap.js"></script>
+    <!-- endinject -->
+
+    <!-- Begin: Source JS -->
+    <!-- inject:js -->
+    <script src="app.js"></script>
+    <!-- endinject -->
+    <!-- End: Source JS -->
+
+</body>
+</html>

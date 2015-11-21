@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <title>What’s your pony personality?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="app/content/css/bootstrap.min.css">
+    <link rel="stylesheet" id="typography-css" href="app/content/css/fonts.css" type="text/css" media="all">
+
+    <link rel="stylesheet" href="app/content/css/animate.css" type="text/css" media="all">
+    <link rel="stylesheet" href="app/content/css/site.css" type="text/css" media="all">
+
+    <script type="text/javascript" src="app/content/js/hammer.min.js"></script>
+    <script type="text/javascript" src="app/content/js/jquery.min.js"></script>
+    <script type="text/javascript" src="app/content/js/critical.js"></script>
+    <script type="text/javascript" src="app/content/js/respond.min.js"></script>
+    <script type="text/javascript" src="app/content/js/modernizr-2.7.0.min.js"></script>
+    <script type="text/javascript" src="app/content/js/picturefill.min.js"></script>
+
+        <script src="app/content/js/ajp4mxt.js"></script>
+        <style type="text/css">.tk-myriad-pro{font-family:"myriad-pro",sans-serif;}</style><link rel="stylesheet" href="app/content/css/l.css" media="all"><script>try {
+                Typekit.load({async: true});
+            } catch (e) {}</script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <![endif]-->
+        <style>
+
+     
+        </style>
+  </head>
+<body class="page page-id-10 page-parent page-template-default">
+ <div id="page-wrap" class="hfeed site">
+
+    <div id="results-container" class="animated slideInDown hidden">
+        <div id="quiz-results" class="panel-group panel-group-winner" role="tablist" aria-multiselectable="true">
+            <div class="panel-body panel-body-winner">
+                <div class="quiz-question">
+                    <div class="responses">
+                        <div id="pnIcon" class="winning-horse-icon"></div>
+                        <h2 class="winning-horse-intro"><p>Your pony personality is</p></h2>
+                        <h3 id="pn" class="winning-horse-name"></h3>
+                        <p id="pnBio" class="winning-horse-bio text-center"></p>
+                        <p class="share-your-pony">Share your pony personality:</p>
+                        <div class="share-quiz-footer">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
+                                  <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAilBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAD2iU6fAAAALHRSTlMAB06Qwuj8HpTwC4r6MNtK9vSnPgnycMQNaAY3QFFBek/AICoz/SRs0JWewwYgVnAAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAABFUlEQVQ4y42U63KDIBCFVxEDEqNpk/SWtmpj2zS8//MFL8VdYQbOr+TMN3BcdhdgUZKyjOc65xlLE/BpI6ReJMXGIQq11VRbVVCk3GlXuxIjVa19qiuErO7Z2/ssVJJTHh4PAIfjfNJ8XUGynCbTZpqCK4w8TcizNdRYFxLmxTivb+f3pQRDnQSJ+2GcT+II8wCSOENGRhyZQKMDjE7XhodhkAWZDPj8qyXv1yGGQ+5lvhCT24JS5oIvg97LnMk5/3lkO+rbAD9t+0vyxHxXTH1i6hzzXnANMMLpH4cZ+4f2ocMot5+rruv+0P+5n1dzQVTbMVzP1xIGD2F4TqPmPWpvDHW6hvbPuMcaduO97s0ea/AeuwOR1oZxkhzHNgAAAABJRU5ErkJggg==" width="35" height="35"/></image>
+                                </svg>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
+                                  <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABRFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAB8tlLIAAAAanRSTlMAB06Qwuj8HpTwC4r6MNtK9rFsY47s8b7m7T8Pp55Hv0st5AGB4Skcw8UUJ3lAAmfliYBPkwZXrOmGEDUXGl1tCjdNyAOpCA70/fm0OXIl6s2c3lwSVdWNIgR/lWQFQ8zafTwJNnrT8+DvHEhG/gAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAGLSURBVDjLjZTXVsMwDIadZjRt0jRQdssshTILhL03hL1X2Ru9/wOQ1JEze07+m+RIn21ZkkWIKy7BC6IEkijwCY5EKSmnwFVKToaItKKCX6qS9iMZDcLSMl4kq0OU9KwHUSFaKoMyOtST7hyX1qC+NBq4EvY0NOaamq1vC4BSywsNprWNEe0dtj1f6OzqtkKy8yRTR09vHzJdTpzF/pK1XrYK4GR3gAyW6d8Q3mV4ZNTOOEcSzuIxQsYrE/bfJDLFqZrHILzDTNvWmdm5eVhAZpF6eCJgupbwhGVkVqhHIKLDrK6tB+u8QT0ikRxmM9wtFeqRCF54azvE7Dgutg8UdgPI3j51mCweODg88jPHgPHgvUA6CWxzCngvzA/AWd7HnKOdZ3m2dHF55SI5ZjZYvWrR8SzuaxONVr2w7gA3t3dI3D+4C6usf0qPT+45zy+elk56+vD17f3D7tzPr29vSyrBfv75/Yvu5zjvItb7ivVOY733WHODhOZPNTx/bHGGNcdMMMUyb3jn2D8ckw7un/CGEAAAAABJRU5ErkJggg==" width="35" height="35"/></image>
+                                </svg>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
+                                  <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABd1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAAnujqvAAAAe3RSTlMAB0+Qwuj9/E4elPALivow20r20G8+lWgBJTICL/hVmtcsIKXnmKdB5hNDgEKCh+IfiNm2amAMnDT7tVtQCiiSfhH07fEacqSZzhl29dIcljzyi0s7t65SLkzriSugDuCfSFkN7+4J2nW/q7SwZ/fIEMlrl8p3QCEiRYaPs94oAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAcpJREFUOMuVVFd700AQHEVSrCiWZDvNkOJg0kgvyKQoxUmAACkQCOm9QKjp7f58fOc764T8YOZltfvNt7eaLYAPpUzV9HIS0TXVUFAMFWYl8VFpVoQYUcsmQdhWNEhxYiSMmCNT4glSDIm4RLFJcdgFkiOyVFXXOAy1hUz8uSivxa5LPnlaTyMNjX5N+cIt7jYhRUjzM6Sft1A33sqiFtOFF9OGdmo6XqCT+emufHaqk8nTdKOH2V4k+yQOMXMNEOr2Y4DZQWCIvHTdjOO6r6jiCgxR3TBcZkeAUTLmeeMTnjdJAwZUwZlCdpraGWRm5beICk1wZl7jDbVvMUcCHA16QYp37/FhniwsLuXdj+IFHRFf+U/Ln7+kk63/NiSCoL8CNIe6JufJ4SuwWh7Kowf8xjVgfTbI0f3/Ihub7XF3LEfaaglwNF+f7R1vl9q9DPYDHLWg8xwO+NfCIfpkjgHliH0cn+CbCH7HqUQ5UkTffwDTImpKRbK+8/n5CfwS0d/ZPz6FzU9+Dkca0M+r+HuSktJY0jx37OOs63w3tnKRvZQofJ7FXlxd39ye3d0/yKomnP/Yr5L2tKR9L+lulHR/2B0zcncsEr5jj5QidGNH8yE4AAAAAElFTkSuQmCC" width="35" height="35"/></image>
+                                </svg>
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="35" height="35" viewBox="0 0 35 35">
+                                  <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAMAAAApB0NrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAz1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAACoNrhVAAAAQ3RSTlMAB06Qwuj8HpTwC4r6MNtK9pWngLxP5HftegUMpeCv0TRGrTMgS9yMChCTbwMJhdZDUZgdKJ4XjlBaz1NbfQ0PMuIugf2rlwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAEUSURBVDjLjZTXdoMwDEAFNmYZQtt0r3SXpnvvtNX//1MCNmDK0n3A5nAPCMkSQIVlM+4IFA5ntgVtuJ6PFb7nNowglFhHhkFdiWJsEkemMkqwjWRkKBLbkaUUJdhFoj8XxNhNrAIPsY8wz4vsdWSWJw/7WVoUwB9wfAtsvV1eaTBWT1aB5eva+sbmVj3122xHOQx4vu6Cu7c/MZWDw6Nj5XBwtANwcnp2XhjpxfQStOOAKB24ur65Vcrd/cPiqh0BWDkAj+OnFOD55TW/0w6a78l4e//4/PoG0xFGPIrZ9KfYlvHwf45B+V9s0GE6z79pC39Fnin1Gqy7Rzw/lHNIOs+UviD1F6lPSf1Omhuk+ZPRNcfm/369IOlBwNUAAAAASUVORK5CYII=" width="35" height="35"/></image>
+                                </svg>
+                            </span>
+                        </div>
+                        <button class="btn btn-restart" href="index.html" id="newQuiz">Play Again</button>
+                    </div>
+                    <!-- .responses-->
+                </div>
+                <!--.quiz-question -->
+            </div>
+            <!--.panel-body-->
+        </div>
+        <!--.panel-group-->
+    </div>
+    <!-- results-container -->
+
+
+   
+    <div id="myQuiz" class="visible">
+        <form id="QuizWelliFa" action="">
+            <section id="quiz" class="quiz">
+
+            <!-- playing-area -->
+            <div class="playing-area">
+
+                <div class="panel-group" id="quiz-group" role="tablist" aria-multiselectable="true">
+
+                    <div class="panel active close-0">
+                        <div class="panel-heading" role="tab" id="question-header-0" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-0" aria-expanded="false" aria-controls="question-0">
+                                    <span class="sr-clip">Question 0</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-0" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="quiz-header-0">
+                            <div class="panel-body welcome-body">
+                               
+                                <!-- screen reader previous controls -->
+                                <div class="quiz-question welcome">
+
+                                    <section class="col-lg-4 col-md-3 col-sm-1 hidden-xs"></section>
+                                    <section class="col-lg-4 col-md-6 col-sm-10 col-xs-12">
+
+                                        <img src="app/content/images/icons/pony1.svg" class="header-image-0" alt="pony">
+                                        <h1 class="quiz-title">What’s your pony personality?</h1>
+                                        <p class="quiz-instructions">If you were a Wells Fargo pony, which one would you be? Take the quiz to find out. Giddy-up and get&nbsp;started.</p>
+                                        
+
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              
+                                              <label class="btn btn-start" id="q0">
+                                                <input type="radio" class="hidden" name="q0-ok-lets-do-it" value="creative_0"
+                                                data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1" aria-expanded="false" 
+                                                aria-controls="question-1" aria-hidden="true">
+                                                <span class="response-text btn-start">Take Quiz</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="col-lg-4 col-md-3 col-sm-1 hidden-xs"></section>
+                                </div>
+                                <!-- .quiz-question -->
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+
+                    <div class="panel close-1">
+                        <div class="panel-heading" role="tab" id="question-header-1" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-1" aria-expanded="false" aria-controls="question-1">
+                                    <span class="sr-clip">Question 1</span>
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="question-1" class="animated panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-1">
+                            <div class="panel-body traditional">
+                                
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-0" aria-controls="question-0">Go to previous question.</a>
+
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/apple.svg" class="question-header-image header-image-2" alt="apple-icon">
+                                    <h2 class="quiz-title"><p>What’s your favorite snack?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q1-appels">
+                                                <input type="radio" class="hidden" name="q1" value="nellie_100:king_100">
+                                                <span class="response-text">Apple pie</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q1-oats">
+                                                <input type="radio" class="hidden" name="q1" value="al_100:buck_100">
+                                                <span class="response-text">Oats granola bar</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q1-sugar-cookie">
+                                                <input type="radio" class="hidden" name="q1" value="eltoro_100:mack_100">
+                                                <span class="response-text">Sugar cookie</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+
+
+                                <a href="#question-2" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-2">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2" aria-expanded="false" aria-controls="question-2" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-0" aria-expanded="false" aria-controls="question-0" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+
+                    <div class="panel close-2">
+                        <div class="panel-heading" role="tab" id="question-header-2" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-2" aria-expanded="false" aria-controls="question-2">
+                                    <span class="sr-clip">Question 2</span>
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="question-2" class="animated  panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-2">
+                            <div class="panel-body traditional">
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-1" aria-controls="question-1">Go to previous question.</a>
+
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/mailbox.svg" class="question-header-image header-image-2" alt="quiz-02-friends">
+                                    <h2 class="quiz-title"><p>What is your favorite item to deliver?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q2-mail">
+                                                <input type="radio" class="hidden" name="q2" value="nellie_100:mollie_100">
+                                                <span class="response-text">Mail</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q2-boots">
+                                                <input type="radio" class="hidden" name="q2" value="king_100:buck_100">
+                                                <span class="response-text">Boots</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q2-kittens">
+                                                <input type="radio" class="hidden" name="q2" value="snowflake_100:mollie_100">
+                                                <span class="response-text">Kitten</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-3" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-3">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3" aria-expanded="false" aria-controls="question-3" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-1" aria-expanded="false" aria-controls="question-1" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+                    <div class="animated panel close-3">
+                        <div class="panel-heading" role="tab" id="question-header-3" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-3" aria-expanded="false" aria-controls="question-3">
+                                    <span class="sr-clip">Question 3</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-3" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-3">
+                            <div class="panel-body traditional">
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-2" aria-controls="question-2">Go to previous question.</a>
+                               
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/map_US.svg" class="question-header-image header-image-3" alt="q3-icon">
+                                    <h2 class="quiz-title"><p>What’s your favorite one-horse town?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q3-uncertain-texas">
+                                                <input type="radio" class="hidden" name="q3" value="king_100:eltoro_100">
+                                                <span class="response-text">Uncertain, Texas</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q3-burnt-corn-alabama">
+                                                <input type="radio" class="hidden" name="q3" value="king_100:al_100">
+                                                <span class="response-text">Burnt Corn, Alabama</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q3-handsome-eddy-new-york">
+                                                <input type="radio" class="hidden" name="q3" value="prince_100:dandy_100">
+                                                <span class="response-text">Handsome Eddy, New York</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-4" class="sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-4">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4" aria-expanded="false" aria-controls="question-4" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-2" aria-expanded="false" aria-controls="question-2" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+
+                    <div class="panel close-4">
+                        <div class="panel-heading" role="tab" id="question-header-4" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-4" aria-expanded="false" aria-controls="question-4">
+                                    <span class="sr-clip">Question 4</span>
+                                </a>
+                            </h4>
+                        </div>
+
+                        <div id="question-4" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-4">
+                            <div class="panel-body traditional">                                
+                            <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-3" aria-controls="question-3">Go to previous question.</a>
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/musicnotes.svg" class="question-header-image header-image-2" alt="quiz-02-friends">
+                                    <h2 class="quiz-title"><p>What’s your favorite song?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q4-horse-no-name">
+                                                <input type="radio" class="hidden" name="q4" value="buck_100:snowflake_100">
+                                                <span class="response-text">Horse With No Name</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q4-dont-fence-me-in">
+                                                <input type="radio" class="hidden" name="q4" value="king_100:eltoro_100">
+                                                <span class="response-text">Don't Fence Me In</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q4-wf-music-man">
+                                                <input type="radio" class="hidden" name="q4" value="billy_100:nellie_100">
+                                                <span class="response-text">The Wells Fargo Wagon</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-5" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-5">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5" aria-expanded="false" aria-controls="question-5" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-3" aria-expanded="false" aria-controls="question-3" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+
+                    <div class="panel close-5">
+                        <div class="panel-heading" role="tab" id="question-header-5" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-5" aria-expanded="false" aria-controls="question-5">
+                                    <span class="sr-clip">Question 5</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-5" class="animated  panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-5">
+                            <div class="panel-body traditional">
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-4" aria-controls="question-4">Go to previous question.</a>
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/gift.svg" class="question-header-image header-image-2" alt="gift-icons">
+                                    <h2 class="quiz-title"><p>What’s a great gift for a gift horse?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q5-blanket">
+                                                <input type="radio" class="hidden" name="q5" value="buck_100:snowflake_100">
+                                                <span class="response-text">Blanket</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q5-horse-shoes">
+                                                <input type="radio" class="hidden" name="q5" value="king_100:eltoro_100">
+                                                <span class="response-text">Horseshoes</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q5-mr-ed-dvd-set">
+                                                <input type="radio" class="hidden" name="q5" value="billy_100:nellie_100">
+                                                <span class="response-text">"Mr. Ed" DVD set</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-6" class="hidden sr-clip" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-6">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6" aria-expanded="false" aria-controls="question-6" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-4" aria-expanded="false" aria-controls="question-4" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+
+                    <div class="panel close-6">
+                        <div class="panel-heading" role="tab" id="question-header-6" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-6" aria-expanded="false" aria-controls="question-6">
+                                    <span class="sr-clip">Question 6</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-6" class="animated  panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-6">
+                            <div class="panel-body traditional">
+
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-5" aria-controls="question-5">Go to previous question.</a>
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/dog.svg" class="question-header-image header-image-2" alt="dog-icon">
+                                    <h2 class="quiz-title"><p>Who's your dog in your dog and pony show?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q6-rover">
+                                                <input type="radio" class="hidden" name="q6" value="shamrock_100:eltoro_100">
+                                                <span class="response-text">Rover</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q6-spot">
+                                                <input type="radio" class="hidden" name="q6" value="snowflake_100:buck_100">
+                                                <span class="response-text">Spot</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q6-jack">
+                                                <input type="radio" class="hidden" name="q6" value="snowflake_100:molly_100">
+                                                <span class="response-text">Jack</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-7" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-7">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7" aria-expanded="false" aria-controls="question-7" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-5" aria-expanded="false" aria-controls="question-5" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+                    <div class="panel close-7">
+                        <div class="panel-heading" role="tab" id="question-header-7" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-7" aria-expanded="false" aria-controls="question-7">
+                                    <span class="sr-clip">Question 7</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-7" class="animated panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-7">
+                            <div class="panel-body traditional">
+                               
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7" aria-controls="question-7">Go to previous question.</a>
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/wagonwheel.svg" class="question-header-image header-image-2" alt="quiz-02-friends">
+                                    <h2 class="quiz-title"><p>What is your favorite western?</p></h2>
+
+                                    <div class="responses">
+
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q7-stagecoach">
+                                                <input type="radio" class="hidden" name="q7" value="shamrock_100:eltoro_100">
+                                                <span class="response-text">Stagecoach</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q7-wells-fargo">
+                                                <input type="radio" class="hidden" name="q7" value="snowflake_100:buck_100">
+                                                <span class="response-text">Wells Fargo</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q7-paint-your-wagon">
+                                                <input type="radio" class="hidden" name="q7" value="snowflake_100:molly_100">
+                                                <span class="response-text">Paint Your Wagon</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-8" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-8">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8" aria-expanded="false" aria-controls="question-8" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-6" aria-expanded="false" aria-controls="question-6" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+
+
+
+
+                    <div class="panel close-8">
+                        <div class="panel-heading" role="tab" id="question-header-8" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-8" aria-expanded="false" aria-controls="question-8">
+                                    <span class="sr-clip">Question 8</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-8" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-8">
+                            <div class="panel-body traditional">
+                                
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-7" aria-controls="question-7">Go to previous question.</a>
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/tumbleweed.svg" class="question-header-image header-image-2" alt="q8-icon">
+                                    <h2 class="quiz-title"><p>How do you handle tumbleweed?</p></h2>
+
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q8-go-over">
+                                                <input type="radio" class="hidden" name="q8" value="snowflake_100:king_100">
+                                                <span class="response-text">Go over</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q8-go-around">
+                                                <input type="radio" class="hidden" name="q8" value="nellie_100:billy_100">
+                                                <span class="response-text">Go around</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q8-go-roll-with-it">
+                                                <input type="radio" class="hidden" name="q8" value="snowflake_100:molly_100">
+                                                <span class="response-text">Roll with it</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-9" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-9">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-9" aria-expanded="false" aria-controls="question-9" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-7" aria-expanded="false" aria-controls="question-7" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+                    <div class="panel close-9">
+                        <div class="panel-heading" role="tab" id="question-header-9" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-9" aria-expanded="false" aria-controls="question-9">
+                                    <span class="sr-clip">Question 9</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-9" class="animated panel-collapse collapse" role="tabpanel" aria-labelledby="quiz-header-9">
+                            <div class="panel-body traditional">
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-8" aria-controls="question-8">Go to previous question.</a>
+                                
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/paint.svg" class="question-header-image header-image-2" alt="q9-icon">
+                                    <h2 class="quiz-title"><p>If you were a horse of a different color,<br> what would it be?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q9-blue">
+                                                <input type="radio" class="hidden" name="q9" value="nellie_100:billy_100">
+                                                <span class="response-text">Blue</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q9-orange">
+                                                <input type="radio" class="hidden" name="q9" value="nellie_100:billy_100">
+                                                <span class="response-text">Orange</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q9-taupe">
+                                                <input type="radio" class="hidden" name="q9" value="eltoro_100:mack_100">
+                                                <span class="response-text">Taupe</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-10">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10" aria-expanded="false" aria-controls="question-10" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8" aria-expanded="false" aria-controls="question-8" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->
+
+
+                    <div class="panel close-10">
+                        <div class="panel-heading" role="tab" id="question-header-10" aria-hidden="true">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#quiz-group" href="#question-10" aria-expanded="false" aria-controls="question-10">
+                                    <span class="sr-clip">Question 10</span>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="question-10" class="animated panel-collapse collapse " role="tabpanel" aria-labelledby="quiz-header-9">
+                            <div class="panel-body traditional">
+                                <!-- screen reader previous controls -->
+                                <a class="sr-clip quiz-sr-previous" data-parent="#quiz-group" data-toggle="collapse" href="#question-9" aria-controls="question-9">Go to previous question.</a>
+                                
+                                <div class="quiz-question">
+                                    <img src="app/content/images/icons/ribbon.svg" class="question-header-image header-image-2" alt="q9-icon">
+                                    <h2 class="quiz-title"><p>Famous horse you admire most?</p></h2>
+
+                                    <div class="responses">
+                                        <div class="form-group response-group-0">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q10-tigger">
+                                                <input type="radio" class="hidden" name="q10" value="mack_100:snowflake_100">
+                                                <span class="response-text">Tigger</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-1">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q10-seabiscuit">
+                                                <input type="radio" class="hidden" name="q10" value="nellie_100:eltoro_100">
+                                                <span class="response-text">Seabiscuit</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group response-group-2">
+                                            <div class="radio">
+                                              <label class="btn btn-quiz" id="q10-silver">
+                                                <input type="radio" class="hidden" name="q10" value="eltoro_100:billy_100">
+                                                <span class="response-text">Silver</span>
+                                              </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- responses -->
+
+                                </div>
+                                <!-- .quiz-question -->
+                                <a href="#question-10" class="sr-clip hidden" data-parent="#quiz-group" data-toggle="collapse" aria-controls="question-10">Go to the next question.</a>
+                                <div class="quiz-controls quiz-next hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-10" aria-expanded="false" aria-controls="question-10" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </div>
+                                <div class="quiz-controls quiz-prev hidden" data-parent="#quiz-group" data-toggle="collapse" data-target="#question-8" aria-expanded="false" aria-controls="question-8" aria-hidden="true">
+                                    <span class="glyphicon glyphicon-chevron-up"></span>
+                                </div>
+                            </div>
+                            <!--.panel-body-->
+                        </div>
+                        <!-- question-->
+                    </div>
+                    <!--.panel-->  
+                </div>
+                <!-- .panel-group -->
+                <div class="progress-indicators" aria-hidden="true" style="margin-top: -100px;">
+                    <div class="progress-button active" role="button" data-parent="#quiz-group" data-target="#question-0" aria-expanded="false" aria-controls="question-0"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-1" aria-expanded="false" aria-controls="question-1"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-2" aria-expanded="false" aria-controls="question-2"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-3" aria-expanded="false" aria-controls="question-3"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-4" aria-expanded="false" aria-controls="question-4"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-5" aria-expanded="false" aria-controls="question-5"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-6" aria-expanded="false" aria-controls="question-6"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-7" aria-expanded="false" aria-controls="question-7"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-8" aria-expanded="false" aria-controls="question-8"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-9" aria-expanded="false" aria-controls="question-9"></div>
+                    <div class="progress-button" role="button" data-parent="#quiz-group" data-target="#question-10" aria-expanded="false" aria-controls="question-10"></div>
+                </div>
+            </div>
+        </section>
+    </form>
+</div>
+
+</div>
+</div>
+        <script type="text/javascript" src="app/content/js/quizPannel.js"></script>
+        <script type="text/javascript" src="app/content/js/vendor.js"></script>
+        <script type="text/javascript" src="app/content/js/all.js"></script>
+
+<script type="text/javascript" id="">(function(b,h,n,x){var q={minHeight:0,elements:[],percentage:!0,userTiming:!0,pixelDepth:!0},k=b(h),e=[],p;b.scrollDepth=function(d){function g(a,c,b,r){p&&(dataLayer.push({event:"ScrollDistance",ScrolleventCategory:"Scroll Depth",ScrolleventAction:a,ScrolleventLabel:c,ScrolleventValue:1,eventNonInteraction:!0}),d.userTiming&&3<arguments.length&&dataLayer.push({event:"ScrollTiming",ScrolleventCategory:"Scroll Depth",ScrolleventAction:a,ScrolleventLabel:c,eventTiming:r}))}function t(a,c,m){b.each(a,
+function(a,f){-1===b.inArray(a,e)&&c>=f&&(g("Percentage",a,c,m),e.push(a))})}function u(a,c,m){b.each(a,function(a,f){-1===b.inArray(f,e)&&b(f).length&&c>=b(f).offset().top&&(g("Elements",f,c,m),e.push(f))})}function v(a,c){var b,d,f,e=null,l=0,k=function(){l=new Date;e=null;f=a.apply(b,d)};return function(){var h=new Date;l||(l=h);var g=c-(h-l);b=this;d=arguments;0>=g?(clearTimeout(e),e=null,l=h,f=a.apply(b,d)):e||(e=setTimeout(k,g));return f}}var w=+new Date;d=b.extend({},q,d);b(n).height()<d.minHeight||
+("undefined"!==typeof dataLayer&&"function"===typeof dataLayer.push&&(p=!0),g("Percentage","Baseline"),k.on("scroll.scrollDepth",v(function(){var a=b(n).height(),c=h.innerHeight?h.innerHeight:k.height(),c=k.scrollTop()+c,a={"25%":parseInt(.25*a,10),"50%":parseInt(.5*a,10),"75%":parseInt(.75*a,10),"100%":a-5},g=+new Date-w;e.length>=4+d.elements.length?k.off("scroll.scrollDepth"):(d.elements&&u(d.elements,c,g),d.percentage&&t(a,c,g))},500)))};dataLayer.push({event:"scrolldepth_loaded"})})(jQuery,window,
+document);jQuery(function(){window.scrollElements=[];jQuery.scrollDepth({elements:scrollElements})});</script><script type="text/javascript" id="">var clientId=ga.getAll()[0].get("clientId");dataLayer.push({event:"getUAID",UAID:clientId});</script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<div id="main"></div>
+
+<div class="container" ng-controller="PonyQuizController">
+    <div class="panel-group" id="accordion" role="tablist" multiselectable="{{multiselectable}}">
+      
+
+      <div class="panel panel-default" ng-repeat="q in questions">
+        
+        <div class="panel-heading" role="tab" id="heading{{collapseCount}}">
+          <h4 class="panel-title">
+            <a role="button" ng-class="collapse" 
+                ng-click="collapse{{ collapseCount }}">
+              {{q.question}}
+            </a>
+          </h4>
+        </div>
+        <div id="collapse{{collapseCount}}" class="panel-collapse collapse in" role="tabpanel" heading="heading{{collapseCount}}">
+          <div class="panel-body">
+            <ul>
+                <li ng-repeat="q in questions.answers">{{q.answers}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--panel-->
+
+      
+    </div>
+    <!--panel-group-->
+
+
+</div>
